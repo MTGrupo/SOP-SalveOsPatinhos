@@ -1,15 +1,16 @@
 ﻿using Assets.Scripts.Dialogos.Enum;
-using Assets.Scripts.Dialogos.Modal;
+using Dialogos.ObjectsOfDialogos;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Dialogos.Services
+namespace Dialogos.Services
 {
-    public class DialogWithChoices : DialogoBase
+    public class DialogWithChoices : DuckDialogBase
     {
         [SerializeField] private Button btnSim;
         [SerializeField] private Button btnNao;
-
+        [SerializeField] private ObjectBase objectBase;
+        
         protected override void Start()
         {
             base.Start();
@@ -18,14 +19,22 @@ namespace Assets.Scripts.Dialogos.Services
             btnNao.gameObject.SetActive(false);
         }
 
-        protected override void ShowDialogo()
+        public override void ShowDialogo()
         {
             base.ShowDialogo();
-
+            
             bool isDecision = dialogoObject.GetDialogoAt(index).TipoDialogoEnum == TipoDialogoEnum.Decisao;
             btnSim.gameObject.SetActive(isDecision);
             btnNao.gameObject.SetActive(isDecision);
             botaoProximo.gameObject.SetActive(!isDecision);
+            
+            if (dialogoObject.GetDialogoAt(index).TipoDialogoEnum == TipoDialogoEnum.Buscando_Itens)
+            {
+                objectBase.gameObject.SetActive(true);
+                botaoProximo.gameObject.SetActive(false);
+                Debug.Log("Buscando itens");
+            }
+            
         }
 
         protected override void ListenToEvents()
