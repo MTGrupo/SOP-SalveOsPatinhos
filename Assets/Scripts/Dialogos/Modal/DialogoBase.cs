@@ -39,7 +39,6 @@ namespace Assets.Scripts.Dialogos.Modal
         {
             if (!dialogoAtivo) return;
             
-            var dialogo = dialogoObject.GetDialogoAt(index);
             if (index < dialogoObject.dialogos.Count - 1)
             {
                 index++;
@@ -49,10 +48,15 @@ namespace Assets.Scripts.Dialogos.Modal
             {
                 FinishedDialogo();
             }
-            
+        }
+
+        public void NextDialogoNotShow()
+        {
+            Debug.Log("NextDialogoNotShow");
+            index++;
         }
         
-        protected virtual void ShowDialogo()
+        public virtual void ShowDialogo()
         {
             dialogoPainel.SetActive(true);
             orador.text = dialogoObject.GetDialogoAt(index).orador;
@@ -66,12 +70,11 @@ namespace Assets.Scripts.Dialogos.Modal
             dialogoAtivo = false;
         }
         
-        void FinishedDialogo()
+        protected virtual void FinishedDialogo()
         {
             dialogoPainel.SetActive(false);
             dialogoAtivo = false;
             index = 0;
-            Debug.Log("Dialogo finalizado");
         }
         
         protected virtual void ListenToEvents()
