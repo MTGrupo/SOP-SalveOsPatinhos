@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a0fb40534ef4663bf64301f9c2a2e85, type: 3}
+  m_Name: Perguntas
+  m_EditorClassIdentifier: 
+  pergunta:
+  - index: 25
+    pergunta: "O que \xE9 um unic\xF3rnio?"
+    respostaCorreta: "Animal mitol\xF3gico"
+    alternativas:
+    - alternativa: Animal real
+    - alternativa: "Animal mitol\xF3gico"
+    - alternativa: Brinquedo
+    respondida: 0
+  - index: 26
+    pergunta: Quantas cores tem a bandeira do Brasil?
+    respostaCorreta: 4
+    alternativas:
+    - alternativa: 3
+    - alternativa: 4
+    - alternativa: 5
+    respondida: 0
+  - index: 27
+    pergunta: "Qual \xE9 o maior mam\xEDfero do mundo?"
+    respostaCorreta: Baleia Azul
+    alternativas:
+    - alternativa: Elefante
+    - alternativa: Baleia Azul
+    - alternativa: Girafa
+    respondida: 0
+  - index: 28
+    pergunta: "Qual \xE9 o m\xEAs do Natal?"
+    respostaCorreta: Dezembro
+    alternativas:
+    - alternativa: Novembro
+    - alternativa: Dezembro
+    - alternativa: Outubro
+    respondida: 0
+  - index: 29
+    pergunta: "Qual \xE9 o nome do famoso ratinho da Disney?"
+    respostaCorreta: Mickey Mouse
+    alternativas:
+    - alternativa: Mickey Mouse
+    - alternativa: Pato Donald
+    - alternativa: Goofy
+    respondida: 0
+  - index: 30
+    pergunta: "Quantos quadrados tem uma pe\xE7a de domin\xF3?"
+    respostaCorreta: 28
+    alternativas:
+    - alternativa: 24
+    - alternativa: 28
+    - alternativa: 32
+    respondida: 0
+  - index: 31
+    pergunta: "Qual \xE9 o animal que tem o maior c\xE9rebro?"
+    respostaCorreta: Cachalote
+    alternativas:
+    - alternativa: Cachalote
+    - alternativa: Elefante
+    - alternativa: Golfinho
+    respondida: 0
+  - index: 32
+    pergunta: "Qual \xE9 a cor do cora\xE7\xE3o?"
+    respostaCorreta: Vermelho
+    alternativas:
+    - alternativa: Azul
+    - alternativa: Vermelho
+    - alternativa: Rosa
+    respondida: 0
+  - index: 34
+    pergunta: "Qual \xE9 o animal que vive na \xE1gua e tem concha?"
+    respostaCorreta: Caramujo
+    alternativas:
+    - alternativa: Caramujo
+    - alternativa: Cavalo-marinho
+    - alternativa: Polvo
+    respondida: 0
+  - index: 35
+    pergunta: "Qual \xE9 o nome do famoso super-her\xF3i com capa vermelha e S no
+      peito?"
+    respostaCorreta: Superman
+    alternativas:
+    - alternativa: Superman
+    - alternativa: Homem-Aranha
+    - alternativa: Batman
+    respondida: 0
+  - index: 36
+    pergunta: "Qual \xE9 o nome da maior floresta tropical do mundo?"
+    respostaCorreta: "Amaz\xF4nia"
+    alternativas:
+    - alternativa: "Amaz\xF4nia"
+    - alternativa: Serra do Mar
+    - alternativa: Taiga
+    respondida: 0
+  - index: 37
+    pergunta: "Qual \xE9 o maior p\xE1ssaro do mundo?"
+    respostaCorreta: Avestruz
+    alternativas:
+    - alternativa: Avestruz
+    - alternativa: "\xC1guia"
+    - alternativa: "Pav\xE3o"
+    respondida: 0
+  - index: 38
+    pergunta: "Qual \xE9 a cor do c\xE9u em um dia claro?"
+    respostaCorreta: Azul
+    alternativas:
+    - alternativa: Cinza
+    - alternativa: Azul
+    - alternativa: Amarelo
+    respondida: 0
+  - index: 39
+    pergunta: "Quem \xE9 o autor de 'Dom Casmurro'?"
+    respostaCorreta: Machado de Assis
+    alternativas:
+    - alternativa: Machado de Assis
+    - alternativa: "Jos\xE9 de Alencar"
+    - alternativa: Monteiro Lobato
+    respondida: 0
+  - index: 40
+    pergunta: "Qual \xE9 o maior peixe do mundo?"
+    respostaCorreta: "Tubar\xE3o-baleia"
+    alternativas:
+    - alternativa: "Tubar\xE3o-baleia"
+    - alternativa: Baleia Azul
+    - alternativa: Peixe-boi
+    respondida: 0
