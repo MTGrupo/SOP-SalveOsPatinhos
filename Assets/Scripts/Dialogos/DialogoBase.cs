@@ -7,12 +7,12 @@ namespace Assets.Scripts.Dialogos.Modal
     public abstract class DialogoBase : MonoBehaviour
     {
         [Header("Componentes UI")]
-        [SerializeField] private GameObject dialogoPainel;
+        [SerializeField] protected GameObject dialogoPainel;
         [SerializeField] private TextMeshProUGUI orador;
         [SerializeField] private TextMeshProUGUI texto;
         [SerializeField] protected Button botaoProximo;
         [SerializeField] private Button botaoFechar;
-        [SerializeField] private Button zonaDeFechar;
+        [SerializeField] protected Button zonaDeFechar;
 
         protected DialogoObject dialogoObject;
         protected int index = 0;
@@ -35,7 +35,7 @@ namespace Assets.Scripts.Dialogos.Modal
             ShowDialogo();
         }
         
-        protected void NextDialogo()
+        public void NextDialogo()
         {
             if (!dialogoAtivo) return;
             
@@ -83,6 +83,5 @@ namespace Assets.Scripts.Dialogos.Modal
             botaoFechar.onClick.AddListener(OcultarDialogo);
             zonaDeFechar.onClick.AddListener(OcultarDialogo);
         }
-        
     }
 }
