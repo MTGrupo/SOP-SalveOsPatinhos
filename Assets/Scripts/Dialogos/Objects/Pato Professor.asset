@@ -25,3 +25,7 @@ MonoBehaviour:
     orador: 
     texto: 
     TipoDialogoEnum: 2
+  - id: 
+    orador: Pato Professor
+    texto: "Parabenss, voc\xEA conseguiuuuu"
+    TipoDialogoEnum: 0
