@@ -109,7 +109,7 @@ MonoBehaviour:
     - alternativa: Avestruz
     - alternativa: "\xC1guia"
     - alternativa: "Pav\xE3o"
-    respondida: 0
+    respondida: 1
   - index: 38
     pergunta: "Qual \xE9 a cor do c\xE9u em um dia claro?"
     respostaCorreta: Azul
@@ -117,7 +117,7 @@ MonoBehaviour:
     - alternativa: Cinza
     - alternativa: Azul
     - alternativa: Amarelo
-    respondida: 0
+    respondida: 1
   - index: 39
     pergunta: "Quem \xE9 o autor de 'Dom Casmurro'?"
     respostaCorreta: Machado de Assis
@@ -125,7 +125,7 @@ MonoBehaviour:
     - alternativa: Machado de Assis
     - alternativa: "Jos\xE9 de Alencar"
     - alternativa: Monteiro Lobato
-    respondida: 0
+    respondida: 1
   - index: 40
     pergunta: "Qual \xE9 o maior peixe do mundo?"
     respostaCorreta: "Tubar\xE3o-baleia"
