@@ -55,8 +55,10 @@ namespace Quiz
         public void AtualizarPergunta()
         {
             VerificarResetPerguntas();
-            
-            if (perguntasRespondidas >= limitePerguntas || perguntaIndex >= perguntaObj.pergunta.Count)
+
+            List<Pergunta> perguntasNaoRespondidas = perguntaObj.pergunta.FindAll(p => !p.respondida);
+
+            if (perguntasRespondidas >= limitePerguntas || perguntasNaoRespondidas.Count == 0)
             {
                 if (acertos >= limiteAcertos)
                 {
@@ -65,10 +67,12 @@ namespace Quiz
                 }
 
                 painelPerguntas.SetActive(false);
+                return;
             }
 
-            Pergunta perguntaAtual = perguntaObj.pergunta[perguntaIndex];
-            
+            perguntaIndex = UnityEngine.Random.Range(0, perguntasNaoRespondidas.Count);
+            Pergunta perguntaAtual = perguntasNaoRespondidas[perguntaIndex];
+
             pergunta.text = perguntaAtual.pergunta;
 
             for (int i = 0; i < botoesAlternativas.Count; i++)
@@ -84,11 +88,12 @@ namespace Quiz
         {
             int perguntasNaoRespondidas = perguntaObj.pergunta.FindAll(p => !p.respondida).Count;
 
-            if (perguntasNaoRespondidas <= 5)
+            if (perguntasNaoRespondidas < 8)
             {
                 foreach (var pergunta in perguntaObj.pergunta)
                 {
                     pergunta.respondida = false;
+                    Debug.Log("Pergunta resetada para não respondida.");
                 }
                 Debug.Log("Todas as perguntas foram resetadas para não respondidas.");
             }
