@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Assets.Scripts.Dialogos.Modal;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,106 +8,144 @@ namespace Quiz
 {
     public class PainelPerguntaGUI : MonoBehaviour
     {
-        [SerializeField] private GameObject painelPerguntas;
+        [SerializeField] public GameObject painelPerguntas;
         [SerializeField] private TextMeshProUGUI pergunta;
         [SerializeField] private List<Button> botoesAlternativas = new() { null, null, null };
         [SerializeField] private PerguntaObj perguntaObj;
-        [SerializeField] private int maxPerguntas;
+
+        [SerializeField] private int limitePerguntas;
+        [SerializeField] private int limiteAcertos;
+
+        [SerializeField]
+        private DialogoBase dialogoBase;
         
+        private int perguntaIndex; 
         private int perguntasRespondidas = 0;
-        
-        private Queue<Pergunta> filaPerguntas = new();
+        private int acertos;
 
         private Color colorButtonGreen = Color.green;
         private Color colorButtonRed = Color.red;
         private Color colorButtonDefault = Color.white;
 
+        public bool isFinishedQuiz = false;
         
         private void Start()
         {
-            perguntasRespondidas = 0;
-            foreach (var perguntaItem in perguntaObj.pergunta)
-            {
-                filaPerguntas.Enqueue(perguntaItem);
-            }
-
+            painelPerguntas.SetActive(false);
+            
             for (int i = 0; i < botoesAlternativas.Count; i++)
             {
                 int index = i;
                 botoesAlternativas[i].onClick.AddListener(() => VerificarPerguntaCorreta(index));
             }
+        }
 
+        public void StartQuiz()
+        {
+            perguntaIndex = UnityEngine.Random.Range(0, perguntaObj.pergunta.Count);
+            Pergunta perguntaAtual = perguntaObj.pergunta[perguntaIndex];
+            
+            painelPerguntas.SetActive(true);
+            perguntasRespondidas = 0;
+            acertos = 0;
+            isFinishedQuiz = false;
             AtualizarPergunta();
         }
 
         public void AtualizarPergunta()
         {
-            if (filaPerguntas.Count == 0)
+            VerificarResetPerguntas();
+            
+            if (perguntasRespondidas >= limitePerguntas || perguntaIndex >= perguntaObj.pergunta.Count)
             {
+                if (acertos >= limiteAcertos)
+                {
+                    FinalizarQuiz();
+                    return;
+                }
+
                 painelPerguntas.SetActive(false);
-                return;
             }
 
-            Pergunta perguntaAtual = filaPerguntas.Peek();
-
+            Pergunta perguntaAtual = perguntaObj.pergunta[perguntaIndex];
+            
             pergunta.text = perguntaAtual.pergunta;
 
             for (int i = 0; i < botoesAlternativas.Count; i++)
             {
-                var alternativa = perguntaAtual.alternativas[i];
-                botoesAlternativas[i].GetComponentInChildren<TextMeshProUGUI>().text = alternativa.alternativa;
-            }
-        }
-
-        public void ProximaPergunta()
-        {
-            if (perguntasRespondidas >= maxPerguntas)
-            {
-                painelPerguntas.SetActive(false);
-                return;
-            }
-            
-            if (filaPerguntas.Count > 0)
-            {
-                Pergunta perguntaAtual = filaPerguntas.Dequeue();
-                filaPerguntas.Enqueue(perguntaAtual);
+                botoesAlternativas[i].GetComponentInChildren<TextMeshProUGUI>().text = perguntaAtual.alternativas[i].alternativa;
             }
 
-            AtualizarPergunta();
             ResetarCoresBotoes();
+            HabilitarBotoes();
+        }
+        
+        private void VerificarResetPerguntas()
+        {
+            int perguntasNaoRespondidas = perguntaObj.pergunta.FindAll(p => !p.respondida).Count;
+
+            if (perguntasNaoRespondidas <= 5)
+            {
+                foreach (var pergunta in perguntaObj.pergunta)
+                {
+                    pergunta.respondida = false;
+                }
+                Debug.Log("Todas as perguntas foram resetadas para não respondidas.");
+            }
         }
 
         private void VerificarPerguntaCorreta(int alternativaSelecionada)
         {
-            perguntasRespondidas++;
-            
-            Pergunta perguntaAtual = filaPerguntas.Peek();
+            Pergunta perguntaAtual = perguntaObj.pergunta[perguntaIndex];
             Button buttonSelecionado = botoesAlternativas[alternativaSelecionada];
-
-            perguntaAtual.respondida = true;
 
             int indiceCorreto = perguntaAtual.alternativas.FindIndex(a => a.alternativa == perguntaAtual.respostaCorreta);
 
-            if (alternativaSelecionada == indiceCorreto)
+            if (indiceCorreto != -1)
             {
-                StyleButton(buttonSelecionado, colorButtonGreen, Color.white, FontStyles.Bold);
+                if (alternativaSelecionada == indiceCorreto)
+                {
+                    acertos++;
+                    StyleButton(buttonSelecionado, colorButtonGreen, Color.white, FontStyles.Bold);
+                }
+                else
+                {
+                    StyleButton(buttonSelecionado, colorButtonRed, Color.white, FontStyles.Bold);
+                    Button buttonCorreto = botoesAlternativas[indiceCorreto];
+                    StyleButton(buttonCorreto, colorButtonGreen, Color.white, FontStyles.Bold);
+                }
+
+                perguntaAtual.respondida = true;
+                perguntasRespondidas++;
+                DesabilitarBotoes();
+                Invoke(nameof(ProximaPergunta), 1.5f);
             }
             else
             {
-                StyleButton(buttonSelecionado, colorButtonRed, Color.white, FontStyles.Bold);
-                
-                Button buttonCorreto = botoesAlternativas[indiceCorreto];
-                StyleButton(buttonCorreto, colorButtonGreen, Color.white, FontStyles.Bold);
+                Debug.LogError("Resposta correta não encontrada!");
             }
+        }
 
-            Invoke(nameof(ProximaPergunta), 1.5f);
+        private void ProximaPergunta()
+        {
+            perguntaIndex++;
+            AtualizarPergunta();
+        }
+
+        private void FinalizarQuiz()
+        {
+            dialogoBase.NextDialogo();
+            painelPerguntas.SetActive(false);
+            isFinishedQuiz = true;
+            Debug.Log("Quiz finalizado!");
         }
 
         private void StyleButton(Button button, Color color, Color textColor, FontStyles fontStyle)
         {
             button.GetComponent<Image>().color = color;
-            button.GetComponentInChildren<TextMeshProUGUI>().color = textColor;
-            button.GetComponentInChildren<TextMeshProUGUI>().fontStyle = fontStyle;
+            var textComponent = button.GetComponentInChildren<TextMeshProUGUI>();
+            textComponent.color = textColor;
+            textComponent.fontStyle = fontStyle;
         }
 
         private void ResetarCoresBotoes()
@@ -117,6 +156,22 @@ namespace Quiz
                 var textComponent = botao.GetComponentInChildren<TextMeshProUGUI>();
                 textComponent.color = Color.black;
                 textComponent.fontStyle = FontStyles.Normal;
+            }
+        }
+
+        private void DesabilitarBotoes()
+        {
+            foreach (var botao in botoesAlternativas)
+            {
+                botao.interactable = false;
+            }
+        }
+
+        private void HabilitarBotoes()
+        {
+            foreach (var botao in botoesAlternativas)
+            {
+                botao.interactable = true;
             }
         }
     }
