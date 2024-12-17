@@ -15,7 +15,6 @@ namespace MiniGame
         [field: SerializeField]
         public Collider Limit { get; private set; }
         
-        private readonly List<MiniGameObject> objects = new();
         private static TrashBinBehaviour TrashBin => TrashBinBehaviour.Instance;
 
         public static MiniGame Instance { get; private set; }
@@ -43,49 +42,6 @@ namespace MiniGame
         {
             SpawnDraggableObjects();
             SpawnHiddenObject();
-        }
-
-        protected static void AddObject(MiniGameObject miniGameObject)
-        {
-            Instance.objects.Add(miniGameObject);
-        }
-
-        private static void AddObjectByIndex(int index, MiniGameObject miniGameObject)
-        {
-            Instance.objects.Insert(index, miniGameObject);
-        }
-
-        private static void RemoveObject(MiniGameObject miniGameObject)
-        {
-            Instance.objects.Remove(miniGameObject);
-        }
-        
-        public static IReadOnlyList<MiniGameObject> GetObjects()
-        {
-            return Instance.objects.AsReadOnly();
-        }
-        
-        public static int GetObjectCount()
-        {
-            return Instance.objects.Count;
-        }
-        
-        public static void UpdateTrashIndex(MiniGameObject trash)
-        {
-            RemoveObject(trash);
-            AddObjectByIndex(0, trash);
-
-            UpdateObjectsIndex();
-        }
-        
-        private static void UpdateObjectsIndex()
-        {
-            var currentIndex = 0;
-        
-            foreach (var miniGameObject in GetObjects())
-            {
-                miniGameObject.Index = currentIndex++;
-            }
         }
 
         public void CheckObjective(Objective objective)
