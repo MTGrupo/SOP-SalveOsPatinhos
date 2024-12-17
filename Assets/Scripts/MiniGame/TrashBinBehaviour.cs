@@ -2,16 +2,16 @@ using UnityEngine;
 
 namespace MiniGame
 {
-    public class TrashBinBehaviour : MonoBehaviour
+    public class TrashBin : MonoBehaviour
     {
-        public static TrashBinBehaviour Instance { get; private set; }
-        [SerializeField] private Collider2D insideTrashBin;
+        public static TrashBin instance { get; private set; }
+        [SerializeField] private Collider insideTrashBin;
     
         private void Awake()
         {
-            if (!Instance)
+            if (!instance)
             {
-                Instance = this;
+                instance = this;
                 return;
             }
         
@@ -26,7 +26,7 @@ namespace MiniGame
 #if UNITY_EDITOR
         private void Reset()
         {
-            insideTrashBin = GetComponent<Collider2D>();
+            insideTrashBin = GetComponent<Collider>();
         }
 #endif
     }
