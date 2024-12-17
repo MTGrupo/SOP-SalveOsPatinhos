@@ -104,7 +104,7 @@ namespace MiniGame
             }
 
             
-            if (!IsAllTrashsInTrashBin())
+            if (!trashBin.ContainsAllObjects())
             {
                 onMessageUpdated.Invoke("Agora coloque os lixos de volta na lixeira");
                 return;
@@ -145,15 +145,6 @@ namespace MiniGame
             }
         }
         
-        public bool IsAllTrashsInTrashBin()
-        {
-            foreach (var trash in GetObjects())
-            {
-                if (!TrashBin.ContainsObject(trash.Bounds)) return false;
-            }
-            
-            return true;
-        }
         
         private void SpawnDraggableObjects()
         {
