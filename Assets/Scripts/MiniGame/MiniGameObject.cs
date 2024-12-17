@@ -4,8 +4,9 @@ namespace MiniGame
 {
     public class MiniGameObject : MonoBehaviour
     {
-        [SerializeField] private Collider objectCollider;
-        [SerializeField] private SpriteRenderer sprite;
+        [SerializeField] private Collider2D objectCollider;
+        [SerializeField] private SortingGroup sprite;
+        
         private static List<MiniGameObject> objects = new();
 
         private int index;
@@ -73,8 +74,8 @@ namespace MiniGame
 #if UNITY_EDITOR
         private void Reset()
         {
-            objectCollider = GetComponent<Collider>();
-            sprite = GetComponentInChildren<SpriteRenderer>();
+            objectCollider = GetComponent<Collider2D>();
+            sprite = GetComponentInChildren<SortingGroup>();
         }
 #endif
     }
