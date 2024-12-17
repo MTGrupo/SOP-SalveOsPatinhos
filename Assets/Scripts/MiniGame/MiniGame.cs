@@ -44,11 +44,11 @@ namespace MiniGame
             SpawnHiddenObject();
         }
 
-        public void CheckObjective(Objective objective)
+        public void CheckObjective(HiddenObject hiddenObject)
         {
             if (!isDuckCollect)
             {
-                if (objective && objective.IsCollected)
+                if (hiddenObject && hiddenObject.IsCollected)
                 {
                     isDuckCollect = true; 
                 }
