@@ -1,5 +1,74 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4520589549569969930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7774363933187826730}
+  - component: {fileID: 3518419537909814501}
+  m_Layer: 0
+  m_Name: Colisor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7774363933187826730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4520589549569969930}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8138373057722139242}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &3518419537909814501
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4520589549569969930}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.7, y: 1.9}
+  m_Direction: 0
 --- !u!1 &6672740311172869150
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,6 +79,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3356944017524666450}
   - component: {fileID: 4707934757245740575}
+  - component: {fileID: 1733006733344441195}
   m_Layer: 0
   m_Name: Grafico
   m_TagString: Untagged
@@ -87,6 +157,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!210 &1733006733344441195
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6672740311172869150}
+  m_Enabled: 1
+  m_SortingLayerID: 983873535
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &8934283668236321391
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +178,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8138373057722139242}
-  - component: {fileID: 5755198025574706738}
   - component: {fileID: 695790413277129006}
   - component: {fileID: 6241986375338722834}
   - component: {fileID: 8080110077516669904}
@@ -121,29 +202,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3356944017524666450}
+  - {fileID: 7774363933187826730}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &5755198025574706738
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8934283668236321391}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.15, y: 1.58, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &695790413277129006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,12 +217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cc67851d7a782044a5d863238e09588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs: []
-  onMessageUpdated:
-    m_PersistentCalls:
-      m_Calls: []
-  objectCollider: {fileID: 5755198025574706738}
-  sprite: {fileID: 4707934757245740575}
+  objectCollider: {fileID: 3518419537909814501}
+  sprite: {fileID: 1733006733344441195}
 --- !u!114 &6241986375338722834
 MonoBehaviour:
   m_ObjectHideFlags: 0
