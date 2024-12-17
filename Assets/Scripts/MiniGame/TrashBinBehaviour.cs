@@ -18,9 +18,19 @@ namespace MiniGame
             Destroy(gameObject);
         }
 
-        public bool ContainsObject(Bounds bounds)
+        public bool ContainsTrash(Bounds bounds)
         {
             return insideTrashBin.bounds.Intersects(bounds);
+        }
+
+        public bool ContainsAllTrashs()
+        {
+            foreach (var trash in MiniGameObject.GetObjects())
+            {
+                if (!insideTrashBin.bounds.Intersects(trash.Bounds)) return false;
+            }
+
+            return true;
         }
         
 #if UNITY_EDITOR
