@@ -2,10 +2,11 @@ using UnityEngine;
 
 namespace MiniGame
 {
-    public class MiniGameObject : MiniGame
+    public class MiniGameObject : MonoBehaviour
     {
         [SerializeField] private Collider objectCollider;
         [SerializeField] private SpriteRenderer sprite;
+        private static List<MiniGameObject> objects = new();
 
         private int index;
         
@@ -24,11 +25,49 @@ namespace MiniGame
                 transform.position = offset;
             }
         }
+
+        private static void AddObjectByIndex(int index, MiniGameObject miniGameObject)
+        {
+            objects.Insert(index, miniGameObject);
+        }
+
+        private static void RemoveObject(MiniGameObject miniGameObject)
+        {
+            objects.Remove(miniGameObject);
+        }
+        
+        public static IReadOnlyList<MiniGameObject> GetObjects()
+        {
+            return objects.AsReadOnly();
+        }
+        
+        public static int GetObjectCount()
+        {
+            return objects.Count;
+        }
+        
+        public void UpdateObjectIndex(MiniGameObject trash)
+        {
+            RemoveObject(trash);
+            AddObjectByIndex(0, trash);
+
+            ReorderObjectsIndex();
+        }
+        
+        private static void ReorderObjectsIndex()
+        {
+            var currentIndex = 0;
+        
+            foreach (var miniGameObject in GetObjects())
+            {
+                miniGameObject.Index = currentIndex++;
+            }
+        }
         
         private void Awake()
         {
             Index = GetObjectCount();
-            AddObject(this);
+            objects.Add(this);
         }
 
 #if UNITY_EDITOR
