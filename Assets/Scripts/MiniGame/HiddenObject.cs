@@ -2,7 +2,7 @@
 
 namespace MiniGame
 {
-    public class Objective : MonoBehaviour
+    public class HiddenObject : MonoBehaviour
     {
         [SerializeField] private MiniGameObject hiddenObject;
         [SerializeField] private SpriteRenderer sprite;
@@ -11,7 +11,7 @@ namespace MiniGame
         private bool isCollected;
         private bool isSuperimposed;
         
-        private static MiniGame miniGame => MiniGame.Instance;
+        private static MiniGame miniGame => MiniGame.instance;
         
         public bool IsCollected
         {
@@ -25,29 +25,29 @@ namespace MiniGame
             }
         }
 
-        public bool IsSuperimposed
-        {
-            get => isSuperimposed;
-            private set
-            {
-                isSuperimposed = value;
-
-                if (value)
-                {
-                    miniGame.AlertSuperimposing(hiddenObject.Bounds, hiddenObject.Index);
-                }
-            }
-        }
+        // public bool IsSuperimposed
+        // {
+        //     get => isSuperimposed;
+        //     private set
+        //     {
+        //         isSuperimposed = value;
+        //
+        //         if (value)
+        //         {
+        //             miniGame.AlertSuperimposing(hiddenObject.Bounds, hiddenObject.Index);
+        //         }
+        //     }
+        // }
         
-        private void OnMouseDown()
-        {
-            IsSuperimposed = miniGame.IsObjectSuperimposed(hiddenObject.Bounds, hiddenObject.Index);
-            
-            if (IsSuperimposed) return;
-            
-            duckSound.Play();
-            IsCollected = true;
-        }
+        // private void OnMouseDown()
+        // {
+        //     IsSuperimposed = miniGame.IsObjectSuperimposed(hiddenObject.Bounds, hiddenObject.Index);
+        //     
+        //     if (IsSuperimposed) return;
+        //     
+        //     duckSound.Play();
+        //     IsCollected = true;
+        // }
         
 #if UNITY_EDITOR
         private void Reset()
