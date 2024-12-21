@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed33277fb53f48828a8cd8c22a0b51fa, type: 3}
+  m_Name: Pato Enterrado
+  m_EditorClassIdentifier: 
+  dialogos:
+  - id: 
+    orador: Jogador
+    texto: "Ol\xE1 Pato, por que est\xE1 enterrado?"
+    TipoDialogoEnum: 0
+  - id: 
+    orador: Pato
+    texto: 'A correnteza me deixou aqui, por favor pegue uma pa '
+    TipoDialogoEnum: 1
+  - id: 
+    orador: 'Jogador '
+    texto: ok pato, iriei pegar a pa
+    TipoDialogoEnum: 3
+  - id: 
+    orador: Pato
+    texto: "Voc\xEA pegou"
+    TipoDialogoEnum: 0

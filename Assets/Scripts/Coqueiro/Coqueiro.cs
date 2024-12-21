@@ -1,4 +1,5 @@
-﻿using Dialog.Manager;
+﻿using Assets.Scripts.Dialogos.Modal;
+using Dialogos;
 using Interaction;
 using UnityEngine;
 
@@ -9,18 +10,20 @@ namespace Coqueiro
         private Rigidbody2D rb;
         private Collider2D colisor;
         
-        [SerializeField] private DialogManager dialogManager;
+        [SerializeField] private DialogoBase dialogoBase;
+        [SerializeField] private DialogoObject dialogObject;
         
         void Start()
         {
             rb = GetComponent<Rigidbody2D>();
             colisor = GetComponent<Collider2D>();
             AddObject(colisor, this);
+            dialogoBase.SetDialogoObject(dialogObject);
         }
         
         public void OnPlayerInteraction()
         {
-             dialogManager.StartDialog();
+             dialogoBase.StartDialogo();
         }
     }
 }
