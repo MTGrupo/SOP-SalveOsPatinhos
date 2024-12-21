@@ -1,4 +1,3 @@
-using System;
 using Interaction;
 using UnityEngine;
 
@@ -6,12 +5,17 @@ namespace Dialogos.ObjectsOfDialogos
 {
     public abstract class ObjectBase : InteractableObject, IInteraction
     {
-        [SerializeField] private GameObject obj;
+        [SerializeField] public GameObject obj;
         [SerializeField] private GameObject iconeInteracao;
         
         private Rigidbody2D rb;
         private Collider2D colisor;
-        public void Start()
+        
+        void Awake()
+        {
+            obj = gameObject;
+        }
+        public virtual void Start()
         {
             obj.SetActive(false);
             rb = obj.GetComponent<Rigidbody2D>();
@@ -21,7 +25,6 @@ namespace Dialogos.ObjectsOfDialogos
 
         public virtual void OnPlayerInteraction()
         {
-            Debug.Log("Interagindo com o objeto");
             obj.SetActive(false);
             RemoveObject(colisor);
         }
