@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Duck;
 using UnityEngine;
 
@@ -5,6 +7,14 @@ namespace Actors
 {
 	public class GraphicBehaviour : MonoBehaviour
 	{
+		public enum AnimationType
+		{
+			Move,
+			Swim,
+			Buried,
+			Quack
+		}
+		
 		[SerializeField]
 		Animator animator;
 		[SerializeField]
@@ -16,9 +26,37 @@ namespace Actors
 		[SerializeField] private string _moveParameter;
 		[SerializeField] private string _swimParameter;
 		[SerializeField] private string _buriedParameter;
-		[SerializeField]
-		string _quackParameter;
-        
+		[SerializeField] string _quackParameter;
+
+		private Dictionary<AnimationType, string> animationParameters;
+
+		private void Awake()
+		{
+			animationParameters = new Dictionary<AnimationType, string>
+			{
+				{ AnimationType.Move, _moveParameter },
+				{ AnimationType.Swim, _swimParameter },
+				{ AnimationType.Buried, _buriedParameter },
+				{ AnimationType.Quack, _quackParameter }
+			};
+		}
+		
+		public void SetAnimation(AnimationType animation, bool value)
+		{
+			if (animationParameters.TryGetValue(animation, out var parameter) && !string.IsNullOrEmpty(parameter))
+			{
+				animator.SetBool(parameter, value);
+			}
+		}
+		
+		public void TriggerAnimation(AnimationType animation)
+		{
+			if (animationParameters.TryGetValue(animation, out var parameter) && !string.IsNullOrEmpty(parameter))
+			{
+				animator.SetTrigger(parameter);
+			}
+		}
+
 		Vector2 direction;
         
 		public Vector2 Direction
@@ -73,7 +111,8 @@ namespace Actors
 				animator.SetTrigger(_quackParameter);
 			}
 		}
-
+		
+		
 		void OnMove(Vector2 velocity, bool isMoving)
 		{
 			IsMoving = isMoving;
