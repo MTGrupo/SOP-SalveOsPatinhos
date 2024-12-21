@@ -16,6 +16,5 @@ namespace Quiz
         public string pergunta;
         public string respostaCorreta;
         public List<Alternativa> alternativas = new() { null, null, null };
-        public bool respondida;
     }
 }
