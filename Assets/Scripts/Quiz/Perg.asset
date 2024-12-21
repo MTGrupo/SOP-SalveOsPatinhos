@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a0fb40534ef4663bf64301f9c2a2e85, type: 3}
-  m_Name: Perguntas
+  m_Name: Perg
   m_EditorClassIdentifier: 
   pergunta:
   - index: 25
@@ -60,7 +60,7 @@ MonoBehaviour:
     - alternativa: 24
     - alternativa: 28
     - alternativa: 32
-    respondida: 0
+    respondida: 1
   - index: 31
     pergunta: "Qual \xE9 o animal que tem o maior c\xE9rebro?"
     respostaCorreta: Cachalote
@@ -68,7 +68,7 @@ MonoBehaviour:
     - alternativa: Cachalote
     - alternativa: Elefante
     - alternativa: Golfinho
-    respondida: 0
+    respondida: 1
   - index: 32
     pergunta: "Qual \xE9 a cor do cora\xE7\xE3o?"
     respostaCorreta: Vermelho
@@ -76,7 +76,7 @@ MonoBehaviour:
     - alternativa: Azul
     - alternativa: Vermelho
     - alternativa: Rosa
-    respondida: 0
+    respondida: 1
   - index: 34
     pergunta: "Qual \xE9 o animal que vive na \xE1gua e tem concha?"
     respostaCorreta: Caramujo
@@ -93,7 +93,7 @@ MonoBehaviour:
     - alternativa: Superman
     - alternativa: Homem-Aranha
     - alternativa: Batman
-    respondida: 0
+    respondida: 1
   - index: 36
     pergunta: "Qual \xE9 o nome da maior floresta tropical do mundo?"
     respostaCorreta: "Amaz\xF4nia"
@@ -101,7 +101,7 @@ MonoBehaviour:
     - alternativa: "Amaz\xF4nia"
     - alternativa: Serra do Mar
     - alternativa: Taiga
-    respondida: 0
+    respondida: 1
   - index: 37
     pergunta: "Qual \xE9 o maior p\xE1ssaro do mundo?"
     respostaCorreta: Avestruz
@@ -133,4 +133,4 @@ MonoBehaviour:
     - alternativa: "Tubar\xE3o-baleia"
     - alternativa: Baleia Azul
     - alternativa: Peixe-boi
-    respondida: 0
+    respondida: 1
