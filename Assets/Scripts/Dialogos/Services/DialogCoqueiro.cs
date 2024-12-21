@@ -1,20 +1,21 @@
 using Dialogos.Data;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = System.Random;
 
 namespace Dialogos.Services
 {
     public class DialogCoqueiro : DialogWithQuiz
     {
-        [SerializeField] private DialogDuckBaseAguaDeCoco dialogDuckBaseAguaDeCoco;
+        [FormerlySerializedAs("dialogDuckBaseAguaDeCoco")] [SerializeField] private DialogDuckAguaDeCoco dialogDuckAguaDeCoco;
         
         string textoCoqueiro = "Um pato me contou que você está procurando por cocos. Eu tenho um coco aqui, mas antes você terá que responder minhas perguntas";
         protected override void ShowDialogo()
         {
-            if (dialogDuckBaseAguaDeCoco.isDialogoCoco)
+            if (dialogDuckAguaDeCoco.isDialogoCoco)
             {
                 dialogoObject.UpdateDialogoForId(1, textoCoqueiro, "Coqueiro");
-                dialogDuckBaseAguaDeCoco.isDialogoCoco = false;
+                dialogDuckAguaDeCoco.isDialogoCoco = false;
                 base.ShowDialogo();
                 
                 zonaDeFechar.gameObject.SetActive(false);
