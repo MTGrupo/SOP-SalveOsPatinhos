@@ -1,40 +1,26 @@
-using System;
-using Assets.Scripts.Dialogos.Enum;
+using Dialogos.Enum;
 using Quiz;
 using UnityEngine;
 
 namespace Dialogos.Services
 {
-    public class DialogWithQuiz : DuckDialogBase
+    public class DialogWithQuiz : DialogDuckBase
     {
-        [SerializeField] protected PainelPerguntaGUI painelPerguntaGui;
-        
-        protected override void Start()
-        {
-            base.Start();
-
-            if (zonaDeFechar)
-            {
-                zonaDeFechar.gameObject.SetActive(false);
-            }
-        }
-
-        public override void ShowDialogo()
+        [SerializeField] private QuestionManager questionManager;
+        [SerializeField] private PerguntaObj perguntas;
+        protected override void ShowDialogo()
         {
             base.ShowDialogo();
-
+            
             if (dialogoObject.GetDialogoAt(index).TipoDialogoEnum == TipoDialogoEnum.Quiz)
             {
                 dialogoPainel.SetActive(false);
-                painelPerguntaGui.StartQuiz();
+                questionManager.StartQuiz(perguntas);
+                return;
             }
-            else
-            {
-                dialogoPainel.SetActive(true);
-                painelPerguntaGui.painelPerguntas.SetActive(false);
-            } 
             
-            
+            dialogoPainel.SetActive(true);
+            questionManager.DesableQuestionPanel();
         }
     }
 }
