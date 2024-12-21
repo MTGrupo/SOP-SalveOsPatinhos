@@ -1,7 +1,7 @@
-﻿namespace Assets.Scripts.Dialogos.Enum
+﻿namespace Dialogos.Enum
 {
     public enum TipoDialogoEnum
     {
-        Normal, Decisao, Quiz, Buscando_Itens
+        Normal, Decisao, Quiz, Buscando_Itens, LastSpeak
     }
 }
