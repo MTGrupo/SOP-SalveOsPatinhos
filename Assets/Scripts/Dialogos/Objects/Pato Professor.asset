@@ -13,19 +13,23 @@ MonoBehaviour:
   m_Name: Pato Professor
   m_EditorClassIdentifier: 
   dialogos:
-  - id: 
+  - id: 0
     orador: Pato
-    texto: "Ol\xE1 aluno tenho perguntas para voc\xEA"
+    texto: 'Ah, um novo aluno! Estou ansioso para testar seu conhecimento.
+
+'
     TipoDialogoEnum: 0
-  - id: 
+  - id: 0
     orador: Jogador
-    texto: Ok pato
+    texto: 'Eba, adoro ganhar recompensas. Vamos nessa!
+
+'
     TipoDialogoEnum: 0
-  - id: 
+  - id: 0
     orador: 
     texto: 
     TipoDialogoEnum: 2
-  - id: 
+  - id: 0
     orador: Pato Professor
     texto: "Parabenss, voc\xEA conseguiuuuu"
     TipoDialogoEnum: 0

@@ -13,15 +13,20 @@ MonoBehaviour:
   m_Name: Pato Madame
   m_EditorClassIdentifier: 
   dialogos:
-  - id: 
+  - id: 0
     orador: Pata
-    texto: Perdi meu chapeu, por favor procure ele
+    texto: "Meu chap\xE9u de praia! Eu perdi na areia voc\xEA pode me ajudar a encontrar
+      ?"
     TipoDialogoEnum: 1
-  - id: 
+  - id: 0
     orador: Player
-    texto: 'Ok, irei pegar ele '
+    texto: "Vamos, procurar pelo seu chap\xE9u."
     TipoDialogoEnum: 3
-  - id: 
+  - id: 0
+    orador: Player
+    texto: "Encontrei, aqui est\xE1 seu chap\xE9u madame"
+    TipoDialogoEnum: 0
+  - id: 0
     orador: Pata
-    texto: Obrigado
+    texto: "Voc\xEA encontrou!\_obrigada."
     TipoDialogoEnum: 0
