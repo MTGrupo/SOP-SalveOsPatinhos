@@ -1,5 +1,4 @@
 using Dialogos.Services;
-using UnityEngine;
 
 namespace Dialogos.ObjectsOfDialogos
 {
@@ -17,7 +16,6 @@ namespace Dialogos.ObjectsOfDialogos
         {
             base.OnPlayerInteraction();
             _currentCocos++;
-            Debug.Log("Cocos: " + _currentCocos);
 
             if (_currentCocos == 3)
             {

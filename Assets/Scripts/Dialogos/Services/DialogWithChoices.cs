@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Dialogos.Modal;
+﻿using System.Collections;
+using Assets.Scripts.Dialogos.Modal;
 using Dialogos.Enum;
 using Dialogos.ObjectsOfDialogos;
 using UnityEngine;
@@ -11,6 +12,9 @@ namespace Dialogos.Services
         [SerializeField] private Button btnSim;
         [SerializeField] private Button btnNao;
         [SerializeField] private ObjectBase objectBase;
+        [SerializeField] private GameObject mensagemItem;
+        
+        private bool isShowMensagemItem;
         
         protected override void Start()
         {
@@ -18,6 +22,7 @@ namespace Dialogos.Services
             
             btnSim.gameObject.SetActive(false);
             btnNao.gameObject.SetActive(false);
+            mensagemItem.SetActive(false);
         }
 
         protected override void ShowDialogo()
@@ -33,6 +38,7 @@ namespace Dialogos.Services
             {
                 objectBase.gameObject.SetActive(true);
                 botaoProximo.gameObject.SetActive(false);
+                isShowMensagemItem = true;
             }
         }
 
@@ -51,6 +57,25 @@ namespace Dialogos.Services
         void EscolherNao()
         {
             OcultarDialogo();
+        }
+
+        protected override void OnDialogFechado()
+        {
+            base.OnDialogFechado();
+
+            if (isShowMensagemItem)
+            {
+                mensagemItem.SetActive(true);
+
+                StartCoroutine(HideMensagemItemAfterDelay(4.5f));
+            }
+        }
+
+        IEnumerator HideMensagemItemAfterDelay(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            mensagemItem.SetActive(false);
+            isShowMensagemItem = false;
         }
     }
 }

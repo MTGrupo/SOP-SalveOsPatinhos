@@ -10,18 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed33277fb53f48828a8cd8c22a0b51fa, type: 3}
-  m_Name: Coqueiro
+  m_Name: Pato no Lixo
   m_EditorClassIdentifier: 
   dialogos:
-  - id: 1
-    orador: Coqueiro
-    texto: "Eu balan\xE7o com o vento, mas estou sempre no mesmo lugar."
-    TipoDialogoEnum: 3
   - id: 0
-    orador: Personagem
-    texto: Vamos nessa!
+    orador: Pato
+    texto: 'Socorro! Estou preso aqui! Me ajude.
+
+'
     TipoDialogoEnum: 0
   - id: 0
-    orador: 
-    texto: 
-    TipoDialogoEnum: 2
+    orador: Personagem
+    texto: 'Estou aqui para ajudar!
+
+'
+    TipoDialogoEnum: 0
+  - id: 0
+    orador: Pato
+    texto: Tire esse lixo de cima de mim
+    TipoDialogoEnum: 3
+  - id: 0
+    orador: Pato
+    texto: "Obrigado! Voc\xEA\_\xE9\_um\_her\xF3i!"
+    TipoDialogoEnum: 4

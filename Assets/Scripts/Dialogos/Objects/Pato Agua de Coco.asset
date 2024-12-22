@@ -13,11 +13,15 @@ MonoBehaviour:
   m_Name: Pato Agua de Coco
   m_EditorClassIdentifier: 
   dialogos:
-  - id: 
+  - id: 0
     orador: Pato
-    texto: Pege 3 cocos no coqueiro
+    texto: 'Ai que sedeeee, por favor pegue 3 cocos no coqueiro com OLHOS '
     TipoDialogoEnum: 3
-  - id: 
-    orador: Teste
-    texto: "avan\xE7ou"
+  - id: 0
+    orador: Personagem
+    texto: Ta aqui os cocos madame
+    TipoDialogoEnum: 0
+  - id: 0
+    orador: Pata
+    texto: "Obrigadooooooo voc\xEA me salvou"
     TipoDialogoEnum: 4

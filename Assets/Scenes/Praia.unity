@@ -1953,6 +1953,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 779645446416730749, guid: 9a3c4595bffce499b90caaf38c12cbe9, type: 3}
   m_PrefabInstance: {fileID: 466758453}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &477234655 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2826798901565522629, guid: df8f99af93542dd458068912d43bf3af, type: 3}
+  m_PrefabInstance: {fileID: 6730222562224945371}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &495273815
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3771,6 +3776,7 @@ MonoBehaviour:
   obj: {fileID: 813355609}
   iconeInteracao: {fileID: 2003447441}
   dialogoBase: {fileID: 1756461742}
+  notification: {fileID: 1431378368}
 --- !u!4 &828656959 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7607026061806202104, guid: 16d350800d00f0a4885f349b2ecc08cc, type: 3}
@@ -7908,6 +7914,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5869850988535577470, guid: db4b94459ec4dd34288791e4a2b8de78, type: 3}
   m_PrefabInstance: {fileID: 640371160}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2012561021 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5459423232101812873, guid: df8f99af93542dd458068912d43bf3af, type: 3}
+  m_PrefabInstance: {fileID: 6730222562224945371}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2084530698 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2930147508589281616, guid: 908fc9d2521559240a9775f8099ce428, type: 3}
@@ -8478,6 +8489,7 @@ MonoBehaviour:
   obj: {fileID: 1903419179044169291}
   iconeInteracao: {fileID: 5184407734499327557}
   dialogoBase: {fileID: 6730222562224945382}
+  notification: {fileID: 1477133267}
 --- !u!4 &2916255262161712894 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2089664905161903585, guid: fb0328bf3b65f3948b7c457a97957741, type: 3}
@@ -10063,6 +10075,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2750250554786882452}
     - target: {fileID: 2259000000348585068, guid: df8f99af93542dd458068912d43bf3af, type: 3}
+      propertyPath: mensagemItem
+      value: 
+      objectReference: {fileID: 477234655}
+    - target: {fileID: 2259000000348585068, guid: df8f99af93542dd458068912d43bf3af, type: 3}
       propertyPath: dialogoObject
       value: 
       objectReference: {fileID: 11400000, guid: 8377061e9e34d9448abd6957206c7459, type: 2}
@@ -10094,6 +10110,10 @@ PrefabInstance:
       propertyPath: duckDialog
       value: 
       objectReference: {fileID: 995747331}
+    - target: {fileID: 2444477180020820120, guid: df8f99af93542dd458068912d43bf3af, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2508223194314825144, guid: df8f99af93542dd458068912d43bf3af, type: 3}
       propertyPath: m_text
       value: X
@@ -10458,6 +10478,10 @@ PrefabInstance:
       propertyPath: duck
       value: 
       objectReference: {fileID: 995747331}
+    - target: {fileID: 5459423232101812873, guid: df8f99af93542dd458068912d43bf3af, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5506653904169932311, guid: df8f99af93542dd458068912d43bf3af, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -59
@@ -10763,6 +10787,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 813355613}
     - target: {fileID: 7414109327687477432, guid: df8f99af93542dd458068912d43bf3af, type: 3}
+      propertyPath: mensagemItem
+      value: 
+      objectReference: {fileID: 2012561021}
+    - target: {fileID: 7414109327687477432, guid: df8f99af93542dd458068912d43bf3af, type: 3}
       propertyPath: dialogoObject
       value: 
       objectReference: {fileID: 11400000, guid: 03d1833764254e64592da877a1f66397, type: 2}
@@ -10813,6 +10841,10 @@ PrefabInstance:
     - target: {fileID: 7567950937420011786, guid: df8f99af93542dd458068912d43bf3af, type: 3}
       propertyPath: dialogManager
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7600720060377056851, guid: df8f99af93542dd458068912d43bf3af, type: 3}
+      propertyPath: m_Name
+      value: Mensagem de Procurar Pa
       objectReference: {fileID: 0}
     - target: {fileID: 7699547429627498084, guid: df8f99af93542dd458068912d43bf3af, type: 3}
       propertyPath: m_IsActive

@@ -7,9 +7,9 @@ namespace Dialogos.Services
 {
     public class DialogCoqueiro : DialogWithQuiz
     {
-        [FormerlySerializedAs("dialogDuckBaseAguaDeCoco")] [SerializeField] private DialogDuckAguaDeCoco dialogDuckAguaDeCoco;
+        [SerializeField] private DialogDuckAguaDeCoco dialogDuckAguaDeCoco;
         
-        string textoCoqueiro = "Um pato me contou que você está procurando por cocos. Eu tenho um coco aqui, mas antes você terá que responder minhas perguntas";
+        string textoCoqueiro = "Que bom vê-lo vamos testar seu conhecimento para obter as recompensas.\n";
         protected override void ShowDialogo()
         {
             if (dialogDuckAguaDeCoco.isDialogoCoco)
