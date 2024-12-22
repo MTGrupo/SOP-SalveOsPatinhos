@@ -63,8 +63,11 @@ namespace Assets.Scripts.Dialogos.Modal
         protected void OcultarDialogo()
         {
             dialogoPainel.SetActive(false);
+            OnDialogFechado();
         }
 
+        protected virtual void OnDialogFechado() {}
+        
         protected virtual void FinishedDialogo()
         {
             dialogoPainel.SetActive(false);
