@@ -18,6 +18,10 @@ MonoBehaviour:
     texto: "Eu balan\xE7o com o vento, mas estou sempre no mesmo lugar."
     TipoDialogoEnum: 3
   - id: 0
+    orador: Personagem
+    texto: Vamos nessa!
+    TipoDialogoEnum: 0
+  - id: 0
     orador: 
     texto: 
     TipoDialogoEnum: 2
