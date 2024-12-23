@@ -17,6 +17,10 @@ namespace Dialogos.Services
                 duckBase.NextDialogo();
                 Debug.Log("Acertos: " + acertos);
             }
+            else
+            {
+                base.FinishedQuiz();
+            }
         }
     }
 }
