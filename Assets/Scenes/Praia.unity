@@ -9907,6 +9907,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 306033117}
     - target: {fileID: 1152296959518611965, guid: df8f99af93542dd458068912d43bf3af, type: 3}
+      propertyPath: acertos
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152296959518611965, guid: df8f99af93542dd458068912d43bf3af, type: 3}
       propertyPath: duckBase
       value: 
       objectReference: {fileID: 306033117}
