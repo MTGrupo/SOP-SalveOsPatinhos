@@ -9,7 +9,7 @@ namespace Dialogos
     {
         public int id;
         public string orador;
-        [TextArea(2, 10)]
+        [TextArea(3, 10)]
         public string texto;
         public TipoDialogoEnum TipoDialogoEnum;
     }

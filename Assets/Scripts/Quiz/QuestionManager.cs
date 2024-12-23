@@ -25,6 +25,7 @@ namespace Quiz
             acertos = 0;
             perguntaObj = perguntas;
             questionPanel.SetActive(true);
+            perguntasRespondidas = 0;
             SetQuestion(perguntaObj.pergunta[currentQuestionIndex]);
         }
         
@@ -36,7 +37,7 @@ namespace Quiz
         private void SetQuestion(Pergunta pergunta)
         {
             currentQuestion = pergunta;
-
+            
             questionText.text = pergunta.pergunta;
 
             if (alternative1Text.Count != pergunta.alternativas.Count) return;
@@ -83,12 +84,22 @@ namespace Quiz
         {
             StyleQuestions(alternative1Text[index], Color.red, Color.white, FontStyles.Bold);
         }
+
+        private void MoverPerguntaParaFinal()
+        {
+            Pergunta perguntaRespondida = perguntaObj.pergunta[currentQuestionIndex];
+            perguntaObj.pergunta.RemoveAt(currentQuestionIndex);
+            perguntaObj.pergunta.Add(perguntaRespondida);
+        }
         
         private void NextQuestion()
         {
             HabilitarButtons();
             isAcerto = false;
             ResetStyle();
+            
+            MoverPerguntaParaFinal();
+            
             perguntasRespondidas++;
 
             if (perguntasRespondidas < limiteDePerguntas)

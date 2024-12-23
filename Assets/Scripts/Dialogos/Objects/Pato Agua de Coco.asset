@@ -15,13 +15,14 @@ MonoBehaviour:
   dialogos:
   - id: 0
     orador: Pato
-    texto: 'Ai que sedeeee, por favor pegue 3 cocos no coqueiro com OLHOS '
-    TipoDialogoEnum: 3
-  - id: 0
-    orador: Personagem
-    texto: Ta aqui os cocos madame
+    texto: "Ol\xE1! Estou morrendo de sede e preciso de 3 cocos frescos. Por favor,
+      v\xE1 at\xE9 o coqueiro e pegue-os para mim."
     TipoDialogoEnum: 0
   - id: 0
+    orador: Jogador
+    texto: Claro Pato, irei pegar os cocos no coqueiro.
+    TipoDialogoEnum: 3
+  - id: 0
     orador: Pata
-    texto: "Obrigadooooooo voc\xEA me salvou"
+    texto: "Obrigadoo!! voc\xEA conseguiu matar minha sede."
     TipoDialogoEnum: 4
