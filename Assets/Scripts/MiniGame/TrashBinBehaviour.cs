@@ -25,7 +25,7 @@ namespace MiniGame
 
         public bool ContainsAllTrashs()
         {
-            foreach (var trash in MiniGameObject.GetObjects())
+            foreach (var trash in ClickableObject.GetObjects())
             {
                 if (!insideTrashBin.bounds.Intersects(trash.Bounds)) return false;
             }
