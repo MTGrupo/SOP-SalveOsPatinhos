@@ -6,7 +6,7 @@ namespace MiniGame
 {
     public class DragAndDrop : MonoBehaviour, IDragAndDrop
     {
-        [SerializeField] private MiniGameObject draggableObject;
+        [SerializeField] private ClickableObject draggableObject;
         [SerializeField] private AudioSource trashSound;
         public AudioClip dragged, dropped, superimposed;
         [field: SerializeField] public UnityEvent<bool, bool> OnTouched { get; private set; }
@@ -119,7 +119,7 @@ namespace MiniGame
 #if UNITY_EDITOR
         private void Reset()
         {
-            draggableObject = GetComponent<MiniGameObject>();
+            draggableObject = GetComponent<ClickableObject>();
             trashSound = GetComponent<AudioSource>();
         }
 #endif

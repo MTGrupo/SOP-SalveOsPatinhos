@@ -4,7 +4,7 @@ namespace MiniGame
 {
     public class HiddenObject : MonoBehaviour
     {
-        [SerializeField] private MiniGameObject hiddenObject;
+        [SerializeField] private ClickableObject hiddenObject;
         [SerializeField] private SpriteRenderer sprite;
         [SerializeField] private AudioSource duckSound;
         
@@ -52,7 +52,7 @@ namespace MiniGame
 #if UNITY_EDITOR
         private void Reset()
         {
-            hiddenObject = GetComponent<MiniGameObject>();
+            hiddenObject = GetComponent<ClickableObject>();
             duckSound = GetComponent<AudioSource>();
         }
 #endif

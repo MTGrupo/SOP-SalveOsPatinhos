@@ -9,7 +9,7 @@ namespace MiniGame
 {
     public class MiniGame : MonoBehaviour
     {
-        [SerializeField] private List<MiniGameObject> prefabs;
+        [SerializeField] private List<ClickableObject> prefabs;
         [SerializeField] Dialogo duckThanks;
 
         [field: SerializeField]
