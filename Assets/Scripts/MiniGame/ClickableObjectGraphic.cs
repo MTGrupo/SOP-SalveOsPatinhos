@@ -2,7 +2,7 @@
 
 namespace MiniGame
 {
-    public class TrashGraphic : MonoBehaviour
+    public class ClickableObjectGraphic : MonoBehaviour
     {
         [SerializeField] private Animator animator;
         [Header("Parametros")]
@@ -10,8 +10,9 @@ namespace MiniGame
         [SerializeField] private string trashBinParameter;
         [SerializeField] private string superimposingTrigger;
         [SerializeField] private string superimposedTrigger;
+        [SerializeField] private DragAndDrop dragAndDrop;
 
-        private IDragAndDrop dragAndDrop;
+        private IDragAndDrop iDragAndDrop;
 
         private void Start()
         {
@@ -48,7 +49,7 @@ namespace MiniGame
         
         private void Awake()
         {
-            dragAndDrop = GetComponentInParent<IDragAndDrop>(true);
+            iDragAndDrop = dragAndDrop.GetComponent<IDragAndDrop>();
             dragAndDrop?.OnTouched.AddListener(OnInteracted);
             dragAndDrop?.OnSuperimposed.AddListener(AlertSuperimposed);
             dragAndDrop?.OnSuperimposing.AddListener(AlertSuperimposing);
