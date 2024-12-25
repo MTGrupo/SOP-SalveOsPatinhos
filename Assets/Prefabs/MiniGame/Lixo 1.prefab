@@ -183,7 +183,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 726870096850914071}
-  - component: {fileID: 4902701004077953502}
+  - component: {fileID: 3828253632429866412}
+  - component: {fileID: 3789836805887621991}
   m_Layer: 0
   m_Name: Colisor
   m_TagString: Untagged
@@ -206,8 +207,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4087800760067055220}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &4902701004077953502
-CapsuleCollider2D:
+--- !u!114 &3828253632429866412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8017178697105907056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 313e1cdf4f284d2e962e061ce6cb3fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  draggableObject: {fileID: 7520597314045266252}
+  trashSound: {fileID: 5525725406569775756}
+  dragged: {fileID: 8300000, guid: 9fef84602d5266e47a16c2f1dac31cac, type: 3}
+  dropped: {fileID: 8300000, guid: 6f30ef6a22488c04ca333fc5a98eb405, type: 3}
+  superimposed: {fileID: 8300000, guid: 4286a91fcbe097346a0bad29aa6db260, type: 3}
+  <OnTouched>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <OnSuperimposed>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <OnSuperimposing>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  originalPosition: {x: 0, y: 0, z: 0}
+--- !u!61 &3789836805887621991
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -240,9 +268,18 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.01}
-  m_Size: {x: 2.1, y: 1.3}
-  m_Direction: 1
+  m_Offset: {x: 0, y: -0.03}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.7, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &9124796682831113197
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,7 +291,6 @@ GameObject:
   - component: {fileID: 4087800760067055220}
   - component: {fileID: 2941576963307035420}
   - component: {fileID: 7520597314045266252}
-  - component: {fileID: 4615466899146097150}
   - component: {fileID: 5525725406569775756}
   m_Layer: 0
   m_Name: Lixo 1
@@ -314,46 +350,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cc67851d7a782044a5d863238e09588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs: []
-  duckThanks:
-    id: 
-    speaker: 
-    texto: 
-    pergunta: {fileID: 0}
-    ShowCoco: 0
-  <Limit>k__BackingField: {fileID: 0}
-  onMessageUpdated:
-    m_PersistentCalls:
-      m_Calls: []
-  objectCollider: {fileID: 4902701004077953502}
+  objectCollider: {fileID: 3789836805887621991}
   sprite: {fileID: 6044389644303098114}
---- !u!114 &4615466899146097150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9124796682831113197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 313e1cdf4f284d2e962e061ce6cb3fc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  draggableObject: {fileID: 7520597314045266252}
-  trashSound: {fileID: 5525725406569775756}
-  dragged: {fileID: 8300000, guid: 9fef84602d5266e47a16c2f1dac31cac, type: 3}
-  dropped: {fileID: 8300000, guid: 6f30ef6a22488c04ca333fc5a98eb405, type: 3}
-  superimposed: {fileID: 8300000, guid: 4286a91fcbe097346a0bad29aa6db260, type: 3}
-  <OnTouched>k__BackingField:
-    m_PersistentCalls:
-      m_Calls: []
-  <OnSuperimposed>k__BackingField:
-    m_PersistentCalls:
-      m_Calls: []
-  <OnSuperimposing>k__BackingField:
-    m_PersistentCalls:
-      m_Calls: []
-  originalPosition: {x: 0, y: 0, z: 0}
 --- !u!82 &5525725406569775756
 AudioSource:
   m_ObjectHideFlags: 0
@@ -515,3 +513,4 @@ MonoBehaviour:
   trashBinParameter: isOnTrashBin
   superimposingTrigger: alertSuperimposing
   superimposedTrigger: alertSuperimposed
+  dragAndDrop: {fileID: 3828253632429866412}
