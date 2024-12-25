@@ -68,6 +68,37 @@ namespace MiniGame
             }
         }
         
+        private IEnumerable<Collider2D> GetOverlappingColliders()
+        {
+            Vector2 center = (Vector2)objectCollider.transform.position + (Vector2)(objectCollider.transform.rotation * objectCollider.offset);
+            Vector2 size = objectCollider.size * objectCollider.transform.lossyScale;
+            float angle = objectCollider.transform.eulerAngles.z;
+    
+            Collider2D[] colliders = Physics2D.OverlapBoxAll(center, size, angle);
+    
+            foreach (var collider in colliders)
+            {
+                if (collider == objectCollider) continue;
+                if (collider.transform.position.z < objectCollider.transform.position.z)
+                {
+                    yield return collider;
+                }
+            }
+        }
+        public bool IsSuperimposed()
+        {
+            return GetOverlappingColliders().Any();
+        }
+
+        public void AlertSuperimposing()
+        {
+            foreach (var collider in GetOverlappingColliders())
+            {
+                var objectDragAndDrop = collider.GetComponent<IDragAndDrop>();
+                objectDragAndDrop?.OnSuperimposing?.Invoke();
+            }
+        }
+        
         private void Awake()
         {
             Index = GetObjectCount();
