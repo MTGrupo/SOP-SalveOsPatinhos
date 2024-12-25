@@ -77,30 +77,6 @@ namespace MiniGame
             instance = null;
             GameManager.LoadGame(true);
         }
-
-        public bool IsObjectSuperimposed(Bounds bounds, int index)
-        {
-            for (var i = index - 1; i >= 0; i--)
-            {
-                if (bounds.Intersects(objects[i].Bounds) && objects[i].Bounds != bounds)
-                    return true;
-            }
-        
-            return false;
-        }
-        
-        public void AlertSuperimposing(Bounds bounds, int index)
-        {
-            for (var i = index - 1; i >= 0; i--)
-            {
-                if (bounds.Intersects(objects[i].Bounds) && objects[i].Bounds != bounds)
-                {
-                    var objectDragAndDrop = objects[i].GetComponent<IDragAndDrop>();
-                    objectDragAndDrop?.OnSuperimposing.Invoke();
-                }
-            }
-        }
-        
         
         private void SpawnDraggableObjects()
         {
