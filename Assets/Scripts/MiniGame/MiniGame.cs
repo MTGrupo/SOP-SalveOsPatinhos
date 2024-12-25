@@ -15,9 +15,9 @@ namespace MiniGame
         [field: SerializeField]
         public Collider Limit { get; private set; }
         
-        private static TrashBinBehaviour TrashBin => TrashBinBehaviour.Instance;
+        private static TrashBin trashBin => TrashBin.instance;
 
-        public static MiniGame Instance { get; private set; }
+        public static MiniGame instance { get; private set; }
         public static event System.Action OnGameFinished;
 
         public UnityEvent<string> onMessageUpdated;
@@ -27,13 +27,13 @@ namespace MiniGame
         
         private void Awake()
         {
-            if (Instance)
+            if (instance)
             {
                 Destroy(gameObject);               
                 return;
             }
             
-            Instance = this;
+            instance = this;
             StartGame();
             TextBox.OnTextEnded += FinishGame;
         }
@@ -74,7 +74,7 @@ namespace MiniGame
         void FinishGame()
         {
             isFinished = true;
-            Instance = null;
+            instance = null;
             GameManager.LoadGame(true);
         }
 

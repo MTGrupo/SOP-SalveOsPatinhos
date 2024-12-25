@@ -19,8 +19,8 @@ namespace MiniGame
         private bool isOnTrashBin;
         private bool isSuperimposed;
 
-        private static TrashBinBehaviour TrashBin => TrashBinBehaviour.Instance;
-        private static MiniGame miniGame => MiniGame.Instance;
+        private static TrashBin trashBin => TrashBin.instance;
+        private static MiniGame miniGame => MiniGame.instance;
         
         public bool IsDragging
         {
@@ -71,7 +71,7 @@ namespace MiniGame
             var mousePosition = GetMousePosition();
             mousePosition.z = transform.position.z;
             
-            if(!MiniGame.Instance.Limit.bounds.Contains(mousePosition))
+            if(!MiniGame.instance.Limit.bounds.Contains(mousePosition))
                 return;
 
             transform.position = mousePosition;
