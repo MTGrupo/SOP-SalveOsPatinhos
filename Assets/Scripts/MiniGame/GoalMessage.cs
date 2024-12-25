@@ -7,7 +7,7 @@ namespace MiniGame
     {
         [SerializeField] private TextMeshProUGUI messageText;
         
-        private static MiniGame miniGame => MiniGame.Instance;
+        private static MiniGame miniGame => MiniGame.instance;
         
         void Start()
         {
