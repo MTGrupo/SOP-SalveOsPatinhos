@@ -80,7 +80,7 @@ namespace MiniGame
         
         private void SpawnDraggableObjects()
         {
-            var spawnAmount = Random.Range(8, 12);
+            var spawnAmount = Random.Range(4, 6);
             
             for (var i = 0; i < spawnAmount; i++)
             {
