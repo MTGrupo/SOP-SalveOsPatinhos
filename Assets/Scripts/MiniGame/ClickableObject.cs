@@ -1,13 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace MiniGame
 {
-    public class MiniGameObject : MonoBehaviour
+    public class ClickableObject : MonoBehaviour
     {
-        [SerializeField] private Collider2D objectCollider;
+        [SerializeField] private BoxCollider2D objectCollider;
         [SerializeField] private SortingGroup sprite;
         
-        private static List<MiniGameObject> objects = new();
+        private static List<ClickableObject> clickableObjects = new();
 
         private int index;
         
@@ -22,32 +25,32 @@ namespace MiniGame
                 transform.SetSiblingIndex(index);
                 sprite.sortingOrder = -value;
                 var offset = transform.position;
-                offset.z = (value - 1) * 0.01f;
+                offset.z = (value - 10) * 0.1f;
                 transform.position = offset;
             }
         }
 
-        private static void AddObjectByIndex(int index, MiniGameObject miniGameObject)
+        private static void AddObjectByIndex(int index, ClickableObject clickableObject)
         {
-            objects.Insert(index, miniGameObject);
+            clickableObjects.Insert(index, clickableObject);
         }
 
-        private static void RemoveObject(MiniGameObject miniGameObject)
+        private static void RemoveObject(ClickableObject clickableObject)
         {
-            objects.Remove(miniGameObject);
+            clickableObjects.Remove(clickableObject);
         }
         
-        public static IReadOnlyList<MiniGameObject> GetObjects()
+        public static IReadOnlyList<ClickableObject> GetObjects()
         {
-            return objects.AsReadOnly();
+            return clickableObjects.AsReadOnly();
         }
         
         public static int GetObjectCount()
         {
-            return objects.Count;
+            return clickableObjects.Count;
         }
         
-        public void UpdateObjectIndex(MiniGameObject trash)
+        public void UpdateObjectIndex(ClickableObject trash)
         {
             RemoveObject(trash);
             AddObjectByIndex(0, trash);
@@ -68,13 +71,13 @@ namespace MiniGame
         private void Awake()
         {
             Index = GetObjectCount();
-            objects.Add(this);
+            clickableObjects.Add(this);
         }
 
 #if UNITY_EDITOR
         private void Reset()
         {
-            objectCollider = GetComponent<Collider2D>();
+            objectCollider = GetComponent<BoxCollider2D>();
             sprite = GetComponentInChildren<SortingGroup>();
         }
 #endif
