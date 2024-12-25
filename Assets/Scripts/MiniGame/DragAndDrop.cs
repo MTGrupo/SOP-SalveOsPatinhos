@@ -98,7 +98,7 @@ namespace MiniGame
             if(!enabled)
                 return;
             
-            isOnTrashBin = TrashBin.ContainsObject(draggableObject.Bounds);
+            isOnTrashBin = trashBin.ContainsTrash(draggableObject.Bounds);
             
             if(!IsSuperimposed)
                 trashSound.PlayOneShot(dropped);

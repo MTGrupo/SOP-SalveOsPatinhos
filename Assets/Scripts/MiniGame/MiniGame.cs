@@ -60,7 +60,7 @@ namespace MiniGame
             }
 
             
-            if (!trashBin.ContainsAllObjects())
+            if (!trashBin.ContainsAllTrashs())
             {
                 onMessageUpdated.Invoke("Agora coloque os lixos de volta na lixeira");
                 return;
