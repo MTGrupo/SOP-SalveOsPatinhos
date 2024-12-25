@@ -44,7 +44,7 @@ namespace MiniGame
                 SuperimposingMessage.Show();
                 trashSound.PlayOneShot(superimposed);
                 OnSuperimposed.Invoke();
-                miniGame.AlertSuperimposing(draggableObject.Bounds, draggableObject.Index);
+                draggableObject.AlertSuperimposing();
             }
         }
         
@@ -60,7 +60,7 @@ namespace MiniGame
 
         private void Start()
         {
-            originalPosition = transform.position;
+            originalPosition = draggableObject.transform.position;
             MiniGame.OnGameFinished += OnGameFinished;
         }
 
@@ -69,12 +69,12 @@ namespace MiniGame
             if (!IsDragging) return;
         
             var mousePosition = GetMousePosition();
-            mousePosition.z = transform.position.z;
+            mousePosition.z = draggableObject.transform.position.z;
             
             if(!MiniGame.instance.Limit.bounds.Contains(mousePosition))
                 return;
 
-            transform.position = mousePosition;
+            draggableObject.transform.position = mousePosition;
         }
         
         private void OnMouseDown()
@@ -82,15 +82,15 @@ namespace MiniGame
             if(!enabled)
                 return;
             
-            IsSuperimposed = miniGame.IsObjectSuperimposed(draggableObject.Bounds, draggableObject.Index);
-
+            IsSuperimposed = draggableObject.IsSuperimposed();
+            
             if (IsSuperimposed) return;
             
             trashSound.PlayOneShot(dragged);
             
             IsDragging = true;
             
-            MiniGame.UpdateTrashIndex(draggableObject);
+            draggableObject.UpdateObjectIndex(draggableObject);
         }
         
         private void OnMouseUp()
@@ -106,7 +106,7 @@ namespace MiniGame
             IsDragging = false;
 
             if (isOnTrashBin)
-                transform.position = new Vector3(originalPosition.x, originalPosition.y, transform.position.z);
+                draggableObject.transform.position = new Vector3(originalPosition.x, originalPosition.y, draggableObject.transform.position.z);
             
             miniGame.CheckObjective(null);
         }
