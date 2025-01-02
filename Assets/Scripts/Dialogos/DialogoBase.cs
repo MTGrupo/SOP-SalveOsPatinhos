@@ -1,4 +1,7 @@
-﻿using Dialogos;
+﻿using System;
+using DefaultNamespace;
+using Dialogos;
+using Dialogos.Enum;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -55,9 +58,20 @@ namespace Assets.Scripts.Dialogos.Modal
         
         protected virtual void ShowDialogo()
         {
-            dialogoPainel.SetActive(true);
-            orador.text = dialogoObject.GetDialogoAt(index).orador;
-            texto.text = dialogoObject.GetDialogoAt(index).texto;
+           dialogoPainel.SetActive(true);
+           var dialogoAtual = dialogoObject.GetDialogoAt(index);
+        
+           if (dialogoAtual.typeSpeaker == TypeSpeaker.SPEAK_PLAYER)
+           {
+               string namePlayer = PlayerNameGenarator.GetPlayerName(PlayerManager.Instance.PlayerName);
+               orador.text = namePlayer;
+           }
+           else
+           {
+               orador.text = dialogoAtual.orador;
+           }
+           
+           texto.text = dialogoAtual.texto;
         }
 
         protected void OcultarDialogo()

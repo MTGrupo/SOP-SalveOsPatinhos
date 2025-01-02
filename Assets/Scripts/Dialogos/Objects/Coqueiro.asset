@@ -15,13 +15,16 @@ MonoBehaviour:
   dialogos:
   - id: 1
     orador: Coqueiro
+    typeSpeaker: 1
     texto: "Eu balan\xE7o com o vento, mas estou sempre no mesmo lugar."
     TipoDialogoEnum: 3
   - id: 0
-    orador: Personagem
+    orador: 
+    typeSpeaker: 0
     texto: Vamos nessa!
     TipoDialogoEnum: 0
   - id: 0
     orador: 
+    typeSpeaker: 1
     texto: 
     TipoDialogoEnum: 2

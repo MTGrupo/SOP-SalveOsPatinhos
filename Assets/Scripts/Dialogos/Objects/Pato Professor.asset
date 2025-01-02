@@ -15,21 +15,25 @@ MonoBehaviour:
   dialogos:
   - id: 0
     orador: Pato
+    typeSpeaker: 1
     texto: 'Ah, um novo aluno! Estou ansioso para testar seu conhecimento.
 
 '
     TipoDialogoEnum: 0
   - id: 0
-    orador: Jogador
+    orador: 
+    typeSpeaker: 0
     texto: 'Eba, adoro ganhar recompensas. Vamos nessa!
 
 '
     TipoDialogoEnum: 0
   - id: 0
     orador: 
+    typeSpeaker: 0
     texto: 
     TipoDialogoEnum: 2
   - id: 0
     orador: Pato Professor
+    typeSpeaker: 1
     texto: "Parabenss, voc\xEA conseguiuuuu"
     TipoDialogoEnum: 0

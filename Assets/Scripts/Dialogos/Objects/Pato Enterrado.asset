@@ -14,30 +14,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogos:
   - id: 0
-    orador: Jogador
+    orador: 
+    typeSpeaker: 0
     texto: "O que voc\xEA est\xE1 fazendo enterrado na areia, pato? Est\xE1 tudo
       bem?"
     TipoDialogoEnum: 0
   - id: 0
     orador: Pato
+    typeSpeaker: 0
     texto: "Ah, foi a correnteza! Ela me arrastou e fiquei preso aqui! Estou t\xE3o
       assustado... Por favor, voc\xEA pode me ajudar?"
     TipoDialogoEnum: 1
   - id: 0
-    orador: 'Jogador '
+    orador: 
+    typeSpeaker: 0
     texto: "Claro, vou te ajudar! N\xE3o se preocupe."
     TipoDialogoEnum: 0
   - id: 0
     orador: Pato
+    typeSpeaker: 1
     texto: "Ufa, que al\xEDvio! Mas para me tirar daqui, voc\xEA vai precisar encontrar
       uma p\xE1. S\xF3 assim conseguir\xE1 me desenterrar!"
     TipoDialogoEnum: 0
   - id: 0
-    orador: Jogador
+    orador: 
+    typeSpeaker: 0
     texto: "Vou achar uma p\xE1 e voltar rapidinho. Fique firme!"
     TipoDialogoEnum: 3
   - id: 0
-    orador: Jogador
+    orador: Jogdor
+    typeSpeaker: 0
     texto: "Voc\xEA conseguiu! Obrigado, de verdade! N\xE3o sei o que teria feito
       sem sua ajuda!"
     TipoDialogoEnum: 0

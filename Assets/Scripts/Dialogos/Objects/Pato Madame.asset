@@ -15,18 +15,22 @@ MonoBehaviour:
   dialogos:
   - id: 0
     orador: Pata
+    typeSpeaker: 1
     texto: "Meu chap\xE9u de praia! Eu perdi na areia voc\xEA pode me ajudar a encontrar
       ?"
     TipoDialogoEnum: 1
   - id: 0
-    orador: Player
+    orador: 
+    typeSpeaker: 0
     texto: "Vamos, procurar pelo seu chap\xE9u."
     TipoDialogoEnum: 3
   - id: 0
-    orador: Player
+    orador: 
+    typeSpeaker: 0
     texto: "Encontrei, aqui est\xE1 seu chap\xE9u madame"
     TipoDialogoEnum: 0
   - id: 0
     orador: Pata
+    typeSpeaker: 1
     texto: "Voc\xEA encontrou!\_obrigada."
     TipoDialogoEnum: 0
