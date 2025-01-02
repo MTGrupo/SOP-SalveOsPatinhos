@@ -15,21 +15,25 @@ MonoBehaviour:
   dialogos:
   - id: 0
     orador: Pato
+    typeSpeaker: 1
     texto: 'Socorro! Estou preso aqui! Me ajude.
 
 '
     TipoDialogoEnum: 0
   - id: 0
-    orador: Personagem
+    orador: 
+    typeSpeaker: 0
     texto: 'Estou aqui para ajudar!
 
 '
     TipoDialogoEnum: 0
   - id: 0
     orador: Pato
+    typeSpeaker: 1
     texto: Tire esse lixo de cima de mim
     TipoDialogoEnum: 3
   - id: 0
     orador: Pato
+    typeSpeaker: 1
     texto: "Obrigado! Voc\xEA\_\xE9\_um\_her\xF3i!"
     TipoDialogoEnum: 4
