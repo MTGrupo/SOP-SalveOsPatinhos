@@ -19,7 +19,7 @@ namespace DefaultNamespace
 
         private static string GenerateRandomName()
         {
-            return "jogador_" + GenerateRandomString(5);
+            return "jogador#" + GenerateRandomString(5);
         }
 
         private static string GenerateRandomString(int length)
