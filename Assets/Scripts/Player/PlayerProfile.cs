@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour
+public class PlayerProfile : MonoBehaviour
 {
-    public static PlayerManager Instance { get; private set; }
+    public static PlayerProfile Instance { get; private set; }
     public string PlayerName { get; private set; }
     
     public void SetPlayerName(string name)
@@ -14,6 +14,7 @@ public class PlayerManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {

@@ -12,8 +12,8 @@ namespace Assets.Scripts.Dialogos.Modal
     {
         [Header("Componentes UI")]
         [SerializeField] protected GameObject dialogoPainel;
-        [SerializeField] private TextMeshProUGUI orador;
-        [SerializeField] private TextMeshProUGUI texto;
+        [SerializeField] protected TextMeshProUGUI orador;
+        [SerializeField] protected TextMeshProUGUI texto;
         [SerializeField] protected Button botaoProximo;
         [SerializeField] protected Button botaoFechar;
         [SerializeField] protected Button zonaDeFechar;
@@ -63,8 +63,9 @@ namespace Assets.Scripts.Dialogos.Modal
         
            if (dialogoAtual.typeSpeaker == TypeSpeaker.SPEAK_PLAYER)
            {
-               string namePlayer = PlayerNameGenarator.GetPlayerName(PlayerManager.Instance.PlayerName);
-               orador.text = namePlayer;
+               
+               string getNamePlayer = PlayerPrefs.GetString("playerName");
+               orador.text = getNamePlayer;
            }
            else
            {

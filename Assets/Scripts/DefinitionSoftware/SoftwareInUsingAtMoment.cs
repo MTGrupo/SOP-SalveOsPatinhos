@@ -2,7 +2,7 @@
 
 namespace Dialog.DefinitionSoftware
 {
-    public class WhatAreYouSoftware : MonoBehaviour
+    public class SoftwareInUsingAtMoment : MonoBehaviour
     {
         private void Update()
         {
