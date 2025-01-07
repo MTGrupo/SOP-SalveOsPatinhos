@@ -87,7 +87,7 @@ namespace Player
         {
             if (deviceType == "Mobile")
             {
-                Player.Movement.Move(joystick.Direction);
+                Move(joystick.Direction.normalized);
             }
             else if (deviceType == "Pc")
             {
