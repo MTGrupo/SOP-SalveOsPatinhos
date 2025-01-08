@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed33277fb53f48828a8cd8c22a0b51fa, type: 3}
+  m_Name: Pato Lixo
+  m_EditorClassIdentifier: 
+  dialogos:
+  - id: 1
+    orador: Pato
+    typeSpeaker: 1
+    texto: Tem alguem ai? Por favor, me ajude
+    TipoDialogoEnum: 1
+  - id: 2
+    orador: 
+    typeSpeaker: 0
+    texto: "N\xE3o se preocupe, vou te tirar dai!"
+    TipoDialogoEnum: 0
+  - id: 3
+    orador: Pato
+    typeSpeaker: 1
+    texto: Obrigado!
+    TipoDialogoEnum: 0
