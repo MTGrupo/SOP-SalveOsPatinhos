@@ -885,11 +885,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 
+  cloudProjectId: 9ab161c3-53f0-494f-9f23-23074b91eb86
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: SOP-SalveOsPatinhos
+  organizationId: mt-group-a5b5102a-8576-42cf-9b1f-4ecd4f5a16c7
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
