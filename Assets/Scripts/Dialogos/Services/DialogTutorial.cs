@@ -1,5 +1,7 @@
 using System.Collections;
+using Actors;
 using Assets.Scripts.Dialogos.Modal;
+using Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +14,8 @@ namespace Dialogos.Services
         [SerializeField] private TextMeshProUGUI textTimeLoadScene;
         [SerializeField] private Button buttonLoadScene;
         [SerializeField] private GameObject duck;
+        [SerializeField] private Button buttonMensagemInit;
+        [SerializeField] private GraphicBehaviour graphicBehaviour;
         
         private string playerName;
 
@@ -22,6 +26,8 @@ namespace Dialogos.Services
 
         protected override void Start()
         {
+            graphicBehaviour.IsMoving = false;
+            
             if (buttonLoadScene)
                 buttonLoadScene.gameObject.SetActive(false);
             
@@ -30,6 +36,14 @@ namespace Dialogos.Services
             
             if (duck)
                 duck.SetActive(false);
+
+            if (buttonMensagemInit)
+            {
+                buttonMensagemInit.onClick.AddListener(() =>
+                {
+                    buttonMensagemInit.gameObject.SetActive(false);
+                });
+            }
             
             buttonLoadScene.onClick.AddListener(ClickLoadScene);
             
