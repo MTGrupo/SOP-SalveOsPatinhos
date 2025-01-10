@@ -1,8 +1,9 @@
+using System;
 using System.Collections.Generic;
 using Dialog;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
+using Dialogo = Dialogos.Dialogo;
 using Random = UnityEngine.Random;
 
 namespace MiniGame
@@ -19,7 +20,7 @@ namespace MiniGame
         private static TrashBinBehaviour TrashBin => TrashBinBehaviour.Instance;
 
         public static MiniGame Instance { get; private set; }
-        public static event System.Action OnGameFinished;
+        public static event Action OnGameFinished;
 
         public UnityEvent<string> onMessageUpdated;
 
