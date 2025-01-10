@@ -17,7 +17,7 @@ MonoBehaviour:
     orador: Pato
     typeSpeaker: 1
     texto: Tem alguem ai? Por favor, me ajude
-    TipoDialogoEnum: 1
+    TipoDialogoEnum: 0
   - id: 2
     orador: 
     typeSpeaker: 0
