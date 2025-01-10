@@ -1,7 +1,7 @@
 ﻿using Assets.Scripts.Dialogos.Modal;
 using UnityEngine;
 
-namespace Dialog
+namespace Dialogos
 {
     public class DialogController : MonoBehaviour
     {
