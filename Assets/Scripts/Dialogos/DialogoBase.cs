@@ -1,6 +1,4 @@
-﻿using System;
-using DefaultNamespace;
-using Dialogos;
+﻿using Dialogos;
 using Dialogos.Enum;
 using TMPro;
 using UnityEngine;
@@ -17,10 +15,11 @@ namespace Assets.Scripts.Dialogos.Modal
         [SerializeField] protected Button botaoProximo;
         [SerializeField] protected Button botaoFechar;
         [SerializeField] protected Button zonaDeFechar;
-
-        public DialogoObject dialogoObject;
-        protected int index = 0;
         
+        public DialogoObject dialogoObject;
+        
+        protected int index = 0;
+
         protected virtual void Start()
         {
             ListenToEvents();
@@ -57,8 +56,8 @@ namespace Assets.Scripts.Dialogos.Modal
         }
         
         protected virtual void ShowDialogo()
-        {
-           dialogoPainel.SetActive(true);
+        { 
+            dialogoPainel.SetActive(true);
            var dialogoAtual = dialogoObject.GetDialogoAt(index);
         
            if (dialogoAtual.typeSpeaker == TypeSpeaker.SPEAK_PLAYER)
