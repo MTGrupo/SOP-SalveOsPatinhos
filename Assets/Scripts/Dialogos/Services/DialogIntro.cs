@@ -3,20 +3,27 @@ using Dialogos.Enum;
 
 namespace Dialogos.Services
 {
-    public class DialogIntro : DialogoBase
+    public class DialogIntro : DialogoBase, IChangeScene
     {
         protected override void ShowDialogo()
         {
             base.ShowDialogo();
-            
-            if (dialogoObject.GetDialogoAt(index).TipoDialogoEnum == TipoDialogoEnum.ChangeScene)
+
+            var tipoDialogo = dialogoObject.GetDialogoAt(index).TipoDialogoEnum;
+            HandleSceneChange(tipoDialogo);
+        }
+
+        public void HandleSceneChange(TipoDialogoEnum tipoDialogoEnum)
+        {
+            if (tipoDialogoEnum == TipoDialogoEnum.ChangeScene)
             {
                 dialogoPainel.gameObject.SetActive(false);
                 GameManager.LoadTutorial();
-                return;
             }
-            
-            dialogoPainel.gameObject.SetActive(true);
+            else
+            {
+                dialogoPainel.gameObject.SetActive(true);
+            }
         }
     }
 }
