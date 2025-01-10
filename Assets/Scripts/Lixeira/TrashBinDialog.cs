@@ -1,5 +1,7 @@
 ﻿using System.Collections;
-using Assets.Scripts.Dialogos.Modal;
+
+using Dialog.Manager;
+using Dialogos.Services;
 using Duck;
 using Interaction;
 using UnityEngine;
@@ -8,7 +10,7 @@ namespace Lixeira
 {
     public class TrashBinDialog : InteractableObject, IInteraction
     {
-        [SerializeField] private DialogoBase dialogManager;
+        [SerializeField] private DialogTrashDuck dialogManager;
         [SerializeField] private DuckBehavior duck;
         [SerializeField] private Collider2D colisor;
         [SerializeField] private GameObject iconeInteracao;

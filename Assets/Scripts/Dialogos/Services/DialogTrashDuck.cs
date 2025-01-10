@@ -1,16 +1,13 @@
 using System.Collections;
-using Duck;
+using Assets.Scripts.Dialogos.Modal;
 using UnityEngine;
 
 namespace Dialogos.Services
 {
-    public class DialogTrashDuck : DialogWithDecision
+    public class DialogTrashDuck : DialogoBase
     {
-        [SerializeField] private DuckBehavior duck;
-
         protected override void ShowDialogo()
         {
-            
             base.ShowDialogo();
             
             if (dialogoObject.GetDialogoAt(index).id == 3)
