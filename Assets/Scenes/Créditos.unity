@@ -1034,7 +1034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d16a4863a2041718aa14df5c55a7614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: {fileID: 2050371746}
+  dialog: {fileID: 2050371747}
 --- !u!1 &1321855593
 GameObject:
   m_ObjectHideFlags: 0
@@ -1076,9 +1076,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 543874086}
     m_Modifications:
+    - target: {fileID: 659908348628988041, guid: 6be304fa07ea2a2498c17710eba95f5c, type: 3}
+      propertyPath: dialogoObject
+      value: 
+      objectReference: {fileID: 11400000, guid: a1cb648775cdf7e4bbb23e85776c85aa, type: 2}
     - target: {fileID: 1587949179280389546, guid: 6be304fa07ea2a2498c17710eba95f5c, type: 3}
       propertyPath: m_Name
       value: Dialogo Creditos
+      objectReference: {fileID: 0}
+    - target: {fileID: 2889538280338308941, guid: 6be304fa07ea2a2498c17710eba95f5c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3972454721685754350, guid: 6be304fa07ea2a2498c17710eba95f5c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3972454721685754350, guid: 6be304fa07ea2a2498c17710eba95f5c, type: 3}
+      propertyPath: dialogUIManager
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3972454721685754350, guid: 6be304fa07ea2a2498c17710eba95f5c, type: 3}
+      propertyPath: controllerDialogIdSpeeches
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065724898758996621, guid: 6be304fa07ea2a2498c17710eba95f5c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065724898758996621, guid: 6be304fa07ea2a2498c17710eba95f5c, type: 3}
+      propertyPath: dialogUIManager
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7123808893448863502, guid: 6be304fa07ea2a2498c17710eba95f5c, type: 3}
       propertyPath: m_Pivot.x
@@ -1160,7 +1188,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2889538280338308941, guid: 6be304fa07ea2a2498c17710eba95f5c, type: 3}
+    - {fileID: 4065724898758996621, guid: 6be304fa07ea2a2498c17710eba95f5c, type: 3}
+    - {fileID: 3972454721685754350, guid: 6be304fa07ea2a2498c17710eba95f5c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1170,15 +1201,15 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7123808893448863502, guid: 6be304fa07ea2a2498c17710eba95f5c, type: 3}
   m_PrefabInstance: {fileID: 2050371740}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2050371746 stripped
+--- !u!114 &2050371747 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3972454721685754350, guid: 6be304fa07ea2a2498c17710eba95f5c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 659908348628988041, guid: 6be304fa07ea2a2498c17710eba95f5c, type: 3}
   m_PrefabInstance: {fileID: 2050371740}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037078365}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd218f767a98435d92082f3eb75a3187, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a552389e08049f8b0c2348168691ab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2068278618
