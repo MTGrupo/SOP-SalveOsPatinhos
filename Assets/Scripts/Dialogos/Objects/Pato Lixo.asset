@@ -28,3 +28,8 @@ MonoBehaviour:
     typeSpeaker: 1
     texto: Obrigado!
     TipoDialogoEnum: 0
+  - id: 0
+    orador: 
+    typeSpeaker: 1
+    texto: Obrigado!
+    TipoDialogoEnum: 5
