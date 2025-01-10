@@ -1,5 +1,7 @@
 ﻿using System.Collections;
+
 using Dialog.Manager;
+using Dialogos.Services;
 using Duck;
 using Interaction;
 using UnityEngine;
@@ -8,7 +10,7 @@ namespace Lixeira
 {
     public class TrashBinDialog : InteractableObject, IInteraction
     {
-        [SerializeField] private DialogManager dialogManager;
+        [SerializeField] private DialogTrashDuck dialogManager;
         [SerializeField] private DuckBehavior duck;
         [SerializeField] private Collider2D colisor;
         [SerializeField] private GameObject iconeInteracao;
@@ -16,7 +18,7 @@ namespace Lixeira
         public void OnPlayerInteraction()
         {
             GameManager.SaveGameData();
-            dialogManager.StartDialog();
+            dialogManager.StartDialogo();
         }
 
         public void EnableDuck()
@@ -30,7 +32,8 @@ namespace Lixeira
         {
             RemoveObject(colisor);
         }
-
+        
+        
         private IEnumerator Start()
         {
             // É um jogo novo? Se sim, parar processo.

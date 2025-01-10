@@ -1,16 +1,15 @@
-﻿using Dialog.Manager;
+﻿using Assets.Scripts.Dialogos.Modal;
 using UnityEngine;
 
 namespace Dialog
 {
     public class DialogController : MonoBehaviour
     {
-        
-        [SerializeField] private DialogManager dialog;
+        [SerializeField] private DialogoBase dialog;
 
         void Start()
         {
-            dialog.StartDialog();
+            dialog.StartDialogo();
         }
     }
 }

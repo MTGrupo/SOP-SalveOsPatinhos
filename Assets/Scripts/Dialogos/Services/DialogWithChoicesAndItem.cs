@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using Assets.Scripts.Dialogos.Modal;
 using Dialogos.Enum;
 using Dialogos.ObjectsOfDialogos;
 using UnityEngine;
@@ -7,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Dialogos.Services
 {
-    public class DialogWithChoices : DialogDuckBase
+    public class DialogWithChoicesAndItem : DialogDuckBase
     {
         [SerializeField] private Button btnSim;
         [SerializeField] private Button btnNao;

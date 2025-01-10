@@ -1,4 +1,5 @@
-﻿using Dialog.Manager;
+﻿using Assets.Scripts.Dialogos.Modal;
+using Dialog.Manager;
 using Duck;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ namespace GameEnd
 {
     public class GameEnd : MonoBehaviour
     {
-        [SerializeField] private DialogManager endDialogText;
+        [SerializeField] private DialogoBase endDialogText;
         [SerializeField] private GameObject endQuestText;
         [SerializeField] private Collider2D initialPoint;
         [SerializeField] private AudioSource praiaSong;
@@ -33,7 +34,7 @@ namespace GameEnd
             initialPoint.enabled = false;
             endPoint.enabled = true;
             endQuestText.SetActive(false);
-            endDialogText.StartDialog();
+            endDialogText.StartDialogo();
             AudioController.PlaySong();
         }
         

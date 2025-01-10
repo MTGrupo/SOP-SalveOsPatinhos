@@ -10,30 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed33277fb53f48828a8cd8c22a0b51fa, type: 3}
-  m_Name: Pato no Lixo
+  m_Name: Pato Lixo
   m_EditorClassIdentifier: 
   dialogos:
-  - id: 0
+  - id: 1
     orador: Pato
     typeSpeaker: 1
-    texto: 'Socorro! Estou preso aqui! Me ajude.
-
-'
+    texto: Tem alguem ai? Por favor, me ajude
+    TipoDialogoEnum: 0
+  - id: 2
+    orador: 
+    typeSpeaker: 0
+    texto: "N\xE3o se preocupe, vou te tirar dai!"
+    TipoDialogoEnum: 0
+  - id: 3
+    orador: Pato
+    typeSpeaker: 1
+    texto: Obrigado!
     TipoDialogoEnum: 0
   - id: 0
     orador: 
-    typeSpeaker: 0
-    texto: 'Estou aqui para ajudar!
-
-'
-    TipoDialogoEnum: 0
-  - id: 0
-    orador: Pato
     typeSpeaker: 1
-    texto: Tire esse lixo de cima de mim
-    TipoDialogoEnum: 3
-  - id: 0
-    orador: Pato
-    typeSpeaker: 1
-    texto: "Obrigado! Voc\xEA\_\xE9\_um\_her\xF3i!"
-    TipoDialogoEnum: 4
+    texto: Obrigado!
+    TipoDialogoEnum: 5
