@@ -13,14 +13,29 @@ namespace Duck
 
         protected override IEnumerator Start()
         {
-            graphicBehaviour.SetAnimation(animationType, initAnimation);
-            
+            if (graphicBehaviour != null)
+            {
+                graphicBehaviour.SetAnimation(animationType, initAnimation);
+            }
+            else
+            {
+                Debug.LogWarning("GraphicBehaviour is null");
+            }
+
             yield return base.Start();
         }
     
         protected override void IsRescueded()
         {
-            graphicBehaviour.SetAnimation(animationType, endAnimation);
+            if (graphicBehaviour != null)
+            {
+                graphicBehaviour.SetAnimation(animationType, endAnimation);
+            }
+            else
+            {
+                Debug.LogWarning("GraphicBehaviour is null");
+            }
+
             base.IsRescueded();
         }
     }
