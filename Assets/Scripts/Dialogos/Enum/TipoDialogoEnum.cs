@@ -2,6 +2,6 @@
 {
     public enum TipoDialogoEnum
     {
-        Normal, Decisao, Quiz, Buscando_Itens, LastSpeak
+        Normal, Decisao, Quiz, Buscando_Itens, LastSpeak, ChangeScene
     }
 }
