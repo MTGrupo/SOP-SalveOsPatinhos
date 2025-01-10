@@ -1079,7 +1079,7 @@ PrefabInstance:
     - target: {fileID: 659908348628988041, guid: 6be304fa07ea2a2498c17710eba95f5c, type: 3}
       propertyPath: dialogoObject
       value: 
-      objectReference: {fileID: 11400000, guid: a1cb648775cdf7e4bbb23e85776c85aa, type: 2}
+      objectReference: {fileID: 11400000, guid: 9063dca5831af23418b807deef25fa20, type: 2}
     - target: {fileID: 1587949179280389546, guid: 6be304fa07ea2a2498c17710eba95f5c, type: 3}
       propertyPath: m_Name
       value: Dialogo Creditos

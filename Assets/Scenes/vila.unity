@@ -439,6 +439,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 48117146}
+  - component: {fileID: 48117147}
   m_Layer: 0
   m_Name: ---- UIs
   m_TagString: Untagged
@@ -463,6 +464,18 @@ Transform:
   - {fileID: 1375444}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &48117147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48117145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 096ed8d39edb8d14da654f6157101106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &75038213 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4295127531329359152, guid: 00607e0c0b9a60841b95d73c1c07ea41, type: 3}
@@ -3501,7 +3514,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 825448117}
-  - component: {fileID: 825448118}
   - component: {fileID: 825448119}
   m_Layer: 5
   m_Name: Mensagem de funcionamento do dialogo
@@ -3530,21 +3542,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &825448118
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 825448116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d2f4d3a96f07945a90dafd7575b0a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogButton: {fileID: 116992356}
-  dialogManager: {fileID: 0}
-  isMoveInMessageInitial: 1
 --- !u!114 &825448119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5473,6 +5470,8 @@ MonoBehaviour:
   textTimeLoadScene: {fileID: 1798993912365907654}
   buttonLoadScene: {fileID: 1038981723}
   duck: {fileID: 591726031}
+  buttonMensagemInit: {fileID: 116992356}
+  graphicBehaviour: {fileID: 664945403}
 --- !u!1001 &1452045077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6078,6 +6077,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682765427}
   - component: {fileID: 1682765428}
+  - component: {fileID: 1682765429}
   m_Layer: 0
   m_Name: Camera Confine
   m_TagString: Untagged
@@ -6094,7 +6094,7 @@ Transform:
   m_GameObject: {fileID: 1682765426}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.57, y: 0, z: 0}
+  m_LocalPosition: {x: -3.1, y: -3.9, z: 0}
   m_LocalScale: {x: 84.25, y: 40, z: 1.7949699}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6144,8 +6144,35 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.2, y: 0.4}
   m_EdgeRadius: 0
+--- !u!50 &1682765429
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682765426}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &1717431912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8142,6 +8169,10 @@ PrefabInstance:
       value: 91
       objectReference: {fileID: 0}
     - target: {fileID: 1633631581960239089, guid: 9870b20d8fb4ff945aaf8bd4c9a2b226, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1633631581960239089, guid: 9870b20d8fb4ff945aaf8bd4c9a2b226, type: 3}
       propertyPath: dialogUIManager
       value: 
       objectReference: {fileID: 0}
@@ -8316,6 +8347,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2284751526378011338, guid: 9870b20d8fb4ff945aaf8bd4c9a2b226, type: 3}
     - {fileID: 5194508678709033049, guid: 9870b20d8fb4ff945aaf8bd4c9a2b226, type: 3}
+    - {fileID: 2161689095956872024, guid: 9870b20d8fb4ff945aaf8bd4c9a2b226, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7132139329348499106, guid: 9870b20d8fb4ff945aaf8bd4c9a2b226, type: 3}
@@ -8392,7 +8424,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5996821400204582052, guid: d0a37c830f6ba4747a142bf2e22ef566, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422051366502057700, guid: d0a37c830f6ba4747a142bf2e22ef566, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7422051366502057700, guid: d0a37c830f6ba4747a142bf2e22ef566, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
