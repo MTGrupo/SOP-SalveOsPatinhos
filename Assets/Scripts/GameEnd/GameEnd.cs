@@ -1,5 +1,4 @@
 ﻿using Assets.Scripts.Dialogos.Modal;
-using Dialog.Manager;
 using Duck;
 using UnityEngine;
 
