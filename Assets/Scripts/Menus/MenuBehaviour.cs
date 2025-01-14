@@ -8,6 +8,8 @@ namespace Menus
 	{
 		protected const float DelayTime = .3f;
 
+		protected static ProfileMenu ProfileMenu;
+		protected static LeaderboardMenu LeaderboardMenu;
 		protected static SettingsMenu SettingsMenu;
 		protected static MainMenu MainMenu;
 		protected static PauseMenu PauseMenu;
@@ -47,6 +49,12 @@ namespace Menus
 			yield return Delay;
 			callback.Invoke();
 		}
+		
+		public void ShowProfile()
+			=> StartCoroutine(ButtonCoroutine(ProfileMenu, this));
+		
+		public void ShowLeaderboard()
+			=> StartCoroutine(ButtonCoroutine(LeaderboardMenu, this));
 		
 		public void ShowSettings()
 			=> StartCoroutine(ButtonCoroutine(SettingsMenu, this));
