@@ -1,4 +1,5 @@
 using System.Text;
+using Leaderboard;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -47,7 +48,7 @@ namespace Duck
 			OnClick();
 		}
 		
-		void UpdateCount()
+		async void UpdateCount()
 		{
 			var current = DuckManager.RescuedCount;
 			CanQuack = current > 0;
@@ -58,6 +59,8 @@ namespace Duck
 				value.AppendFormat(@"/{0:D2}", max);
 			
 			countText.text = value.ToString();
+
+			await LeaderboardManager.Instance.SubmitScore(current);
 			
 			if (GameManager.IsLoadingGameData || !audioSource.isActiveAndEnabled) return;
 			
