@@ -1,63 +1,99 @@
 using System;
+using System.Threading.Tasks;
 using PlayerAccount;
 using UnityEngine;
 
-public class PlayerProfile : MonoBehaviour
+namespace Player
 {
-    public static PlayerProfile Instance { get; private set; }
-    public event Action<string> OnPlayerNameChanged; 
+    public class PlayerProfile : MonoBehaviour
+    {
+        public static PlayerProfile Instance { get; private set; }
+        public event Action<string> OnPlayerNameChanged; 
 
-    private string playerName;
+        string playerName;
     
-    public string PlayerName
-    {
-        get => playerName;
-        private set
+        public string PlayerName
         {
-            playerName = value;
+            get => playerName;
+            private set
+            {
+                playerName = value;
             
-            OnPlayerNameChanged?.Invoke(value);
+                OnPlayerNameChanged?.Invoke(value);
+            }
         }
-    }
     
-    public void SetPlayerName(string name)
-    {
-        if (!AuthenticationManager.Instance.IsAuthenticated)
+        public async Task SetPlayerName(string name)
+        {
+            if (!AuthenticationManager.Instance.IsAuthenticated)
+            {
+                SavePlayerNameLocally(name);
+                return;
+            }
+
+            var currentServerName = await GetServerPlayerName();
+
+            if (name == currentServerName)
+            {
+                SavePlayerNameLocally(name);
+                return;
+            }
+
+            await AuthenticationManager.Instance.UpdatePlayerName(name);
+            SavePlayerNameLocally(name);
+        }
+
+        void SavePlayerNameLocally(string name)
         {
             PlayerName = name;
-            return;
+            PlayerPrefs.SetString("playerName", name);
         }
 
-        AuthenticationManager.Instance.UpdatePlayerName(name);
-        PlayerName = AuthenticationManager.Instance.GetPlayerName().ToString();
-    }
-
-    void ImportUnityPlayerName(bool isSignedIn)
-    {
-        if (!isSignedIn) return;
-
-        var playerName = AuthenticationManager.Instance.GetPlayerName();
-        
-        SetPlayerName(playerName.ToString());
-    }
-
-
-    private void Start()
-    {
-        AuthenticationManager.Instance.OnAuthenticationStateChanged += ImportUnityPlayerName;
-    }
-
-    private void Awake()
-    {
-        if (Instance == null)
+        async void DefineNameAfterAuthentication(bool isSignedIn)
         {
+            var name = GetLocalPlayerName() ?? "Jogador";
+
+            if (isSignedIn)
+            {
+                var serverName = await GetServerPlayerName();
+                name = string.IsNullOrEmpty(serverName) ? name : serverName;
+            }
+
+            await SetPlayerName(name);
+        }
+
+        async Task<string> GetServerPlayerName()
+        {
+            var serverName = await AuthenticationManager.Instance.GetPlayerName();
+            return serverName.Split('#')[0];
+        }
+    
+        string GetLocalPlayerName()
+        {
+            return PlayerPrefs.HasKey("playerName") ? PlayerPrefs.GetString("playerName") : null;
+        }
+
+        void OnDestroy()
+        {
+            AuthenticationManager.Instance.OnAuthenticationStateChanged -= DefineNameAfterAuthentication;
+        }
+
+        void Start()
+        {
+            AuthenticationManager.Instance.OnAuthenticationStateChanged += DefineNameAfterAuthentication;
+        }
+
+        void Awake()
+        {
+            if (Instance)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
             Instance = this;
         }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
 
    
+    }
 }
