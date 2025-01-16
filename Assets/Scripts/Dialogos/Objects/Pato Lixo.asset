@@ -29,7 +29,7 @@ MonoBehaviour:
     texto: Obrigado!
     TipoDialogoEnum: 0
   - id: 0
-    orador: 
+    orador: Pato
     typeSpeaker: 1
     texto: Obrigado!
     TipoDialogoEnum: 5

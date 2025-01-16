@@ -776,9 +776,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7132139329348499106}
-  - component: {fileID: 2284751526378011338}
-  - component: {fileID: 5194508678709033049}
-  - component: {fileID: 1633631581960239089}
+  - component: {fileID: 2161689095956872024}
   m_Layer: 5
   m_Name: Dialogo Tutorial Mobile
   m_TagString: Untagged
@@ -809,7 +807,7 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000030518, y: 0.00030518}
   m_SizeDelta: {x: 1920, y: 1075.3}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2284751526378011338
+--- !u!114 &2161689095956872024
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -818,68 +816,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 8347517127696374181}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd218f767a98435d92082f3eb75a3187, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ef00abf5f2e4215991f536b8e2340ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogUIManager: {fileID: 5194508678709033049}
-  controllerDialogIdSpeeches: {fileID: 1633631581960239089}
-  _duckDialog: {fileID: 0}
-  perguntaManager: {fileID: 0}
-  isDuckBuried: 0
-  duckAnimator: {fileID: 0}
-  dialogObject: {fileID: 11400000, guid: 2d64b8689fc8c6e4d8ce2905a5373d31, type: 2}
-  isTutorial: 1
-  isTutorialMove: 0
-  isTutorialNextScene: 0
+  dialogoPainel: {fileID: 0}
+  orador: {fileID: 0}
+  texto: {fileID: 0}
+  botaoProximo: {fileID: 0}
+  botaoFechar: {fileID: 0}
+  zonaDeFechar: {fileID: 0}
+  dialogoObject: {fileID: 0}
   graphicBehaviour: {fileID: 0}
-  IsDialogActive: 0
---- !u!114 &5194508678709033049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8347517127696374181}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 595f8ab3e4bd4cacbc633a1154acf331, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boxDialog: {fileID: 8347517127696374181}
-  boxDialogAnimatorCoqueiro: {fileID: 0}
-  textSpeaker: {fileID: 0}
-  textDialog: {fileID: 556487077856153872}
-  fecharDialogo: {fileID: 0}
-  zonasDeAvancarDialogo: {fileID: 7586101889001470964}
-  dialogManager: {fileID: 2284751526378011338}
-  buttonAjudarPato: {fileID: 0}
-  buttonIgnorarPato: {fileID: 0}
-  PaOuChapeuOuCoco: {fileID: 0}
-  mensagemObjetoPego: {fileID: 0}
-  joystick: {fileID: 0}
-  duckCaptured: {fileID: 0}
-  boxTimeText: {fileID: 6388165361352023713}
-  timeText: {fileID: 8930014945561338980}
-  zonaDeFinalizarDialogo: {fileID: 0}
-  isAvancarDialogo: 0
---- !u!114 &1633631581960239089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8347517127696374181}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d6a1e40af934f82baf2be856b513b2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogObject: {fileID: 11400000, guid: 2d64b8689fc8c6e4d8ce2905a5373d31, type: 2}
-  duckAguaCoco: {fileID: 0}
-  dialogUIManager: {fileID: 5194508678709033049}
-  tutorialUI: {fileID: 0}
-  perguntasUIManager: {fileID: 0}
-  timeText: {fileID: 0}
+  changerScene: {fileID: 0}
+  textTimeLoadScene: {fileID: 0}
+  buttonLoadScene: {fileID: 0}
+  duck: {fileID: 0}
 --- !u!1 &8489021218185547956
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,6 +864,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000091553, y: 0.0024719}
+  m_AnchoredPosition: {x: -0.00012207031, y: 0.0024719}
   m_SizeDelta: {x: 1920, y: 1075.3}
   m_Pivot: {x: 0.5, y: 0.5}
