@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Player;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Menus
@@ -17,21 +16,30 @@ namespace Menus
         protected override bool IsOpen
         {
             get => content.gameObject.activeInHierarchy;
-            set => content.gameObject.SetActive(value);
+            set
+            {
+                content.gameObject.SetActive(value);
+
+                if (!value) return;
+                
+                UpdateDisplayName(PlayerProfile.Instance.PlayerName);
+            }
         }
         
-        private void OnNameChangeSubmit()
+        async void OnNameChangeSubmit()
         {
             string playerName = nameInputField.text;
 
             if (!string.IsNullOrEmpty(playerName))
             {
-                PlayerProfile.Instance.SetPlayerName(playerName);
+                await PlayerProfile.Instance.SetPlayerName(playerName);
             }
         }
 
         void UpdateDisplayName(string name)
         {
+            if (string.IsNullOrEmpty(name)) return;
+            
             playerDisplayName.text = name;
             ClearInput();
         }
