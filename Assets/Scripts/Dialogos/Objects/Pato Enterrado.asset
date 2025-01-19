@@ -21,7 +21,7 @@ MonoBehaviour:
     TipoDialogoEnum: 0
   - id: 0
     orador: Pato
-    typeSpeaker: 0
+    typeSpeaker: 1
     texto: "Ah, foi a correnteza! Ela me arrastou e fiquei preso aqui! Estou t\xE3o
       assustado... Por favor, voc\xEA pode me ajudar?"
     TipoDialogoEnum: 1
@@ -42,7 +42,7 @@ MonoBehaviour:
     texto: "Vou achar uma p\xE1 e voltar rapidinho. Fique firme!"
     TipoDialogoEnum: 3
   - id: 0
-    orador: Jogdor
+    orador: 
     typeSpeaker: 0
     texto: "Voc\xEA conseguiu! Obrigado, de verdade! N\xE3o sei o que teria feito
       sem sua ajuda!"
