@@ -14,13 +14,13 @@ namespace Dialogos.Services
             
             if (dialogoObject.GetDialogoAt(index).TipoDialogoEnum == TipoDialogoEnum.Quiz)
             {
-                dialogoPainel.SetActive(false);
+                dialoguePanel.SetActive(false);
                 questionManager.StartQuiz(perguntas);
                 return;
             }
             
-            dialogoPainel.SetActive(true);
-            questionManager.DesableQuestionPanel();
+            dialoguePanel.SetActive(true);
+            questionManager.DisableQuestionPanel();
         }
     }
 }

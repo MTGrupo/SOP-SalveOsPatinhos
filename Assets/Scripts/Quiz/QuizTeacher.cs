@@ -11,11 +11,10 @@ namespace Dialogos.Services
         public int MIN_ACERTOS = 3;
         protected override void FinishedQuiz()
         {
-            if (acertos >= MIN_ACERTOS)
+            if (hits >= MIN_ACERTOS)
             {
                 base.FinishedQuiz();
                 duckBase.NextDialogo();
-                Debug.Log("Acertos: " + acertos);
             }
             else
             {

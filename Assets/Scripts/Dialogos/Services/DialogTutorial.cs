@@ -80,7 +80,7 @@ namespace Dialogos.Services
                     ShowIntro();
                     break;
                 case ID_MOVE:
-                    texto.text = "Para se movimentar, utilize as teclas W, A, S e D.";
+                    text.text = "Para se movimentar, utilize as teclas W, A, S e D.";
                     break;
                 case ID_INTERACT:
                     ShowInteract("Para interagir com os patinhos, basta se aproximar deles e pressionar a tecla ESPAÇO.");
@@ -99,7 +99,7 @@ namespace Dialogos.Services
                     ShowIntro();
                     break;
                 case ID_MOVE:
-                    texto.text = "Para se mover, você pode usar o joystick no canto inferior esquerdo da tela.";
+                    text.text = "Para se mover, você pode usar o joystick no canto inferior esquerdo da tela.";
                     break;
                 case ID_INTERACT:
                     ShowInteract("Para interagir com os patinhos, basta clicar no botão no canto inferior direito da tela");
@@ -112,20 +112,20 @@ namespace Dialogos.Services
         
         private void ShowInteract(string typeInteract)
         {
-            texto.text = $"{typeInteract}";
-            botaoProximo.gameObject.SetActive(false);
+            text.text = $"{typeInteract}";
+            nextButton.gameObject.SetActive(false);
             duck.SetActive(true);
         }
         
         private void ShowIntro()
         {
-            texto.text =
+            text.text =
                 $"Olá {playerName}. Eu sou o Sr. Pato, e estou aqui para te ensinar como salvar os patinhos! pergunta";
         }
 
         private void ShowTextCongrats()
         {
-            texto.text = $"Parabéns {playerName}! Você salvou o patinho. Agora, vamos para o próximo nível!";
+            text.text = $"Parabéns {playerName}! Você salvou o patinho. Agora, vamos para o próximo nível!";
             buttonLoadScene.gameObject.SetActive(true);
             changerScene.SetActive(true);
             ButtonLoadScene();

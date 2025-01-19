@@ -24,18 +24,18 @@ namespace Dialogos.Services
         {
             base.ShowDialogo();
             
-            if (zonaDeFechar == null) return;
+            if (zoneCloseDialogue == null) return;
             
             if (dialogoObject.GetDialogoAt(index).TipoDialogoEnum == TipoDialogoEnum.LastSpeak || 
                 dialogoObject.GetDialogoAt(index).TipoDialogoEnum == TipoDialogoEnum.Buscando_Itens)
             {
-                botaoProximo.gameObject.SetActive(false);
-                zonaDeFechar.gameObject.SetActive(true);
+                nextButton.gameObject.SetActive(false);
+                zoneCloseDialogue.gameObject.SetActive(true);
                 return;
             }
             
-            botaoProximo.gameObject.SetActive(true);
-            zonaDeFechar.gameObject.SetActive(false);
+            nextButton.gameObject.SetActive(true);
+            zoneCloseDialogue.gameObject.SetActive(false);
         }
     }
 }

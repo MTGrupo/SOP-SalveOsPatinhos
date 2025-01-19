@@ -10,41 +10,41 @@ namespace Quiz
         [SerializeField] public GameObject questionPanel;
         [SerializeField] private TextMeshProUGUI questionText;
         [SerializeField] private List<Button> alternative1Text;
-        [SerializeField] private int limiteDePerguntas;
+        [SerializeField] private int limitQuestions;
         
-        private int perguntasRespondidas = 0;
+        private int questionsAnswered = 0;
         private int currentQuestionIndex = 0;
-        private PerguntaObj perguntaObj;
+        private PerguntaObj questionObj;
         private Pergunta currentQuestion;
-        public int acertos = 0;
+        public int hits = 0;
         public bool isQuizFinished;
-        public bool isAcerto;
+        public bool isHits;
         
-        public void StartQuiz(PerguntaObj perguntas)
+        public void StartQuiz(PerguntaObj question)
         {
-            acertos = 0;
-            perguntaObj = perguntas;
+            hits = 0;
+            questionObj = question;
             questionPanel.SetActive(true);
-            perguntasRespondidas = 0;
-            SetQuestion(perguntaObj.pergunta[currentQuestionIndex]);
+            questionsAnswered = 0;
+            SetQuestion(questionObj.pergunta[currentQuestionIndex]);
         }
         
-        public void DesableQuestionPanel()
+        public void DisableQuestionPanel()
         {
             questionPanel.SetActive(false);
         }
 
-        private void SetQuestion(Pergunta pergunta)
+        private void SetQuestion(Pergunta question)
         {
-            currentQuestion = pergunta;
+            currentQuestion = question;
             
-            questionText.text = pergunta.pergunta;
+            questionText.text = question.pergunta;
 
-            if (alternative1Text.Count != pergunta.alternativas.Count) return;
+            if (alternative1Text.Count != question.alternativas.Count) return;
 
-            for (int i = 0; i < pergunta.alternativas.Count; i++)
+            for (int i = 0; i < question.alternativas.Count; i++)
             {
-                alternative1Text[i].GetComponentInChildren<TextMeshProUGUI>().text = pergunta.alternativas[i].alternativa;
+                alternative1Text[i].GetComponentInChildren<TextMeshProUGUI>().text = question.alternativas[i].alternativa;
                 
                 alternative1Text[i].onClick.RemoveAllListeners();
                 int index = i;
@@ -61,51 +61,51 @@ namespace Quiz
 
             if (isCorrect)
             {
-                Acertou(index);
+                Right(index);
             }
             else
             {
-                Errou(index);
+                Wrong(index);
             }
             
-            DesabilitarButtons();
+            DisableButtons();
             Invoke("NextQuestion", 1f);
             
         }
 
-        protected virtual void Acertou(int index)
+        protected virtual void Right(int index)
         {
-            isAcerto = true;
-            acertos++;
+            isHits = true;
+            hits++;
             StyleQuestions(alternative1Text[index], Color.green, Color.white, FontStyles.Bold);
         }
         
-        void Errou(int index)
+        void Wrong(int index)
         {
             StyleQuestions(alternative1Text[index], Color.red, Color.white, FontStyles.Bold);
         }
 
-        private void MoverPerguntaParaFinal()
+        private void MoveQuestionToFinalList()
         {
-            Pergunta perguntaRespondida = perguntaObj.pergunta[currentQuestionIndex];
-            perguntaObj.pergunta.RemoveAt(currentQuestionIndex);
-            perguntaObj.pergunta.Add(perguntaRespondida);
+            Pergunta questionAnswered =  questionObj.pergunta[currentQuestionIndex];
+            questionObj.pergunta.RemoveAt(currentQuestionIndex);
+            questionObj.pergunta.Add(questionAnswered);
         }
         
         private void NextQuestion()
         {
-            HabilitarButtons();
-            isAcerto = false;
+            EnableButton();
+            isHits = false;
             ResetStyle();
             
-            MoverPerguntaParaFinal();
+            MoveQuestionToFinalList();
             
-            perguntasRespondidas++;
+            questionsAnswered++;
 
-            if (perguntasRespondidas < limiteDePerguntas)
+            if (questionsAnswered < limitQuestions)
             {
                 currentQuestionIndex++;
-                SetQuestion(perguntaObj.pergunta[currentQuestionIndex]);
+                SetQuestion(questionObj.pergunta[currentQuestionIndex]);
             }
             else
             {
@@ -113,7 +113,7 @@ namespace Quiz
             }
         }
 
-        void DesabilitarButtons()
+        void DisableButtons()
         {
             foreach (var button in alternative1Text)
             {
@@ -121,7 +121,7 @@ namespace Quiz
             }
         }
         
-        void HabilitarButtons()
+        void EnableButton()
         {
             foreach (var button in alternative1Text)
             {

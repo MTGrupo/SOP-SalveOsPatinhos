@@ -17,12 +17,12 @@ namespace Dialogos.Services
         {
             if (tipoDialogoEnum == TipoDialogoEnum.ChangeScene)
             {
-                dialogoPainel.gameObject.SetActive(false);
+                dialoguePanel.gameObject.SetActive(false);
                 GameManager.LoadTutorial();
             }
             else
             {
-                dialogoPainel.gameObject.SetActive(true);
+                dialoguePanel.gameObject.SetActive(true);
             }
         }
     }

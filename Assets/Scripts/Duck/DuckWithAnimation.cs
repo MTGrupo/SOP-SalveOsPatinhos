@@ -13,13 +13,9 @@ namespace Duck
 
         protected override IEnumerator Start()
         {
-            if (graphicBehaviour != null)
+            if (graphicBehaviour)
             {
                 graphicBehaviour.SetAnimation(animationType, initAnimation);
-            }
-            else
-            {
-                Debug.LogWarning("GraphicBehaviour is null");
             }
 
             yield return base.Start();
@@ -27,13 +23,9 @@ namespace Duck
     
         protected override void IsRescueded()
         {
-            if (graphicBehaviour != null)
+            if (graphicBehaviour)
             {
                 graphicBehaviour.SetAnimation(animationType, endAnimation);
-            }
-            else
-            {
-                Debug.LogWarning("GraphicBehaviour is null");
             }
 
             base.IsRescueded();
