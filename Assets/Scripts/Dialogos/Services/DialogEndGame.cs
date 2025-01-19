@@ -1,4 +1,6 @@
+using System.Collections;
 using Assets.Scripts.Dialogos.Modal;
+using Dialogos.Enum;
 using Duck;
 using UnityEngine;
 
@@ -14,12 +16,19 @@ namespace Dialogos.Services
 
             if (dialogoObject.GetDialogoAt(index).id == 3)
             {
-                dialogoPainel.gameObject.SetActive(false);
+                dialoguePanel.gameObject.SetActive(false);
                 DuckManager.SetEndDestination(final_point);
+                StartCoroutine(LoadSceneCredits(2.5f));
                 return;
             }
             
-            dialogoPainel.gameObject.SetActive(true);   
+            dialoguePanel.gameObject.SetActive(true);   
+        }
+        
+        private IEnumerator LoadSceneCredits(float seconds)
+        {
+            yield return new WaitForSeconds(seconds);
+            GameManager.LoadCredits();
         }
     }
 }

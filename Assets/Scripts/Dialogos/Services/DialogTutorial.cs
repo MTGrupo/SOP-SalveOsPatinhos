@@ -1,5 +1,7 @@
 using System.Collections;
+using Actors;
 using Assets.Scripts.Dialogos.Modal;
+using Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +14,8 @@ namespace Dialogos.Services
         [SerializeField] private TextMeshProUGUI textTimeLoadScene;
         [SerializeField] private Button buttonLoadScene;
         [SerializeField] private GameObject duck;
+        [SerializeField] private Button buttonMensagemInit;
+        [SerializeField] private GraphicBehaviour graphicBehaviour;
         
         private string playerName;
 
@@ -22,6 +26,8 @@ namespace Dialogos.Services
 
         protected override void Start()
         {
+            graphicBehaviour.IsMoving = false;
+            
             if (buttonLoadScene)
                 buttonLoadScene.gameObject.SetActive(false);
             
@@ -30,6 +36,14 @@ namespace Dialogos.Services
             
             if (duck)
                 duck.SetActive(false);
+
+            if (buttonMensagemInit)
+            {
+                buttonMensagemInit.onClick.AddListener(() =>
+                {
+                    buttonMensagemInit.gameObject.SetActive(false);
+                });
+            }
             
             buttonLoadScene.onClick.AddListener(ClickLoadScene);
             
@@ -66,7 +80,7 @@ namespace Dialogos.Services
                     ShowIntro();
                     break;
                 case ID_MOVE:
-                    texto.text = "Para se movimentar, utilize as teclas W, A, S e D.";
+                    text.text = "Para se movimentar, utilize as teclas W, A, S e D.";
                     break;
                 case ID_INTERACT:
                     ShowInteract("Para interagir com os patinhos, basta se aproximar deles e pressionar a tecla ESPAÇO.");
@@ -85,7 +99,7 @@ namespace Dialogos.Services
                     ShowIntro();
                     break;
                 case ID_MOVE:
-                    texto.text = "Para se mover, você pode usar o joystick no canto inferior esquerdo da tela.";
+                    text.text = "Para se mover, você pode usar o joystick no canto inferior esquerdo da tela.";
                     break;
                 case ID_INTERACT:
                     ShowInteract("Para interagir com os patinhos, basta clicar no botão no canto inferior direito da tela");
@@ -98,20 +112,20 @@ namespace Dialogos.Services
         
         private void ShowInteract(string typeInteract)
         {
-            texto.text = $"{typeInteract}";
-            botaoProximo.gameObject.SetActive(false);
+            text.text = $"{typeInteract}";
+            nextButton.gameObject.SetActive(false);
             duck.SetActive(true);
         }
         
         private void ShowIntro()
         {
-            texto.text =
+            text.text =
                 $"Olá {playerName}. Eu sou o Sr. Pato, e estou aqui para te ensinar como salvar os patinhos! pergunta";
         }
 
         private void ShowTextCongrats()
         {
-            texto.text = $"Parabéns {playerName}! Você salvou o patinho. Agora, vamos para o próximo nível!";
+            text.text = $"Parabéns {playerName}! Você salvou o patinho. Agora, vamos para o próximo nível!";
             buttonLoadScene.gameObject.SetActive(true);
             changerScene.SetActive(true);
             ButtonLoadScene();

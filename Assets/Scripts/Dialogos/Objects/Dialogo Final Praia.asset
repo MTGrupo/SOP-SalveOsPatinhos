@@ -23,7 +23,7 @@ MonoBehaviour:
     orador: 
     typeSpeaker: 0
     texto: "Fico muito feliz com isso, tenham uma boa\_viagem!"
-    TipoDialogoEnum: 0
+    TipoDialogoEnum: 5
   - id: 3
     orador: 
     typeSpeaker: 1

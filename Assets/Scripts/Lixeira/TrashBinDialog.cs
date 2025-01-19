@@ -1,6 +1,4 @@
 ﻿using System.Collections;
-
-using Dialog.Manager;
 using Dialogos.Services;
 using Duck;
 using Interaction;

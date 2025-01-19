@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using Dialog;
 using UnityEngine;
 using UnityEngine.Events;
+using Dialogo = Dialogos.Dialogo;
 using Random = UnityEngine.Random;
 
 namespace MiniGame

@@ -42,8 +42,8 @@ MonoBehaviour:
     texto: "Vou achar uma p\xE1 e voltar rapidinho. Fique firme!"
     TipoDialogoEnum: 3
   - id: 0
-    orador: Pato
-    typeSpeaker: 1
+    orador: 
+    typeSpeaker: 0
     texto: "Voc\xEA conseguiu! Obrigado, de verdade! N\xE3o sei o que teria feito
       sem sua ajuda!"
     TipoDialogoEnum: 0

@@ -1,6 +1,4 @@
-﻿using System;
-using DefaultNamespace;
-using Dialogos;
+﻿using Dialogos;
 using Dialogos.Enum;
 using TMPro;
 using UnityEngine;
@@ -11,21 +9,22 @@ namespace Assets.Scripts.Dialogos.Modal
     public abstract class DialogoBase : MonoBehaviour
     {
         [Header("Componentes UI")]
-        [SerializeField] protected GameObject dialogoPainel;
-        [SerializeField] protected TextMeshProUGUI orador;
-        [SerializeField] protected TextMeshProUGUI texto;
-        [SerializeField] protected Button botaoProximo;
-        [SerializeField] protected Button botaoFechar;
-        [SerializeField] protected Button zonaDeFechar;
-
-        public DialogoObject dialogoObject;
-        protected int index = 0;
+        [SerializeField] protected GameObject dialoguePanel;
+        [SerializeField] protected TextMeshProUGUI speaker;
+        [SerializeField] protected TextMeshProUGUI text;
+        [SerializeField] protected Button nextButton;
+        [SerializeField] protected Button closeButton;
+        [SerializeField] protected Button zoneCloseDialogue;
         
+        public DialogoObject dialogoObject;
+        
+        protected int index = 0;
+
         protected virtual void Start()
         {
             ListenToEvents();
             
-            zonaDeFechar.gameObject.SetActive(false);
+            zoneCloseDialogue.gameObject.SetActive(false);
         }
         
         public void SetDialogoObject(DialogoObject dialogo)
@@ -57,27 +56,27 @@ namespace Assets.Scripts.Dialogos.Modal
         }
         
         protected virtual void ShowDialogo()
-        {
-           dialogoPainel.SetActive(true);
-           var dialogoAtual = dialogoObject.GetDialogoAt(index);
+        { 
+            dialoguePanel.SetActive(true);
+           var dialogueActual = dialogoObject.GetDialogoAt(index);
         
-           if (dialogoAtual.typeSpeaker == TypeSpeaker.SPEAK_PLAYER)
+           if (dialogueActual.typeSpeaker == TypeSpeaker.SPEAK_PLAYER)
            {
                
                string getNamePlayer = PlayerPrefs.GetString("playerName");
-               orador.text = getNamePlayer;
+               speaker.text = getNamePlayer;
            }
            else
            {
-               orador.text = dialogoAtual.orador;
+               speaker.text = dialogueActual.orador;
            }
            
-           texto.text = dialogoAtual.texto;
+           text.text = dialogueActual.texto;
         }
 
         protected void OcultarDialogo()
         {
-            dialogoPainel.SetActive(false);
+            dialoguePanel.SetActive(false);
             OnDialogFechado();
         }
 
@@ -85,15 +84,15 @@ namespace Assets.Scripts.Dialogos.Modal
         
         protected virtual void FinishedDialogo()
         {
-            dialogoPainel.SetActive(false);
+            dialoguePanel.SetActive(false);
             index = 0;
         }
         
         protected virtual void ListenToEvents()
         {
-            botaoProximo.onClick.AddListener(NextDialogo);
-            botaoFechar.onClick.AddListener(OcultarDialogo);
-            zonaDeFechar.onClick.AddListener(OcultarDialogo);
+            nextButton.onClick.AddListener(NextDialogo);
+            closeButton.onClick.AddListener(OcultarDialogo);
+            zoneCloseDialogue.onClick.AddListener(OcultarDialogo);
         }
     }
 }

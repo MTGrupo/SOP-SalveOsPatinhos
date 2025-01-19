@@ -7,15 +7,15 @@ namespace Dialogos.Services
 {
     public class DialogWithDecision : DialogoBase
     {
-        [SerializeField] private Button btnSim;
-        [SerializeField] private Button btnNao;
+        [SerializeField] private Button btnYes;
+        [SerializeField] private Button btnNo;
         
         protected override void Start()
         {
             base.Start();
             
-            btnSim.gameObject.SetActive(false);
-            btnNao.gameObject.SetActive(false);
+            btnYes.gameObject.SetActive(false);
+            btnNo.gameObject.SetActive(false);
         }
         
         protected override void ShowDialogo()
@@ -24,29 +24,29 @@ namespace Dialogos.Services
 
             if (dialogoObject.GetDialogoAt(index).TipoDialogoEnum == TipoDialogoEnum.Decisao)
             {
-                botaoProximo.gameObject.SetActive(false);
-                btnSim.gameObject.SetActive(true);
-                btnNao.gameObject.SetActive(true);
+                nextButton.gameObject.SetActive(false);
+                btnYes.gameObject.SetActive(true);
+                btnNo.gameObject.SetActive(true);
             } else {
-                botaoProximo.gameObject.SetActive(true);
-                btnSim.gameObject.SetActive(false);
-                btnNao.gameObject.SetActive(false);
+                nextButton.gameObject.SetActive(true);
+                btnYes.gameObject.SetActive(false);
+                btnNo.gameObject.SetActive(false);
             }
         }
         
         protected override void ListenToEvents()
         {
             base.ListenToEvents();
-            btnSim.onClick.AddListener(EscolherSim);
-            btnNao.onClick.AddListener(EscolherNao);
+            btnYes.onClick.AddListener(ChooseYes);
+            btnNo.onClick.AddListener(ChooseNo);
         }
 
-        void EscolherSim()
+        void ChooseYes()
         {
             NextDialogo(); 
         }
 
-        void EscolherNao()
+        void ChooseNo()
         {
             OcultarDialogo();
         }

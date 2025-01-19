@@ -431,4 +431,225 @@ MonoBehaviour:
         alternativa: Torre de Londres
       - id: 3
         alternativa: Ponte Golden Gate
+     - id: 41
+    isRespondida: 0
+    pergunta: "Qual é o maior deserto do mundo?"
+    respostaCorreta: Saara
+    alternativas:
+      - id: 1
+        alternativa: Gobi
+      - id: 2
+        alternativa: Saara
+      - id: 3
+        alternativa: Atacama
+  - id: 42
+    isRespondida: 0
+    pergunta: "Quem pintou a obra 'A Última Ceia'?"
+    respostaCorreta: Leonardo da Vinci
+    alternativas:
+      - id: 1
+        alternativa: Michelangelo
+      - id: 2
+        alternativa: Rafael
+      - id: 3
+        alternativa: Leonardo da Vinci
+  - id: 43
+    isRespondida: 0
+    pergunta: "Quantos ossos tem o corpo humano adulto?"
+    respostaCorreta: 206
+    alternativas:
+      - id: 1
+        alternativa: 208
+      - id: 2
+        alternativa: 206
+      - id: 3
+        alternativa: 204
+  - id: 44
+    isRespondida: 0
+    pergunta: "Qual é a menor unidade de vida?"
+    respostaCorreta: Célula
+    alternativas:
+      - id: 1
+        alternativa: Molécula
+      - id: 2
+        alternativa: Átomo
+      - id: 3
+        alternativa: Célula
+  - id: 45
+    isRespondida: 0
+    pergunta: "Qual é a moeda oficial do Japão?"
+    respostaCorreta: Iene
+    alternativas:
+      - id: 1
+        alternativa: Yuan
+      - id: 2
+        alternativa: Iene
+      - id: 3
+        alternativa: Won
+  - id: 46
+    isRespondida: 0
+    pergunta: "Qual elemento químico tem símbolo O?"
+    respostaCorreta: Oxigênio
+    alternativas:
+      - id: 1
+        alternativa: Ouro
+      - id: 2
+        alternativa: Oxigênio
+      - id: 3
+        alternativa: Osmium
+  - id: 47
+    isRespondida: 0
+    pergunta: "Qual planeta é conhecido como o planeta vermelho?"
+    respostaCorreta: Marte
+    alternativas:
+      - id: 1
+        alternativa: Júpiter
+      - id: 2
+        alternativa: Marte
+      - id: 3
+        alternativa: Saturno
+  - id: 48
+    isRespondida: 0
+    pergunta: "Em que país nasceu Ludwig van Beethoven?"
+    respostaCorreta: Alemanha
+    alternativas:
+      - id: 1
+        alternativa: Áustria
+      - id: 2
+        alternativa: Alemanha
+      - id: 3
+        alternativa: França
+  - id: 49
+    isRespondida: 0
+    pergunta: "Qual é a fórmula química da água?"
+    respostaCorreta: H2O
+    alternativas:
+      - id: 1
+        alternativa: CO2
+      - id: 2
+        alternativa: H2O
+      - id: 3
+        alternativa: NaCl
+  - id: 50
+    isRespondida: 0
+    pergunta: "Qual é o maior mamífero do mundo?"
+    respostaCorreta: Baleia azul
+    alternativas:
+      - id: 1
+        alternativa: Elefante
+      - id: 2
+        alternativa: Baleia azul
+      - id: 3
+        alternativa: Orca
+  - id: 51
+    isRespondida: 0
+    pergunta: "Quem descobriu a gravidade?"
+    respostaCorreta: Isaac Newton
+    alternativas:
+      - id: 1
+        alternativa: Albert Einstein
+      - id: 2
+        alternativa: Isaac Newton
+      - id: 3
+        alternativa: Galileo Galilei
+  - id: 52
+    isRespondida: 0
+    pergunta: "Qual é o maior país do mundo em área?"
+    respostaCorreta: Rússia
+    alternativas:
+      - id: 1
+        alternativa: Canadá
+      - id: 2
+        alternativa: Rússia
+      - id: 3
+        alternativa: China
+  - id: 53
+    isRespondida: 0
+    pergunta: "Qual é o idioma mais falado no mundo?"
+    respostaCorreta: Mandarim
+    alternativas:
+      - id: 1
+        alternativa: Espanhol
+      - id: 2
+        alternativa: Inglês
+      - id: 3
+        alternativa: Mandarim
+  - id: 54
+    isRespondida: 0
+    pergunta: "Qual planeta tem os anéis mais visíveis?"
+    respostaCorreta: Saturno
+    alternativas:
+      - id: 1
+        alternativa: Urano
+      - id: 2
+        alternativa: Saturno
+      - id: 3
+        alternativa: Júpiter
+  - id: 55
+    isRespondida: 0
+    pergunta: "Quem é conhecido como o pai da psicanálise?"
+    respostaCorreta: Sigmund Freud
+    alternativas:
+      - id: 1
+        alternativa: Carl Jung
+      - id: 2
+        alternativa: Sigmund Freud
+      - id: 3
+        alternativa: Wilhelm Wundt
+  - id: 56
+    isRespondida: 0
+    pergunta: "Quantos minutos tem uma hora?"
+    respostaCorreta: 60
+    alternativas:
+      - id: 1
+        alternativa: 50
+      - id: 2
+        alternativa: 60
+      - id: 3
+        alternativa: 70
+  - id: 57
+    isRespondida: 0
+    pergunta: "Qual é o maior osso do corpo humano?"
+    respostaCorreta: Fêmur
+    alternativas:
+      - id: 1
+        alternativa: Fêmur
+      - id: 2
+        alternativa: Tíbia
+      - id: 3
+        alternativa: Úmero
+  - id: 58
+    isRespondida: 0
+    pergunta: "Qual é o número do PI?"
+    respostaCorreta: 3.14
+    alternativas:
+      - id: 1
+        alternativa: 3.14
+      - id: 2
+        alternativa: 2.71
+      - id: 3
+        alternativa: 1.62
+  - id: 59
+    isRespondida: 0
+    pergunta: "Qual continente possui a maior biodiversidade?"
+    respostaCorreta: América do Sul
+    alternativas:
+      - id: 1
+        alternativa: África
+      - id: 2
+        alternativa: América do Sul
+      - id: 3
+        alternativa: Ásia
+  - id: 60
+    isRespondida: 0
+    pergunta: "Qual é o gás mais abundante na atmosfera terrestre?"
+    respostaCorreta: Nitrogênio
+    alternativas:
+      - id: 1
+        alternativa: Oxigênio
+      - id: 2
+        alternativa: Dióxido de Carbono
+      - id: 3
+        alternativa: Nitrogênio
+
 

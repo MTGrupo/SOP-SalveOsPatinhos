@@ -16,12 +16,12 @@ namespace Dialogos.Services
         {
             if (tipoDialogoEnum == TipoDialogoEnum.ChangeScene)
             {
-                dialogoPainel.SetActive(false);
+                dialoguePanel.SetActive(false);
                 GameManager.LoadMiniGame();
             }
             else
             {
-                dialogoPainel.SetActive(true);
+                dialoguePanel.SetActive(true);
             } 
         }
     }

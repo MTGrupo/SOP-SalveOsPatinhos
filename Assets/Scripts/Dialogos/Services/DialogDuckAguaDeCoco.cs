@@ -18,15 +18,14 @@ namespace Dialogos.Services
             
             if (dialogoObject.GetDialogoAt(index).TipoDialogoEnum == TipoDialogoEnum.Buscando_Itens)
             {
-                zonaDeFechar.gameObject.SetActive(true);
-                botaoProximo.gameObject.SetActive(false);
-                Debug.Log("ShowDialogo");
+                zoneCloseDialogue.gameObject.SetActive(true);
+                nextButton.gameObject.SetActive(false);
                 isDialogoCoco = true;
                 return;
             }
             
-            zonaDeFechar.gameObject.SetActive(false);
-            botaoProximo.gameObject.SetActive(true);
+            zoneCloseDialogue.gameObject.SetActive(false);
+            nextButton.gameObject.SetActive(true);
         }
         
         private void Awake()

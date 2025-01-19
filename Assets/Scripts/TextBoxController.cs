@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Dialog;
+using Dialogos;
 using UnityEngine;
 
 public class TextBoxController : MonoBehaviour

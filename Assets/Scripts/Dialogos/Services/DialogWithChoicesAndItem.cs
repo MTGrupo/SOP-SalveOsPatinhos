@@ -31,12 +31,12 @@ namespace Dialogos.Services
             bool isDecision = dialogoObject.GetDialogoAt(index).TipoDialogoEnum == TipoDialogoEnum.Decisao;
             btnSim.gameObject.SetActive(isDecision);
             btnNao.gameObject.SetActive(isDecision);
-            botaoProximo.gameObject.SetActive(!isDecision);
+            nextButton.gameObject.SetActive(!isDecision);
             
             if (dialogoObject.GetDialogoAt(index).TipoDialogoEnum == TipoDialogoEnum.Buscando_Itens)
             {
                 objectBase.gameObject.SetActive(true);
-                botaoProximo.gameObject.SetActive(false);
+                nextButton.gameObject.SetActive(false);
                 isShowMensagemItem = true;
             }
         }

@@ -12,12 +12,10 @@ namespace Duck
             base.OnPlayerInteraction();
             dialogTutorial.NextDialogo();
             StartCoroutine(LoadSceneAfterDelay(8));
-            Debug.Log("DuckTutorial: OnPlayerInteraction");
         }
 
         private IEnumerator LoadSceneAfterDelay(float delay)
         {
-            Debug.Log("DuckTutorial: LoadSceneAfterDelay");
             yield return new WaitForSeconds(delay);
             GameManager.LoadGame();
         }
