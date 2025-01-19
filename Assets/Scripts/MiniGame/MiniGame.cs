@@ -10,17 +10,16 @@ namespace MiniGame
 {
     public class MiniGame : MonoBehaviour
     {
-        [SerializeField] private List<MiniGameObject> prefabs;
+        [SerializeField] private List<ClickableObject> prefabs;
         [SerializeField] Dialogo duckThanks;
 
         [field: SerializeField]
         public Collider Limit { get; private set; }
         
-        private readonly List<MiniGameObject> objects = new();
-        private static TrashBinBehaviour TrashBin => TrashBinBehaviour.Instance;
+        private static TrashBin trashBin => TrashBin.instance;
 
-        public static MiniGame Instance { get; private set; }
-        public static event Action OnGameFinished;
+        public static MiniGame instance { get; private set; }
+        public static event System.Action OnGameFinished;
 
         public UnityEvent<string> onMessageUpdated;
 
@@ -29,13 +28,13 @@ namespace MiniGame
         
         private void Awake()
         {
-            if (Instance)
+            if (instance)
             {
                 Destroy(gameObject);               
                 return;
             }
             
-            Instance = this;
+            instance = this;
             StartGame();
             TextBox.OnTextEnded += FinishGame;
         }
@@ -46,54 +45,11 @@ namespace MiniGame
             SpawnHiddenObject();
         }
 
-        protected static void AddObject(MiniGameObject miniGameObject)
-        {
-            Instance.objects.Add(miniGameObject);
-        }
-
-        private static void AddObjectByIndex(int index, MiniGameObject miniGameObject)
-        {
-            Instance.objects.Insert(index, miniGameObject);
-        }
-
-        private static void RemoveObject(MiniGameObject miniGameObject)
-        {
-            Instance.objects.Remove(miniGameObject);
-        }
-        
-        public static IReadOnlyList<MiniGameObject> GetObjects()
-        {
-            return Instance.objects.AsReadOnly();
-        }
-        
-        public static int GetObjectCount()
-        {
-            return Instance.objects.Count;
-        }
-        
-        public static void UpdateTrashIndex(MiniGameObject trash)
-        {
-            RemoveObject(trash);
-            AddObjectByIndex(0, trash);
-
-            UpdateObjectsIndex();
-        }
-        
-        private static void UpdateObjectsIndex()
-        {
-            var currentIndex = 0;
-        
-            foreach (var miniGameObject in GetObjects())
-            {
-                miniGameObject.Index = currentIndex++;
-            }
-        }
-
-        public void CheckObjective(Objective objective)
+        public void CheckObjective(HiddenObject hiddenObject)
         {
             if (!isDuckCollect)
             {
-                if (objective && objective.IsCollected)
+                if (hiddenObject && hiddenObject.IsCollected)
                 {
                     isDuckCollect = true; 
                 }
@@ -105,7 +61,7 @@ namespace MiniGame
             }
 
             
-            if (!IsAllTrashsInTrashBin())
+            if (!trashBin.ContainsAllTrashs())
             {
                 onMessageUpdated.Invoke("Agora coloque os lixos de volta na lixeira");
                 return;
@@ -119,46 +75,13 @@ namespace MiniGame
         void FinishGame()
         {
             isFinished = true;
-            Instance = null;
+            instance = null;
             GameManager.LoadGame(true);
-        }
-
-        public bool IsObjectSuperimposed(Bounds bounds, int index)
-        {
-            for (var i = index - 1; i >= 0; i--)
-            {
-                if (bounds.Intersects(objects[i].Bounds) && objects[i].Bounds != bounds)
-                    return true;
-            }
-        
-            return false;
-        }
-        
-        public void AlertSuperimposing(Bounds bounds, int index)
-        {
-            for (var i = index - 1; i >= 0; i--)
-            {
-                if (bounds.Intersects(objects[i].Bounds) && objects[i].Bounds != bounds)
-                {
-                    var objectDragAndDrop = objects[i].GetComponent<IDragAndDrop>();
-                    objectDragAndDrop?.OnSuperimposing.Invoke();
-                }
-            }
-        }
-        
-        public bool IsAllTrashsInTrashBin()
-        {
-            foreach (var trash in GetObjects())
-            {
-                if (!TrashBin.ContainsObject(trash.Bounds)) return false;
-            }
-            
-            return true;
         }
         
         private void SpawnDraggableObjects()
         {
-            var spawnAmount = Random.Range(8, 12);
+            var spawnAmount = Random.Range(4, 6);
             
             for (var i = 0; i < spawnAmount; i++)
             {

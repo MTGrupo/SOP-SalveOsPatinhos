@@ -1,12 +1,11 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 namespace MiniGame
 {
     public class DragAndDrop : MonoBehaviour, IDragAndDrop
     {
-        [SerializeField] private MiniGameObject draggableObject;
+        [SerializeField] private ClickableObject draggableObject;
         [SerializeField] private AudioSource trashSound;
         public AudioClip dragged, dropped, superimposed;
         [field: SerializeField] public UnityEvent<bool, bool> OnTouched { get; private set; }
@@ -19,8 +18,8 @@ namespace MiniGame
         private bool isOnTrashBin;
         private bool isSuperimposed;
 
-        private static TrashBinBehaviour TrashBin => TrashBinBehaviour.Instance;
-        private static MiniGame miniGame => MiniGame.Instance;
+        private static TrashBin trashBin => TrashBin.instance;
+        private static MiniGame miniGame => MiniGame.instance;
         
         public bool IsDragging
         {
@@ -44,7 +43,7 @@ namespace MiniGame
                 SuperimposingMessage.Show();
                 trashSound.PlayOneShot(superimposed);
                 OnSuperimposed.Invoke();
-                miniGame.AlertSuperimposing(draggableObject.Bounds, draggableObject.Index);
+                draggableObject.AlertSuperimposing();
             }
         }
         
@@ -60,7 +59,7 @@ namespace MiniGame
 
         private void Start()
         {
-            originalPosition = transform.position;
+            originalPosition = draggableObject.transform.position;
             MiniGame.OnGameFinished += OnGameFinished;
         }
 
@@ -69,12 +68,12 @@ namespace MiniGame
             if (!IsDragging) return;
         
             var mousePosition = GetMousePosition();
-            mousePosition.z = transform.position.z;
+            mousePosition.z = draggableObject.transform.position.z;
             
-            if(!MiniGame.Instance.Limit.bounds.Contains(mousePosition))
+            if(!MiniGame.instance.Limit.bounds.Contains(mousePosition))
                 return;
 
-            transform.position = mousePosition;
+            draggableObject.transform.position = mousePosition;
         }
         
         private void OnMouseDown()
@@ -82,15 +81,15 @@ namespace MiniGame
             if(!enabled)
                 return;
             
-            IsSuperimposed = miniGame.IsObjectSuperimposed(draggableObject.Bounds, draggableObject.Index);
-
+            IsSuperimposed = draggableObject.IsSuperimposed();
+            
             if (IsSuperimposed) return;
             
             trashSound.PlayOneShot(dragged);
             
             IsDragging = true;
             
-            MiniGame.UpdateTrashIndex(draggableObject);
+            draggableObject.UpdateObjectIndex(draggableObject);
         }
         
         private void OnMouseUp()
@@ -98,7 +97,7 @@ namespace MiniGame
             if(!enabled)
                 return;
             
-            isOnTrashBin = TrashBin.ContainsObject(draggableObject.Bounds);
+            isOnTrashBin = trashBin.ContainsTrash(draggableObject.Bounds);
             
             if(!IsSuperimposed)
                 trashSound.PlayOneShot(dropped);
@@ -106,7 +105,7 @@ namespace MiniGame
             IsDragging = false;
 
             if (isOnTrashBin)
-                transform.position = new Vector3(originalPosition.x, originalPosition.y, transform.position.z);
+                draggableObject.transform.position = new Vector3(originalPosition.x, originalPosition.y, draggableObject.transform.position.z);
             
             miniGame.CheckObjective(null);
         }
@@ -119,7 +118,7 @@ namespace MiniGame
 #if UNITY_EDITOR
         private void Reset()
         {
-            draggableObject = GetComponent<MiniGameObject>();
+            draggableObject = GetComponent<ClickableObject>();
             trashSound = GetComponent<AudioSource>();
         }
 #endif

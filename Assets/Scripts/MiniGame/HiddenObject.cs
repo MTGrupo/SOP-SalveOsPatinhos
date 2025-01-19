@@ -2,16 +2,16 @@
 
 namespace MiniGame
 {
-    public class Objective : MonoBehaviour
+    public class HiddenObject : MonoBehaviour
     {
-        [SerializeField] private MiniGameObject hiddenObject;
+        [SerializeField] private ClickableObject hiddenObject;
         [SerializeField] private SpriteRenderer sprite;
         [SerializeField] private AudioSource duckSound;
         
         private bool isCollected;
         private bool isSuperimposed;
         
-        private static MiniGame miniGame => MiniGame.Instance;
+        private static MiniGame miniGame => MiniGame.instance;
         
         public bool IsCollected
         {
@@ -31,17 +31,17 @@ namespace MiniGame
             private set
             {
                 isSuperimposed = value;
-
+        
                 if (value)
                 {
-                    miniGame.AlertSuperimposing(hiddenObject.Bounds, hiddenObject.Index);
+                    hiddenObject.AlertSuperimposing();
                 }
             }
         }
         
         private void OnMouseDown()
         {
-            IsSuperimposed = miniGame.IsObjectSuperimposed(hiddenObject.Bounds, hiddenObject.Index);
+            IsSuperimposed = hiddenObject.IsSuperimposed();
             
             if (IsSuperimposed) return;
             
@@ -52,7 +52,7 @@ namespace MiniGame
 #if UNITY_EDITOR
         private void Reset()
         {
-            hiddenObject = GetComponent<MiniGameObject>();
+            hiddenObject = GetComponent<ClickableObject>();
             duckSound = GetComponent<AudioSource>();
         }
 #endif
