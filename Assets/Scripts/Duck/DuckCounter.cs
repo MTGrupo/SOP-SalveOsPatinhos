@@ -60,7 +60,10 @@ namespace Duck
 			
 			countText.text = value.ToString();
 
-			await LeaderboardManager.Instance.SubmitScore(current);
+			if (LeaderboardManager.Instance)
+			{
+				await LeaderboardManager.Instance.SubmitScore(current);
+			}
 			
 			if (GameManager.IsLoadingGameData || !audioSource.isActiveAndEnabled) return;
 			
