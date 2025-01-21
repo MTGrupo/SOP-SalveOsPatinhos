@@ -1,6 +1,8 @@
 ﻿using Assets.Scripts.Dialogos.Modal;
 using Duck;
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace GameEnd
 {
@@ -11,16 +13,35 @@ namespace GameEnd
         [SerializeField] private Collider2D initialPoint;
         [SerializeField] private AudioSource praiaSong;
         [SerializeField] private Collider2D endPoint;
+        
+        [SerializeField] private Button openGameEndPainel;
+        [SerializeField] private GameObject gameEndPainel;
+        [SerializeField] private Button confirmButton;
+        [SerializeField] private Button cancelButton;
 
         void Awake()
         {
-            DuckBehavior.OnDuckRescued += EndGame;
+            DuckBehavior.OnDuckRescued += CheckRescuedDucks;
+            
+            openGameEndPainel.onClick.AddListener(() => openGameEndPainel.gameObject.SetActive(false));
+            openGameEndPainel.onClick.AddListener(() => gameEndPainel.SetActive(true));
+            
+            confirmButton.onClick.AddListener(() => gameEndPainel.SetActive(false));
+            confirmButton.onClick.AddListener(StartGameEndQuest);
+            
+            cancelButton.onClick.AddListener(() => gameEndPainel.SetActive(false));
+            cancelButton.onClick.AddListener(() => openGameEndPainel.gameObject.SetActive(true));
+        }
+        
+        void CheckRescuedDucks()
+        {
+            if (DuckManager.RescuedCount < 2) return;
+            
+            gameEndPainel.SetActive(true);
         }
 
-        void EndGame()
+        void StartGameEndQuest()
         {
-            if (DuckManager.RescuedCount < DuckManager.TotalCount) return;
-            
             endQuestText.gameObject.SetActive(true);
             initialPoint.enabled = true;
         }
@@ -39,7 +60,12 @@ namespace GameEnd
         
         void OnDestroy()
         {
-            DuckBehavior.OnDuckRescued -= EndGame;
+            DuckBehavior.OnDuckRescued -= CheckRescuedDucks;
+            
+            openGameEndPainel.onClick.RemoveAllListeners();
+            
+            confirmButton.onClick.RemoveAllListeners();
+            cancelButton.onClick.RemoveAllListeners();
         }
     }
 }
