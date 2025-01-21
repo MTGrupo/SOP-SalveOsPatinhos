@@ -23,6 +23,8 @@ namespace Menus
             {
                 content.gameObject.SetActive(value);
 
+                if (!value) return;
+                
                 ClearLeaderboard();
                 
                 _ = LoadLeaderboard(); 
