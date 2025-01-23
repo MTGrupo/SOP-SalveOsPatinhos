@@ -19,6 +19,7 @@ namespace Dialogos.Services
                 base.ShowDialogo();
                 
                 zoneCloseDialogue.gameObject.SetActive(false);
+                nextButton.gameObject.SetActive(true);
                 closeButton.gameObject.SetActive(true);
                 
                 return;
