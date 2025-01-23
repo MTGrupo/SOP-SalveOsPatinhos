@@ -35,7 +35,9 @@ namespace GameEnd
         
         void CheckRescuedDucks()
         {
-            if (DuckManager.RescuedCount < 2) return;
+            if (DuckManager.RescuedCount < DuckManager.TotalCount) return;
+            
+            if(openGameEndPainel.gameObject.activeSelf) return;
             
             gameEndPainel.SetActive(true);
         }

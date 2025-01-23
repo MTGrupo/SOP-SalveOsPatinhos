@@ -18,6 +18,7 @@ namespace MiniGame
             get => isCollected;
             private set
             {
+                Debug.Log("IsCollected: " + value);
                 isCollected = value;
                 miniGame.CheckObjective(this);
                 enabled = !isCollected;
@@ -42,6 +43,8 @@ namespace MiniGame
         private void OnMouseDown()
         {
             IsSuperimposed = hiddenObject.IsSuperimposed();
+            
+            Debug.Log("IsSuperimposed: " + IsSuperimposed);
             
             if (IsSuperimposed) return;
             
