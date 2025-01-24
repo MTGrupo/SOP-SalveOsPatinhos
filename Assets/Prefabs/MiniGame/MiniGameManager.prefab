@@ -139,12 +139,12 @@ MonoBehaviour:
   - {fileID: 1534944792170592333, guid: d0da2ef153ca432489059896f32726a1, type: 3}
   - {fileID: 695790413277129006, guid: 1988b09be5722884eb7034f2f193c252, type: 3}
   duckThanks:
-    id: 
-    speaker: Pato
+    id: 0
+    orador: Pato
+    typeSpeaker: 1
     texto: "S\xE9rio, muito obrigado por me ajudar! E... ehhn, que fedor. Eu definitivamente
       terei que tomar um belo banho depois..."
-    pergunta: {fileID: 0}
-    ShowCoco: 0
+    TipoDialogoEnum: 0
   <Limit>k__BackingField: {fileID: 6746855543179401327}
   onMessageUpdated:
     m_PersistentCalls:
