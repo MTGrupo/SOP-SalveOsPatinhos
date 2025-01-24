@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7774363933187826730}
   - component: {fileID: 7073623918597396941}
+  - component: {fileID: 5687340034321113816}
   m_Layer: 0
   m_Name: Colisor
   m_TagString: Untagged
@@ -78,6 +79,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.5, y: 1.6}
   m_EdgeRadius: 0
+--- !u!114 &5687340034321113816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4520589549569969930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df97c8f5d1c54284a3e25153bff26495, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hiddenObject: {fileID: 695790413277129006}
+  sprite: {fileID: 4707934757245740575}
+  duckSound: {fileID: 8080110077516669904}
 --- !u!1 &6672740311172869150
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,7 +204,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8138373057722139242}
   - component: {fileID: 695790413277129006}
-  - component: {fileID: 6241986375338722834}
   - component: {fileID: 8080110077516669904}
   m_Layer: 0
   m_Name: Pato Escondido
@@ -228,21 +243,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectCollider: {fileID: 7073623918597396941}
   sprite: {fileID: 1733006733344441195}
---- !u!114 &6241986375338722834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8934283668236321391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df97c8f5d1c54284a3e25153bff26495, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hiddenObject: {fileID: 695790413277129006}
-  sprite: {fileID: 4707934757245740575}
-  duckSound: {fileID: 8080110077516669904}
 --- !u!82 &8080110077516669904
 AudioSource:
   m_ObjectHideFlags: 0
