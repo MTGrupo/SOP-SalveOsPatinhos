@@ -96,6 +96,7 @@ namespace Player
             //PlayerName = GetLocalPlayerName();
             
             AuthenticationManager.Instance.OnAuthenticationStateChanged += DefineNameAfterAuthentication;
+            PlayerName = GetLocalPlayerName();
         }
 
    
