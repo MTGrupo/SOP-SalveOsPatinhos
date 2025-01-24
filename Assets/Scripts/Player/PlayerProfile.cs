@@ -80,7 +80,7 @@ namespace Player
 
         void Start()
         {
-            //AuthenticationManager.Instance.OnAuthenticationStateChanged += DefineNameAfterAuthentication;
+            AuthenticationManager.Instance.OnAuthenticationStateChanged += DefineNameAfterAuthentication;
         }
 
         void Awake()
@@ -93,12 +93,7 @@ namespace Player
 
             Instance = this;
             
-            //PlayerName = GetLocalPlayerName();
-            
-            AuthenticationManager.Instance.OnAuthenticationStateChanged += DefineNameAfterAuthentication;
             PlayerName = GetLocalPlayerName();
         }
-
-   
     }
 }
