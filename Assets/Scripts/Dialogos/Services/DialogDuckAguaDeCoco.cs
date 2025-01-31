@@ -18,7 +18,7 @@ namespace Dialogos.Services
             
             if (dialogoObject.GetDialogoAt(index).TipoDialogoEnum == TipoDialogoEnum.Buscando_Itens)
             {
-                zoneCloseDialogue.gameObject.SetActive(true);
+                // zoneCloseDialogue.gameObject.SetActive(true);
                 nextButton.gameObject.SetActive(false);
                 isDialogoCoco = true;
                 return;
