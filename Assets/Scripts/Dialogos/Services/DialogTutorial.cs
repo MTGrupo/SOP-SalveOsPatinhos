@@ -1,7 +1,6 @@
 using System.Collections;
 using Actors;
 using Assets.Scripts.Dialogos.Modal;
-using Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -167,6 +166,13 @@ namespace Dialogos.Services
             }
             
             GameManager.LoadGame();
+        }
+
+        protected override void EnableButtonsAfterAnimation()
+        {
+            base.EnableButtonsAfterAnimation();
+            nextButton.gameObject.SetActive(true);
+            nextButton.interactable = true;
         }
     }
 }
