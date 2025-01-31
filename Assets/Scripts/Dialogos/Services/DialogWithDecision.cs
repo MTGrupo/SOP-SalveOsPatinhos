@@ -1,4 +1,4 @@
-using Assets.Scripts.Dialogos.Modal;
+﻿using Assets.Scripts.Dialogos.Modal;
 using Dialogos.Enum;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,8 +25,8 @@ namespace Dialogos.Services
             if (dialogoObject.GetDialogoAt(index).TipoDialogoEnum == TipoDialogoEnum.Decisao)
             {
                 nextButton.gameObject.SetActive(false);
-                btnYes.gameObject.SetActive(true);
-                btnNo.gameObject.SetActive(true);
+                btnYes.gameObject.SetActive(false);
+                btnNo.gameObject.SetActive(false);
             } else {
                 nextButton.gameObject.SetActive(true);
                 btnYes.gameObject.SetActive(false);

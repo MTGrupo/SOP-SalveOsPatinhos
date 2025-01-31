@@ -27,11 +27,18 @@ namespace Dialogos.Services
         protected override void ShowDialogo()
         {
             base.ShowDialogo();
-            
-            bool isDecision = dialogoObject.GetDialogoAt(index).TipoDialogoEnum == TipoDialogoEnum.Decisao;
-            btnSim.gameObject.SetActive(isDecision);
-            btnNao.gameObject.SetActive(isDecision);
-            nextButton.gameObject.SetActive(!isDecision);
+
+            if (dialogoObject.GetDialogoAt(index).TipoDialogoEnum == TipoDialogoEnum.Decisao)
+            {
+                btnSim.gameObject.SetActive(false);
+                btnNao.gameObject.SetActive(false);
+                nextButton.gameObject.SetActive(false);
+            }
+            else
+            {
+                btnSim.gameObject.SetActive(false);
+                btnNao.gameObject.SetActive(false);
+            }
             
             if (dialogoObject.GetDialogoAt(index).TipoDialogoEnum == TipoDialogoEnum.Buscando_Itens)
             {
@@ -39,8 +46,22 @@ namespace Dialogos.Services
                 nextButton.gameObject.SetActive(false);
                 isShowMensagemItem = true;
             }
+            
+            
         }
 
+        protected override void EnableButtonsAfterAnimation()
+        {
+            base.EnableButtonsAfterAnimation();
+
+            if (dialogoObject.GetDialogoAt(index).TipoDialogoEnum == TipoDialogoEnum.Decisao)
+            {
+                btnSim.gameObject.SetActive(true);
+                btnNao.gameObject.SetActive(true);
+            }
+            
+        }
+        
         protected override void ListenToEvents()
         {
             base.ListenToEvents();
