@@ -21,20 +21,20 @@ MonoBehaviour:
   - id: 2
     orador: Pato
     typeSpeaker: 1
-    texto: b
+    texto: 
     TipoDialogoEnum: 0
   - id: 3
     orador: Pato
     typeSpeaker: 1
-    texto: c
+    texto: 
     TipoDialogoEnum: 0
   - id: 4
     orador: Pato
     typeSpeaker: 1
-    texto: d
+    texto: 
     TipoDialogoEnum: 0
   - id: 5
     orador: Pato
     typeSpeaker: 1
-    texto: e
+    texto: 
     TipoDialogoEnum: 0
