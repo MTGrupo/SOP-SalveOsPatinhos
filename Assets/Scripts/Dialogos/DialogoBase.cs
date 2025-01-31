@@ -1,4 +1,5 @@
-﻿using Dialogos;
+﻿using DefaultNamespace.Utils;
+using Dialogos;
 using Dialogos.Enum;
 using TMPro;
 using UnityEngine;
@@ -19,12 +20,14 @@ namespace Assets.Scripts.Dialogos.Modal
         public DialogoObject dialogoObject;
         
         protected int index = 0;
-
+        
         protected virtual void Start()
         {
             ListenToEvents();
             
-            zoneCloseDialogue.gameObject.SetActive(false);
+            if (zoneCloseDialogue)
+                zoneCloseDialogue.gameObject.SetActive(false);
+            nextButton.gameObject.SetActive(false);
         }
         
         public void SetDialogoObject(DialogoObject dialogo)
@@ -56,24 +59,47 @@ namespace Assets.Scripts.Dialogos.Modal
         }
         
         protected virtual void ShowDialogo()
-        { 
+        {
+            nextButton.interactable = false;
+            
+            if (closeButton)
+                closeButton.interactable = false;
+            
+            if (zoneCloseDialogue)
+                zoneCloseDialogue.interactable = false;
+    
             dialoguePanel.SetActive(true);
-           var dialogueActual = dialogoObject.GetDialogoAt(index);
-        
-           if (dialogueActual.typeSpeaker == TypeSpeaker.SPEAK_PLAYER)
-           {
-               
-               string getNamePlayer = PlayerPrefs.GetString("playerName");
-               speaker.text = getNamePlayer;
-           }
-           else
-           {
-               speaker.text = dialogueActual.orador;
-           }
-           
-           text.text = dialogueActual.texto;
+            var dialogueActual = dialogoObject.GetDialogoAt(index);
+
+            if (dialogueActual.typeSpeaker == TypeSpeaker.SPEAK_PLAYER)
+            {
+                string getNamePlayer = PlayerPrefs.GetString("playerName");
+                speaker.text = getNamePlayer;
+            }
+            else
+            {
+                speaker.text = dialogueActual.orador;
+            }
+            
+            StartCoroutine(AnimatorText.StartAnimatorText(text, dialogueActual.texto, EnableButtonsAfterAnimation));
         }
 
+        protected virtual void EnableButtonsAfterAnimation()
+        {
+            nextButton.interactable = true;
+            
+            if (closeButton)
+            {
+                closeButton.interactable = true;
+            }
+
+            if (zoneCloseDialogue)
+            {
+                zoneCloseDialogue.interactable = true;
+            }
+        }
+
+        
         protected void OcultarDialogo()
         {
             dialoguePanel.SetActive(false);
@@ -91,8 +117,12 @@ namespace Assets.Scripts.Dialogos.Modal
         protected virtual void ListenToEvents()
         {
             nextButton.onClick.AddListener(NextDialogo);
-            closeButton.onClick.AddListener(OcultarDialogo);
-            zoneCloseDialogue.onClick.AddListener(OcultarDialogo);
+            if (closeButton)
+                closeButton.onClick.AddListener(OcultarDialogo);
+            
+            if (zoneCloseDialogue)
+                zoneCloseDialogue.onClick.AddListener(OcultarDialogo);
         }
+        
     }
 }
