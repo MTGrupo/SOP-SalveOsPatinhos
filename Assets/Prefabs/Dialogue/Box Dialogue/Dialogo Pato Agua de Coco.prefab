@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2188220590552090135}
   - component: {fileID: 3069596855711388784}
+  - component: {fileID: 2146945636676853003}
   m_Layer: 5
   m_Name: Dialogo Pato Agua de Coco
   m_TagString: Untagged
@@ -58,6 +59,18 @@ MonoBehaviour:
   dialogoObject: {fileID: 11400000, guid: f9cf2cd2b2b03944da5b83269d82bd8c, type: 2}
   duck: {fileID: 0}
   isDialogoCoco: 0
+--- !u!114 &2146945636676853003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6977827693454884648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea47e6780e3842bb8630caa1ddce0a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3888837368427565108
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -389,6 +389,7 @@ GameObject:
   - component: {fileID: 536197205339227914}
   - component: {fileID: 8255663087805878231}
   - component: {fileID: 3867107402006402901}
+  - component: {fileID: 9157270673825194390}
   m_Layer: 5
   m_Name: Dialogo Pato Professor
   m_TagString: Untagged
@@ -462,6 +463,18 @@ MonoBehaviour:
   isHits: 0
   duckBase: {fileID: 0}
   MIN_ACERTOS: 2
+--- !u!114 &9157270673825194390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8789006522991656501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea47e6780e3842bb8630caa1ddce0a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9057404736659796678
 GameObject:
   m_ObjectHideFlags: 0

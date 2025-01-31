@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4869193655280616812}
   - component: {fileID: 2822938287048897428}
+  - component: {fileID: 9204449778917266648}
   m_Layer: 5
   m_Name: Dialogo FInal
   m_TagString: Untagged
@@ -57,6 +58,18 @@ MonoBehaviour:
   zoneCloseDialogue: {fileID: 2031109190103238706}
   dialogoObject: {fileID: 11400000, guid: ec3c2a7d1f00d3244970e97bbe60ff3b, type: 2}
   final_point: {fileID: 0}
+--- !u!114 &9204449778917266648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659544686019096851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea47e6780e3842bb8630caa1ddce0a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2192777995225822343
 GameObject:
   m_ObjectHideFlags: 0

@@ -7754,6 +7754,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 664945403}
     - target: {fileID: 1392869371101874442, guid: 7b594d6c38b0f54408e34b231ee430e9, type: 3}
+      propertyPath: zoneCloseDialogue
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392869371101874442, guid: 7b594d6c38b0f54408e34b231ee430e9, type: 3}
       propertyPath: buttonMensagemInit
       value: 
       objectReference: {fileID: 116992356}

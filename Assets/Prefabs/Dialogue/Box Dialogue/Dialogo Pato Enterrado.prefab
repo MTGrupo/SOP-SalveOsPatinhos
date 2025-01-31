@@ -836,6 +836,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5000838513397868454}
   - component: {fileID: 7801787410035864066}
+  - component: {fileID: 3742286604796215910}
   m_Layer: 5
   m_Name: Dialogo Pato Enterrado
   m_TagString: Untagged
@@ -887,6 +888,18 @@ MonoBehaviour:
   btnNao: {fileID: 7059949430601679868}
   objectBase: {fileID: 0}
   mensagemItem: {fileID: 0}
+--- !u!114 &3742286604796215910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4318576526147935897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea47e6780e3842bb8630caa1ddce0a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5279780983865483833
 GameObject:
   m_ObjectHideFlags: 0

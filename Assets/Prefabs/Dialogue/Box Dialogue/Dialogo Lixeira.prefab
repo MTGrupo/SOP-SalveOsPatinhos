@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6785422628164511356}
   - component: {fileID: 739341186153764148}
+  - component: {fileID: 5106688717172472445}
   m_Layer: 5
   m_Name: Dialogo Lixeira
   m_TagString: Untagged
@@ -56,6 +57,18 @@ MonoBehaviour:
   closeButton: {fileID: 6945980330589478019}
   zoneCloseDialogue: {fileID: 6247590648987619954}
   dialogoObject: {fileID: 11400000, guid: b12528c83111a4d4a953fe3a3be637a8, type: 2}
+--- !u!114 &5106688717172472445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486007956231737859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea47e6780e3842bb8630caa1ddce0a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6064726596334077312
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,7 +241,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1203, y: -104}
+  m_AnchoredPosition: {x: 509, y: 152}
   m_SizeDelta: {x: 140.54, y: 129.144}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3797216558221840513
@@ -411,7 +424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4859630883333159756, guid: c17a10d79c9c75242b668aa75e043202, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
