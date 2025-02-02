@@ -1,9 +1,9 @@
-﻿using DefaultNamespace.Utils;
-using Dialogos;
+﻿using Dialogos;
 using Dialogos.Enum;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Utils;
 
 namespace Assets.Scripts.Dialogos.Modal
 {
@@ -74,13 +74,17 @@ namespace Assets.Scripts.Dialogos.Modal
             if (dialogueActual.typeSpeaker == TypeSpeaker.SPEAK_PLAYER)
             {
                 string getNamePlayer = PlayerPrefs.GetString("playerName");
-                speaker.text = getNamePlayer;
+                
+                AnimatorText.AnimationSettings(align: Alignment.Left,useClicked: false);
+                StartCoroutine(AnimatorText.StartAnimatorText(speaker, getNamePlayer));
             }
             else
             {
-                speaker.text = dialogueActual.orador;
+                AnimatorText.AnimationSettings(align: Alignment.Right, useClicked: false);
+                StartCoroutine(AnimatorText.StartAnimatorText(speaker, dialogueActual.orador));
             }
             
+            AnimatorText.AnimationSettings(align: Alignment.Left, step: 1);
             StartCoroutine(AnimatorText.StartAnimatorText(text, dialogueActual.texto, EnableButtonsAfterAnimation));
         }
 
