@@ -3,7 +3,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-namespace DefaultNamespace.Utils
+namespace Utils
 {
     public static class AnimatorText
     {
