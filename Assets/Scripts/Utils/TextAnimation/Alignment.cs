@@ -1,4 +1,4 @@
-﻿namespace DefaultNamespace.Utils
+﻿namespace Utils
 {
     public enum Alignment
     {
