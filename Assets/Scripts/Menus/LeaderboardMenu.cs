@@ -83,7 +83,7 @@ namespace Menus
                     if (entry.PlayerId == currentPlayerId)
                     {
                         UpdateLeaderboardRow(row, position, entry.PlayerName+ " (Você)", entry.Score);
-                        UpdateLeaderboardRow(playerRow, position, "Você", entry.Score);
+                        UpdateLeaderboardRow(playerRow, position, null, entry.Score);
                     }
                     else
                     {
@@ -125,6 +125,11 @@ namespace Menus
             {
                 Destroy(child.gameObject);
             }
+            
+            var playerInfo = playerRow.GetComponentsInChildren<TextMeshProUGUI>();
+
+            playerInfo[0].text = "-";
+            playerInfo[2].text = "-";
         }
     }
 }
