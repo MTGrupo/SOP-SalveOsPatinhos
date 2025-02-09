@@ -10,13 +10,13 @@ namespace Leaderboard
     {
         public static LeaderboardManager Instance { get; private set; }
 
-        public async Task SubmitScore(int score)
+        public async Task SubmitScore(double score, string leaderboardId)
         {
             if (!AuthenticationManager.Instance.IsAuthenticated) return;
             
             try
             {
-                await LeaderboardsService.Instance.AddPlayerScoreAsync("patos_resgatados", score);
+                await LeaderboardsService.Instance.AddPlayerScoreAsync(leaderboardId, score);
             }
             catch (Exception e)
             {
