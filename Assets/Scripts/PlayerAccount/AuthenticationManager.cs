@@ -15,11 +15,6 @@ namespace PlayerAccount
         
         public event Action<bool> OnAuthenticationStateChanged;
         
-        void Start()
-        {
-            OnAuthenticationStateChanged?.Invoke(IsAuthenticated);
-        }
-        
         async Task InitializeServicesAsync()
         {
             try
@@ -133,6 +128,8 @@ namespace PlayerAccount
             try
             {
                 await AuthenticationService.Instance.SignInAnonymouslyAsync();
+                
+                OnAuthenticationStateChanged?.Invoke(IsAuthenticated);
             }
             catch (RequestFailedException ex)
             {
