@@ -190,6 +190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5816831154552921515}
   - component: {fileID: 6149791736546017584}
+  - component: {fileID: 6049254750834340569}
   - component: {fileID: 1746407489211019472}
   - component: {fileID: 6335643132500891279}
   - component: {fileID: 8934785948176815204}
@@ -238,6 +239,19 @@ MonoBehaviour:
   button: {fileID: 8934785948176815204}
   countText: {fileID: 5063274943394725405}
   audioSource: {fileID: 663729601183769894}
+--- !u!114 &6049254750834340569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4054289575448107325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06f81d6f351f4e3f8a0fc0fc1e7397d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 5733745770113083664}
 --- !u!222 &1746407489211019472
 CanvasRenderer:
   m_ObjectHideFlags: 0
