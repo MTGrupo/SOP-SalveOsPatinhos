@@ -64,6 +64,7 @@ public class Movement : MonoBehaviour, IMovement
     
     public void Disable()
     {
+        IsMoving = false;
         Agent.enabled = false;
         enabled = false;
     }
@@ -71,7 +72,7 @@ public class Movement : MonoBehaviour, IMovement
     public void Enable()
     {
         Agent.enabled = true;
-        enabled = false;
+        enabled = true;
     }
     
     public void Move(Vector2 toDirection)
