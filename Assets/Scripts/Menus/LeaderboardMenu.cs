@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Threading.Tasks;
 using UnityEngine;
 using TMPro;
 using Unity.Services.Authentication;
 using Unity.Services.Leaderboards;
+using Unity.Services.Leaderboards.Models;
 using UnityEngine.UI;
 
 namespace Menus
@@ -15,6 +15,8 @@ namespace Menus
         [SerializeField] GameObject playerRow;
         [SerializeField] Transform scrollViewContent;
         [SerializeField] Button backButton;
+        [SerializeField] Toggle toggleButton;
+        [SerializeField] TextMeshProUGUI RankingText;
 
         protected override bool IsOpen
         {
@@ -25,9 +27,7 @@ namespace Menus
 
                 if (!value) return;
                 
-                ClearLeaderboard();
-                
-                _ = LoadLeaderboard(); 
+                LoadLeaderboard(toggleButton.isOn);
             } 
         }
         
@@ -50,13 +50,28 @@ namespace Menus
             Close();
 			
             backButton.onClick.AddListener(Back);
+            toggleButton.onValueChanged.AddListener(LoadLeaderboard);
         }
 
-        private async Task LoadLeaderboard()
+        private async void LoadLeaderboard(bool IsDuckRanking)
         {
             try
             {
-                var scores = await LeaderboardsService.Instance.GetScoresAsync("patos_resgatados");
+                ClearLeaderboard();
+
+                LeaderboardScoresPage scores;
+                
+                if (IsDuckRanking)
+                {
+                    scores = await LeaderboardsService.Instance.GetScoresAsync("patos_resgatados");
+                    RankingText.text = "Patos Resgatados";
+                }
+                else
+                {
+                    scores = await LeaderboardsService.Instance.GetScoresAsync("menor_tempo");
+                    RankingText.text = "Minutos para Zerar";
+                }
+                
                 string currentPlayerId = AuthenticationService.Instance.PlayerId;
 
                 var position = 1;
@@ -88,13 +103,18 @@ namespace Menus
         {
             var columns = row.GetComponentsInChildren<TMP_Text>();
 
+            int scoreMinutes = Mathf.FloorToInt((float)(score / 60));
+            int ScoreSeconds = Mathf.FloorToInt((float)(score % 60));
+            
             TMP_Text positionText = columns[0];
             TMP_Text nameText = columns[1];
             TMP_Text scoreText = columns[2];
 
             positionText.text = position.ToString();
+            scoreText.text = $"{scoreMinutes:00}:{ScoreSeconds:00}";
+
+            if (name == null) return;
             nameText.text = name;
-            scoreText.text = score.ToString();
         }
         
         void ClearLeaderboard()
