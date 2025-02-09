@@ -23,6 +23,23 @@ namespace Leaderboard
                 Debug.LogException(e);
             }
         }
+        
+        public async Task<double> GetPlayerScore(string leaderboardId)
+        {
+            if (!AuthenticationManager.Instance.IsAuthenticated) return 0;
+            
+            try
+            {
+                var score = await LeaderboardsService.Instance.GetPlayerScoreAsync(leaderboardId);
+                
+                return score.Score;
+            }
+            catch (Exception e)
+            {
+                Debug.LogException(e);
+                return 0;
+            }
+        }
 
         private void Awake()
         {
