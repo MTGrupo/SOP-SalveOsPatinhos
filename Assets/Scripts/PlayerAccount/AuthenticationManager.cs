@@ -47,7 +47,6 @@ namespace PlayerAccount
             {
                 await Task.Delay(100);
                 await AuthenticationService.Instance.SignInWithUnityAsync(accessToken);
-                Debug.Log("SignIn is successful.");
                 
                 OnAuthenticationStateChanged?.Invoke(IsAuthenticated);
             }
@@ -108,13 +107,17 @@ namespace PlayerAccount
             }
         }
         
-        public async Task<string> GetPlayerName()
+        public async Task<string> GetPlayerName(bool containsTag)
         {
             if (!IsAuthenticated) return null;
             
             try
             {
-                return await AuthenticationService.Instance.GetPlayerNameAsync();
+                string playerName = await AuthenticationService.Instance.GetPlayerNameAsync();
+                
+                if (!containsTag) return playerName.Split('#')[0];
+                
+                return playerName;
             }
             catch (Exception e)
             {
