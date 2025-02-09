@@ -97,6 +97,8 @@ namespace PlayerAccount
             try
             {
                 await AuthenticationService.Instance.DeleteAccountAsync();
+                
+                OnAuthenticationStateChanged?.Invoke(IsAuthenticated);
             }
             catch (AuthenticationException ex)
             {
