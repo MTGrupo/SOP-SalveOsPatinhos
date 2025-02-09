@@ -7,6 +7,7 @@ namespace PlayerAccount
     {
         [SerializeField] private Button loginButton;
         [SerializeField] private Button logoutButton;
+        [SerializeField] private Button deleteButton;
         [SerializeField] private GameObject loginPainel;
         [SerializeField] private Button cancelLoginButton;
     
@@ -18,6 +19,7 @@ namespace PlayerAccount
             {
                 AuthenticationManager.Instance.OnAuthenticationStateChanged += UpdateButtonVisibility;
                 logoutButton.onClick.AddListener(OnLogout);
+                deleteButton.onClick.AddListener(OnDeleteAccount);
                 UpdateButtonVisibility(AuthenticationManager.Instance.IsAuthenticated);
                 return;
             }
@@ -35,12 +37,18 @@ namespace PlayerAccount
             AuthenticationManager.Instance.SignOut();
         }
         
+        private async void OnDeleteAccount()
+        {
+            await AuthenticationManager.Instance.DeleteAccount();
+        }
+        
         private void UpdateButtonVisibility(bool isSignedIn)
         {
             if (!loginPainel)
             {
                 loginButton.gameObject.SetActive(!isSignedIn);
                 logoutButton.gameObject.SetActive(isSignedIn);
+                deleteButton.gameObject.SetActive(isSignedIn);
                 return;
             }
 
@@ -63,6 +71,7 @@ namespace PlayerAccount
             if (!loginPainel)
             {
                 logoutButton.onClick.RemoveListener(OnLogout);
+                deleteButton.onClick.RemoveListener(OnDeleteAccount);
                 return;
             }
             
