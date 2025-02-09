@@ -92,6 +92,18 @@ namespace PlayerAccount
             }
         }
 
+        public async Task DeleteAccount()
+        {
+            try
+            {
+                await AuthenticationService.Instance.DeleteAccountAsync();
+            }
+            catch (AuthenticationException ex)
+            {
+                Debug.LogException(ex);
+            }
+        }
+
         public async Task UpdatePlayerName(string name)
         {
             if (!IsAuthenticated) return;
