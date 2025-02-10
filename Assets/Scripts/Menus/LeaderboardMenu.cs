@@ -53,7 +53,7 @@ namespace Menus
             toggleButton.onValueChanged.AddListener(LoadLeaderboard);
         }
 
-        private async void LoadLeaderboard(bool IsDuckRanking)
+        private async void LoadLeaderboard(bool isDuckRanking)
         {
             try
             {
@@ -61,7 +61,7 @@ namespace Menus
 
                 LeaderboardScoresPage scores;
                 
-                if (IsDuckRanking)
+                if (isDuckRanking)
                 {
                     scores = await LeaderboardsService.Instance.GetScoresAsync("patos_resgatados");
                     RankingText.text = "Patos Resgatados";
@@ -82,12 +82,12 @@ namespace Menus
                     
                     if (entry.PlayerId == currentPlayerId)
                     {
-                        UpdateLeaderboardRow(row, position, entry.PlayerName+ " (Você)", entry.Score);
-                        UpdateLeaderboardRow(playerRow, position, null, entry.Score);
+                        UpdateLeaderboardRow(row, position, entry.PlayerName+ " (Você)", entry.Score, isDuckRanking);
+                        UpdateLeaderboardRow(playerRow, position, null, entry.Score, isDuckRanking);
                     }
                     else
                     {
-                        UpdateLeaderboardRow(row, position, entry.PlayerName, entry.Score);
+                        UpdateLeaderboardRow(row, position, entry.PlayerName, entry.Score, isDuckRanking);
                     }
                     
                     position++;
@@ -99,19 +99,28 @@ namespace Menus
             }
         }
         
-        private void UpdateLeaderboardRow(GameObject row, int position, string name, double score)
+        private void UpdateLeaderboardRow(GameObject row, int position, string name, double score, bool isDuckRanking)
         {
             var columns = row.GetComponentsInChildren<TMP_Text>();
 
-            int scoreMinutes = Mathf.FloorToInt((float)(score / 60));
-            int ScoreSeconds = Mathf.FloorToInt((float)(score % 60));
+            
             
             TMP_Text positionText = columns[0];
             TMP_Text nameText = columns[1];
             TMP_Text scoreText = columns[2];
 
             positionText.text = position.ToString();
-            scoreText.text = $"{scoreMinutes:00}:{ScoreSeconds:00}";
+
+            if (isDuckRanking)
+            {
+                scoreText.text = score.ToString();
+            }
+            else
+            {
+                int scoreMinutes = Mathf.FloorToInt((float)(score / 60));
+                int scoreSeconds = Mathf.FloorToInt((float)(score % 60));
+                scoreText.text = $"{scoreMinutes:00}:{scoreSeconds:00}";
+            }
 
             if (name == null) return;
             nameText.text = name;
