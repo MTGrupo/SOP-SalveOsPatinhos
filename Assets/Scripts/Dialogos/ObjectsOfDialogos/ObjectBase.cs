@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -20,6 +19,7 @@ namespace Dialogos.ObjectsOfDialogos
         void Awake()
         {
             obj = gameObject;
+            
         }
         public virtual void Start()
         {
@@ -33,45 +33,42 @@ namespace Dialogos.ObjectsOfDialogos
         {
             obj.SetActive(false);
             RemoveObject(colisor);
-            PlaceInFirstAvailableSlot();
+            PlaceInSlot();
         }
 
-        private void PlaceInFirstAvailableSlot()
+        private void PlaceInSlot()
         {
-            Slot existingSlot = slots.FirstOrDefault(slot => slot.namesInSlots.Contains(obj.name.ToLower()));
+            var itemFileName = obj.name.ToLower() + ".png";
+            
+            Slot existingSlot = slots.FirstOrDefault(slot => slot.ContainsItem(itemFileName));
 
             if (existingSlot)
             {
-                existingSlot.IncrecementAmount();
-                existingSlot.amount.text = existingSlot.namesInSlots.Count.ToString();
+                existingSlot.amountValue++;
+                Debug.Log($"Quantidade do item {obj.name} aumentada para {existingSlot.amountValue}");
             }
             else
             {
-                Slot availableSlot = slots.FirstOrDefault(slot => !slot.IsSlotBusy());
+                var availableSlot = slots.FirstOrDefault(slot => !slot.isSlotBusy);
 
                 if (availableSlot)
                 {
-                    availableSlot.namesInSlots.Add(obj.name.ToLower());
-                    availableSlot.IncrecementAmount();
-                    availableSlot.amount.text = availableSlot.GetAmount().ToString();
-
-                    AddItemToSlot(availableSlot);
+                    AddItemToSlot(availableSlot, itemFileName);
+                    return;
                 }
-                else
-                {
-                    Debug.LogWarning("Nenhum slot disponível!");
-                }
+                Debug.Log("Nenhum slot disponível");
             }
+            
+            SlotManager.SaveSlotData(slots);
         }
-
         
-        private void AddItemToSlot(Slot availableSlot)
+        private void AddItemToSlot(Slot availableSlot, string itemFileName)
         {
-            string itemFileName = obj.name.ToLower() + ".png";
             availableSlot.AddItemToSlot(itemFileName);
-            availableSlot.DisplaySlotData();
-            Debug.Log($"Objeto {obj.name}.png adicionado ao slot {availableSlot.name.ToLower()}");
+            availableSlot.amountValue = 1;
+            Debug.Log($"Objeto {itemFileName} adicionado ao slot {availableSlot.name.ToLower()}");
         }
+        
         
 #if UNITY_EDITOR
         private void Reset()
