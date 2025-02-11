@@ -23,7 +23,7 @@ namespace DefaultNamespace.Inventory
 
             foreach (Slot slot in slots)
             {
-                if (slot.IsSlotBusy())
+                if (slot.isSlotBusy)
                 {
                     allSlotsEmpty = false;
                     slot.gameObject.SetActive(true);
