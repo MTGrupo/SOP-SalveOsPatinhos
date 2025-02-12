@@ -14,8 +14,10 @@ namespace CatchGame
 
         void SpawnDroppableObjects()
         {
+            var topScreen = Camera.main.ScreenToWorldPoint(new Vector3(0, Screen.height, 0)).y;
+            
             var randomIndex = Random.Range(0, droppableObjects.Count);
-            var randomPosition = new Vector3(Random.Range(CatchGame.Instance.Limit.bounds.min.x, CatchGame.Instance.Limit.bounds.max.x), 0, 0);
+            var randomPosition = new Vector3(Random.Range(CatchGame.Instance.Limit.bounds.min.x, CatchGame.Instance.Limit.bounds.max.x), topScreen+2, 0);
             Instantiate(droppableObjects[randomIndex], randomPosition, Quaternion.identity);
         }
         
