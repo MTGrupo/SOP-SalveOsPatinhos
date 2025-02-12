@@ -7,7 +7,7 @@ namespace CatchGame
 {
     public class CGSpawner : MonoBehaviour
     {
-        [SerializeField] List<DroppableObject> droppableObjects;
+        [SerializeField] List<Rigidbody2D> droppableObjects;
         
         [SerializeField] float spawnMinRate;
         [SerializeField] float spawnMaxRate;
