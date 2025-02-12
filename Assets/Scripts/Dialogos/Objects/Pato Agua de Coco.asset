@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: Pato Agua de Coco
   m_EditorClassIdentifier: 
   dialogos:
-  - id: 0
+  - id: 1
     orador: Pato
     typeSpeaker: 1
     texto: "Ol\xE1! Estou morrendo de sede e preciso de 3 cocos frescos. Por favor,
       v\xE1 at\xE9 o coqueiro e pegue-os para mim."
     TipoDialogoEnum: 0
-  - id: 0
+  - id: 2
     orador: 
     typeSpeaker: 0
     texto: Claro Pato, irei pegar os cocos no coqueiro.
     TipoDialogoEnum: 3
-  - id: 0
+  - id: 3
     orador: Pata
     typeSpeaker: 1
     texto: "Obrigadoo!! voc\xEA conseguiu matar minha sede."

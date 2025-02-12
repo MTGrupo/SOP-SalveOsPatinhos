@@ -4,9 +4,10 @@ namespace Dialogos.ObjectsOfDialogos
 {
     public class ObjCoco : ObjectBase
     {
+        private static string CocoItemName = "coco";
         private static int _currentCocos;
-        
-        void Start()
+
+        private void Start()
         {
             base.Start();
             _currentCocos = 0;
