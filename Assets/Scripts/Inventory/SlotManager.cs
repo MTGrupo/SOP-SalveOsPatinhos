@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
-using Unity.Cinemachine;
 using UnityEngine;
 
 namespace DefaultNamespace.Inventory
@@ -10,8 +8,7 @@ namespace DefaultNamespace.Inventory
     public class SlotManager : MonoBehaviour
     {
         private const string SlotDataKey = "SlotData";
-        
-        
+
         public static void SaveSlotData(List<Slot> slots)
         {
             List<SlotData> slotDataList = new();
@@ -26,16 +23,16 @@ namespace DefaultNamespace.Inventory
                         objectName = slot.nameIcon.text,
                         amount = slot.amountValue,
                     };
-                    
+
                     slotDataList.Add(data);
                 }
             }
-            
+
             string json = JsonUtility.ToJson(new SlotDataWrapper { slots = slotDataList });
             PlayerPrefs.SetString(SlotDataKey, json);
             PlayerPrefs.Save();
         }
-        
+
         public static List<SlotData> LoadSlotData()
         {
             if (!PlayerPrefs.HasKey(SlotDataKey)) return new List<SlotData>();
@@ -44,70 +41,52 @@ namespace DefaultNamespace.Inventory
             return wrapper?.slots ?? new List<SlotData>();
         }
 
-        public static bool RemoveItemFromInvetory(string itemName, int quantity)
+        public static bool RemoveItemFromInventory(string itemName, int quantity)
         {
             List<SlotData> slots = LoadSlotData();
-            
-            SlotData slot = slots.FirstOrDefault(s => s.objectName == itemName);
 
-            if (slot == null || slot.amount < quantity)
+            SlotData slotData = slots.FirstOrDefault(s => s.objectName == itemName);
+            
+            if (slotData == null || slotData.amount < quantity)
             {
                 return false;
             }
-            
-            slot.amount -= quantity;
 
-            if (slot.amount == 0)
+            slotData.amount -= quantity;
+            
+            if (slotData.amount == 0)
             {
-                slots.Remove(slot);
+                slots.Remove(slotData);
             }
+            
             
             string json = JsonUtility.ToJson(new SlotDataWrapper { slots = slots });
             PlayerPrefs.SetString(SlotDataKey, json);
             PlayerPrefs.Save();
-
-            Debug.Log($"{quantity} {itemName}(s) removidos do inventário.");
-            UpdateInventoryUI();
             return true;
         }
         
-        public static SlotData GetSlotDataByName(string slotName)
+
+        public static SlotData GetSlotDataByName(string itemName)
         {
             List<SlotData> slots = LoadSlotData();
-            return slots.FirstOrDefault(slot => slot.slotName == slotName);
-        }
-        
-        public static void UpdateInventoryUI()
-        {
-            List<SlotData> slots = LoadSlotData();
-            foreach (var slot in UnityEngine.Object.FindObjectsOfType<Slot>()) 
-            {
-                SlotData slotData = slots.FirstOrDefault(s => s.slotName == slot.name);
-                if (slotData != null)
-                {
-                    slot.amountValue = slotData.amount;
-                    slot.nameIcon.text = slotData.objectName;
-                }
-                else
-                {
-                    slot.amountValue = 0;
-                }
-            }
+            return slots.FirstOrDefault(slot => slot.objectName == itemName);
         }
         
         
-        [Serializable]
-        public class SlotData
-        {
-            public string slotName;
-            public string objectName;
-            public int amount;
-        }
-        
-        [Serializable]
-        public class SlotDataWrapper
-        {
-            public List<SlotData> slots;
-        }
+    }
+
+    [Serializable]
+    public class SlotData
+    {
+        public string slotName;
+        public string objectName;
+        public int amount;
+    }
+
+    [Serializable]
+    public class SlotDataWrapper
+    {
+        public List<SlotData> slots;
     }
 }
