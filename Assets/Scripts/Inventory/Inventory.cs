@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
@@ -11,15 +12,22 @@ namespace DefaultNamespace.Inventory
         [SerializeField] private GameObject inventoryPanel;
         [SerializeField] private Button buttonInventory;
         [SerializeField] private List<Slot> slots = new();
-        
-        private Color defaultColor;
+        [SerializeField] private Button closeInventoryButton;
         
         private void Start()
         {
             inventoryPanel.SetActive(false);
-            defaultColor = buttonInventory.image.color;
             buttonInventory.onClick.AddListener(ToggleInventory);
+            closeInventoryButton.onClick.AddListener(CloseInventory);
             LoadAndUpdateSlots();
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                ToggleInventory();
+            }
         }
 
         private void LoadAndUpdateSlots()
@@ -36,21 +44,22 @@ namespace DefaultNamespace.Inventory
                 }
             }
         }
-
         
         private void ToggleInventory()
         {
             bool isActive = inventoryPanel.activeSelf;
-
+            inventoryPanel.SetActive(!isActive);
             if (!isActive)
             {
                 LoadAndUpdateSlots();
             }
-            
-            inventoryPanel.SetActive(!isActive);
-            buttonInventory.image.color = isActive ? defaultColor : defaultColor;
         }
-        
+
+        private void CloseInventory()
+        {
+            inventoryPanel.SetActive(false);
+        }
+
 #if UNITY_EDITOR
         private void Reset()
         {
