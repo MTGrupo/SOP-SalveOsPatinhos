@@ -8,7 +8,7 @@ namespace CatchGame
     {
         public static event Action OnTimeOver;
         
-        TextMeshProUGUI timerText;
+        [SerializeField] TextMeshProUGUI timerText;
         
         float currentTime = 30;
         bool isPaused = true;
