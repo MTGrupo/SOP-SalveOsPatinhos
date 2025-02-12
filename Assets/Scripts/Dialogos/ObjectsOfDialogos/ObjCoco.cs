@@ -1,5 +1,3 @@
-using System.Linq;
-using DefaultNamespace.Inventory;
 using Dialogos.Services;
 
 namespace Dialogos.ObjectsOfDialogos
@@ -7,22 +5,23 @@ namespace Dialogos.ObjectsOfDialogos
     public class ObjCoco : ObjectBase
     {
         private static string CocoItemName = "coco";
+        private static int _currentCocos;
+
+        private void Start()
+        {
+            base.Start();
+            _currentCocos = 0;
+        }
         
         public override void OnPlayerInteraction()
         {
             base.OnPlayerInteraction();
+            _currentCocos++;
 
-            if (HasEnoughCocos(3))
+            if (_currentCocos == 3)
             {
                 DialogDuckAguaDeCoco.Instance.ShowMensagemCoco();
             }
-        }
-        
-        private bool HasEnoughCocos(int requiredAmount)
-        {
-            var slots = SlotManager.LoadSlotData();
-            var cocoSlot = slots.FirstOrDefault(slot => slot.objectName == CocoItemName);
-            return cocoSlot != null && cocoSlot.amount >= requiredAmount;
         }
     }
 }
