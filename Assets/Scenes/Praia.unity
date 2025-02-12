@@ -12280,6 +12280,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1409295525}
     - target: {fileID: 428450423301354972, guid: ca7b8e8e4e4387a43ae9aa87d6ac36cb, type: 3}
+      propertyPath: dialogType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 428450423301354972, guid: ca7b8e8e4e4387a43ae9aa87d6ac36cb, type: 3}
       propertyPath: objectBase
       value: 
       objectReference: {fileID: 2170193620149055240}
