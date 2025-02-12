@@ -33,4 +33,4 @@ MonoBehaviour:
     orador: Pata
     typeSpeaker: 1
     texto: "Voc\xEA encontrou!\_obrigada."
-    TipoDialogoEnum: 0
+    TipoDialogoEnum: 4
