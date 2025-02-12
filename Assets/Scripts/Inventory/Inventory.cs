@@ -24,7 +24,7 @@ namespace DefaultNamespace.Inventory
 
         private void LoadAndUpdateSlots()
         {
-            List<SlotManager.SlotData> loadedData = SlotManager.LoadSlotData();
+            List<SlotData> loadedData = SlotManager.LoadSlotData();
     
             foreach (var slotData in loadedData)
             {
@@ -41,6 +41,12 @@ namespace DefaultNamespace.Inventory
         private void ToggleInventory()
         {
             bool isActive = inventoryPanel.activeSelf;
+
+            if (!isActive)
+            {
+                LoadAndUpdateSlots();
+            }
+            
             inventoryPanel.SetActive(!isActive);
             buttonInventory.image.color = isActive ? defaultColor : defaultColor;
         }
