@@ -8,6 +8,7 @@ namespace Dialogos.Services
         protected override void ShowDialogo()
         {
             base.ShowDialogo();
+            nextButton.gameObject.SetActive(true);
             var tipoDialogo = dialogoObject.GetDialogoAt(index).TipoDialogoEnum;
             HandleSceneChange(tipoDialogo);
         }
