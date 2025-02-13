@@ -62,7 +62,7 @@ namespace Duck
 
 			if (LeaderboardManager.Instance)
 			{
-				await LeaderboardManager.Instance.SubmitScore(current);
+				await LeaderboardManager.Instance.SubmitScore(current, "patos_resgatados");
 			}
 			
 			if (GameManager.IsLoadingGameData || !audioSource.isActiveAndEnabled) return;
