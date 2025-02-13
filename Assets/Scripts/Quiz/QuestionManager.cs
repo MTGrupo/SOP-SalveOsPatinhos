@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,6 +20,14 @@ namespace Quiz
         public int hits = 0;
         public bool isQuizFinished;
         public bool isHits;
+        
+        
+        private InputsBehaviour inputsBehaviour;
+
+        private void Start()
+        {
+            inputsBehaviour = FindObjectOfType<InputsBehaviour>();
+        }
         
         public void StartQuiz(PerguntaObj question)
         {
@@ -131,6 +140,7 @@ namespace Quiz
         
         protected virtual void FinishedQuiz()
         {
+            inputsBehaviour.gameObject.SetActive(true);
             isQuizFinished = true;
             questionPanel.SetActive(false);
         }

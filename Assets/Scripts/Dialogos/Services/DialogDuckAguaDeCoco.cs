@@ -35,19 +35,24 @@ namespace Dialogos.Services
                 base.ShowDialogo();
                 nextButton.gameObject.SetActive(false);
                 isDialogoCoco = true;
-                DeliverCoco();
-                
                 return;
             }
             
             zoneCloseDialogue.gameObject.SetActive(false);
             nextButton.gameObject.SetActive(true);
         }
-        
+
+        protected override void FinishedDialogo()
+        {
+            base.FinishedDialogo();
+            DeliverCoco();
+        }
+
         private void DeliverCoco()
         {
             if (SlotManager.RemoveItemFromInventory("coco", 3))
             {
+                SlotManager.LoadSlotData();
                 isDialogoCoco = false;
             }
             else

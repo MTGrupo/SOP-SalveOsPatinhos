@@ -67,6 +67,7 @@ namespace Dialogos.ObjectsOfDialogos
             availableSlot.AddItemToSlot(itemFileName);
             availableSlot.amountValue = 1;
             Debug.Log($"Objeto {itemFileName} adicionado ao slot {availableSlot.name.ToLower()}");
+            SlotManager.SaveSlotData(slots);
         }
         
         
