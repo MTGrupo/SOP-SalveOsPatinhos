@@ -15,11 +15,6 @@ namespace PlayerAccount
         
         public event Action<bool> OnAuthenticationStateChanged;
         
-        void Start()
-        {
-            OnAuthenticationStateChanged?.Invoke(IsAuthenticated);
-        }
-        
         async Task InitializeServicesAsync()
         {
             try
@@ -52,7 +47,6 @@ namespace PlayerAccount
             {
                 await Task.Delay(100);
                 await AuthenticationService.Instance.SignInWithUnityAsync(accessToken);
-                Debug.Log("SignIn is successful.");
                 
                 OnAuthenticationStateChanged?.Invoke(IsAuthenticated);
             }
@@ -98,6 +92,20 @@ namespace PlayerAccount
             }
         }
 
+        public async Task DeleteAccount()
+        {
+            try
+            {
+                await AuthenticationService.Instance.DeleteAccountAsync();
+                
+                OnAuthenticationStateChanged?.Invoke(IsAuthenticated);
+            }
+            catch (AuthenticationException ex)
+            {
+                Debug.LogException(ex);
+            }
+        }
+
         public async Task UpdatePlayerName(string name)
         {
             if (!IsAuthenticated) return;
@@ -113,13 +121,17 @@ namespace PlayerAccount
             }
         }
         
-        public async Task<string> GetPlayerName()
+        public async Task<string> GetPlayerName(bool containsTag)
         {
             if (!IsAuthenticated) return null;
             
             try
             {
-                return await AuthenticationService.Instance.GetPlayerNameAsync();
+                string playerName = await AuthenticationService.Instance.GetPlayerNameAsync();
+                
+                if (!containsTag) return playerName.Split('#')[0];
+                
+                return playerName;
             }
             catch (Exception e)
             {
@@ -133,6 +145,8 @@ namespace PlayerAccount
             try
             {
                 await AuthenticationService.Instance.SignInAnonymouslyAsync();
+                
+                OnAuthenticationStateChanged?.Invoke(IsAuthenticated);
             }
             catch (RequestFailedException ex)
             {

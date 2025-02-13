@@ -31,7 +31,7 @@ namespace Player
                 return;
             }
 
-            var currentServerName = await GetServerPlayerName();
+            var currentServerName = await AuthenticationManager.Instance.GetPlayerName(false);
 
             if (name == currentServerName)
             {
@@ -55,17 +55,11 @@ namespace Player
 
             if (isSignedIn)
             {
-                var serverName = await GetServerPlayerName();
+                string serverName = await AuthenticationManager.Instance.GetPlayerName(false);
                 name = string.IsNullOrEmpty(serverName) ? name : serverName;
             }
 
             await SetPlayerName(name);
-        }
-
-        async Task<string> GetServerPlayerName()
-        {
-            var serverName = await AuthenticationManager.Instance.GetPlayerName();
-            return serverName.Split('#')[0];
         }
     
         string GetLocalPlayerName()
