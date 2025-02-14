@@ -21,6 +21,13 @@ namespace CatchGame
             Destroy();
         }
         
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if(CatchGame.Instance.Limit.bounds.Contains(transform.position)) return;
+            
+            Destroy();
+        }
+
         void RotateSprite()
         {
             if (!rotateSprite) return;
