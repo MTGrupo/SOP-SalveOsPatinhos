@@ -1,4 +1,3 @@
-﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -25,16 +24,22 @@ namespace CatchGame
         {
             CancelInvoke(nameof(SpawnDroppableObjects));
         }
+        
+        void StartSpawning()
+        {
+            InvokeRepeating(nameof(SpawnDroppableObjects), Random.Range(spawnMinRate, spawnMaxRate), Random.Range(spawnMinRate, spawnMaxRate));
+        }
 
         private void OnDestroy()
         {
             CGTimer.OnTimeOver -= StopSpawning;
+            CatchGame.OnGameStarted -= StartSpawning;
         }
 
         void Start()
         {
             CGTimer.OnTimeOver += StopSpawning;
-            InvokeRepeating(nameof(SpawnDroppableObjects), Random.Range(spawnMinRate, spawnMaxRate), Random.Range(spawnMinRate, spawnMaxRate));
+            CatchGame.OnGameStarted += StartSpawning;
         }
     }
 }
