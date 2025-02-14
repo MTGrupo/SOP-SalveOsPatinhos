@@ -8,8 +8,9 @@ namespace CatchGame
         [field: SerializeField] public Collider Limit { get; private set; }
         
         public static CatchGame Instance { get; private set; }
+        
+        public static Action OnGameStarted;
 
-        public static event Action OnGameStarted;
         
         public static bool isFinished = false;
         public static int duckAmount;
@@ -24,7 +25,6 @@ namespace CatchGame
             }
 
             Instance = this;
-            OnGameStarted?.Invoke();
         }
     }
 }
