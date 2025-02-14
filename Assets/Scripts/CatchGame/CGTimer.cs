@@ -17,7 +17,7 @@ namespace CatchGame
         {
             if (isPaused) return;
             
-            if(currentTime <= 0)
+            if(currentTime < 1)
             {
                 isPaused = true;
                 OnTimeOver?.Invoke();
@@ -31,7 +31,7 @@ namespace CatchGame
         void UpdateTimerUI()
         {
             int seconds = Mathf.FloorToInt(currentTime % 60);
-            timerText.text = $"{seconds:00}";
+            timerText.text = $"{seconds:0}";
         }
         
         void SetPause(bool pause)
