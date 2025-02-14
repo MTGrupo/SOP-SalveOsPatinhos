@@ -46,12 +46,12 @@ namespace CatchGame
         
         void OnDestroy()
         {
-            DroppableObject.OnCautch += _ => OnCautch();
+            DroppableObject.OnCautch += (_, _) => OnCautch();
         }
 
         void Start()
         {
-            DroppableObject.OnCautch += _ => OnCautch();
+            DroppableObject.OnCautch += (_, _) => OnCautch();
         }
     }
 }
