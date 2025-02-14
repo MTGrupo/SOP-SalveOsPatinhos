@@ -21,13 +21,13 @@ namespace Assets.Scripts.Dialogos.Modal
         
         
         public DialogoObject dialogoObject;
-        private InputsBehaviour inputsBehaviour;
+        // private InputsBehaviour inputsBehaviour;
         
         protected int index = 0;
         
         protected virtual void Start()
         {
-            inputsBehaviour = FindObjectOfType<InputsBehaviour>();
+            // inputsBehaviour = FindObjectOfType<InputsBehaviour>();
             
             ListenToEvents();
             
@@ -45,7 +45,7 @@ namespace Assets.Scripts.Dialogos.Modal
         
         public void StartDialogo()
         {
-            inputsBehaviour.gameObject.SetActive(false);
+            // inputsBehaviour.gameObject.SetActive(false);
             ShowDialogo();
         }
         
@@ -69,7 +69,7 @@ namespace Assets.Scripts.Dialogos.Modal
         
         protected virtual void ShowDialogo()
         {
-            inputsBehaviour.gameObject.SetActive(false);
+            // inputsBehaviour.gameObject.SetActive(false);
             nextButton.interactable = false;
             
             if (closeButton)
@@ -116,7 +116,7 @@ namespace Assets.Scripts.Dialogos.Modal
         
         protected void OcultarDialogo()
         {
-            inputsBehaviour.gameObject.SetActive(true);
+            // inputsBehaviour.gameObject.SetActive(true);
             dialoguePanel.SetActive(false);
             OnDialogFechado();
         }
@@ -125,7 +125,7 @@ namespace Assets.Scripts.Dialogos.Modal
         
         protected virtual void FinishedDialogo()
         {
-            inputsBehaviour.gameObject.SetActive(true);
+            // inputsBehaviour.gameObject.SetActive(true);
             dialoguePanel.SetActive(false);
             index = 0;
         }
