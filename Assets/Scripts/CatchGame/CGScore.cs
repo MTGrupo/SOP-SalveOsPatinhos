@@ -8,6 +8,8 @@ namespace CatchGame
         [SerializeField] TextMeshProUGUI scoreText;
         int totalScore;
 
+        public int extraDucks;
+
         public int TotalScore
         {
             get => totalScore;
@@ -19,8 +21,14 @@ namespace CatchGame
             }
         }
         
-        private void AddScore(int score)
+        private void AddScore(bool isExtraDuck, int score)
         {
+            if (isExtraDuck)
+            {
+                extraDucks++;
+                return;
+            }
+            
             totalScore += score;
             scoreText.text = totalScore.ToString();
         }

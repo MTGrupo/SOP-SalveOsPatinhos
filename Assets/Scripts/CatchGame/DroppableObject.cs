@@ -6,8 +6,9 @@ namespace CatchGame
 {
     public class DroppableObject : MonoBehaviour
     {
+        [SerializeField] bool isExtraDuck;
         [SerializeField] int score;
-        public static event Action<int> OnCautch;
+        public static event Action<bool, int> OnCautch;
         
         [SerializeField] SpriteRenderer sprite;
         [SerializeField] bool rotateSprite;
@@ -16,7 +17,7 @@ namespace CatchGame
         {
             if (!other.gameObject.CompareTag("Catcher")) return;
             
-            OnCautch?.Invoke(score);
+            OnCautch?.Invoke(isExtraDuck, score);
             Destroy();
         }
         
