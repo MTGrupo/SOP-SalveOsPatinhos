@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5420963832569982285}
-  - component: {fileID: 2826397326717175897}
   - component: {fileID: 9218255896977404695}
+  - component: {fileID: 5599656254276922164}
   m_Layer: 5
   m_Name: Dialogo Coqueiro
   m_TagString: Untagged
@@ -38,29 +38,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.00036621, y: 0.0018311}
   m_SizeDelta: {x: 1920, y: 1024.1}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2826397326717175897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3869445008857601138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef968d3d5aca45d582322b18a0e2a08d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialoguePanel: {fileID: 3563112047763106636}
-  speaker: {fileID: 1717023051990931723}
-  text: {fileID: 5998090814966463326}
-  nextButton: {fileID: 3927413919837199291}
-  closeButton: {fileID: 5170783893480221509}
-  zoneCloseDialogue: {fileID: 3412346457648366439}
-  dialogoObject: {fileID: 11400000, guid: dca07a99c1ad76e4c9023d3def110fa7, type: 2}
-  duck: {fileID: 0}
-  questionManager: {fileID: 9218255896977404695}
-  perguntas: {fileID: 11400000, guid: ccca26c24f11e544895808ac129e13ec, type: 2}
-  dialogDuckAguaDeCoco: {fileID: 0}
 --- !u!114 &9218255896977404695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,6 +61,30 @@ MonoBehaviour:
   isQuizFinished: 0
   isHits: 0
   cocos: []
+--- !u!114 &5599656254276922164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3869445008857601138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f6714a26a248d9b6c5647dc430c4d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialoguePanel: {fileID: 3563112047763106636}
+  speaker: {fileID: 1717023051990931723}
+  text: {fileID: 5998090814966463326}
+  nextButton: {fileID: 3927413919837199291}
+  closeButton: {fileID: 5170783893480221509}
+  zoneCloseDialogue: {fileID: 3412346457648366439}
+  zoneFinishDialogue: {fileID: 5624955755914307027}
+  dialogoObject: {fileID: 0}
+  duck: {fileID: 0}
+  questionManager: {fileID: 0}
+  perguntas: {fileID: 0}
+  dialogDuckAguaDeCoco: {fileID: 0}
 --- !u!1001 &8215224383644536832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -284,6 +285,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4083788764343449328, guid: edb80876c4ca7ea4fbf1d2b38223da1e, type: 3}
   m_PrefabInstance: {fileID: 8215224383644536832}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5624955755914307027 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4327269264765302227, guid: edb80876c4ca7ea4fbf1d2b38223da1e, type: 3}
+  m_PrefabInstance: {fileID: 8215224383644536832}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5998090814966463326 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2395678452777315166, guid: edb80876c4ca7ea4fbf1d2b38223da1e, type: 3}

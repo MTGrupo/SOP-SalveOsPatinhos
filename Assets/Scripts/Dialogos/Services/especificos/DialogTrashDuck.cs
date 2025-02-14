@@ -1,14 +1,14 @@
-using Assets.Scripts.Dialogos.Modal;
+﻿using Assets.Scripts.Dialogos.Modal;
 using Dialogos.Enum;
 
 namespace Dialogos.Services
 {
-    public class DialogIntro : DialogoBase, IChangeScene
+    public class DialogTrashDuck : DialogoBase, IChangeScene
     {
         protected override void ShowDialogo()
         {
             base.ShowDialogo();
-
+            nextButton.gameObject.SetActive(true);
             var tipoDialogo = dialogoObject.GetDialogoAt(index).TipoDialogoEnum;
             HandleSceneChange(tipoDialogo);
         }
@@ -17,13 +17,13 @@ namespace Dialogos.Services
         {
             if (tipoDialogoEnum == TipoDialogoEnum.ChangeScene)
             {
-                dialoguePanel.gameObject.SetActive(false);
-                GameManager.LoadTutorial();
+                dialoguePanel.SetActive(false);
+                GameManager.LoadMiniGame();
             }
             else
             {
-                dialoguePanel.gameObject.SetActive(true);
-            }
+                dialoguePanel.SetActive(true);
+            } 
         }
     }
 }

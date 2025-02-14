@@ -1,6 +1,5 @@
-using Dialogos.Data;
+﻿using Dialogos.Data;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = System.Random;
 
 namespace Dialogos.Services

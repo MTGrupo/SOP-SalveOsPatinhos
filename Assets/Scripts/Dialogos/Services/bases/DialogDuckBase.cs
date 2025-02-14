@@ -26,13 +26,21 @@ namespace Dialogos.Services
             
             if (zoneCloseDialogue == null) return;
             
-            if (dialogoObject.GetDialogoAt(index).TipoDialogoEnum == TipoDialogoEnum.LastSpeak || 
-                dialogoObject.GetDialogoAt(index).TipoDialogoEnum == TipoDialogoEnum.Buscando_Itens)
+            if (dialogoObject.GetDialogoAt(index).TipoDialogoEnum == TipoDialogoEnum.Buscando_Itens)
             {
                 nextButton.gameObject.SetActive(false);
                 zoneCloseDialogue.gameObject.SetActive(true);
                 return;
             }
+
+            if (dialogoObject.GetDialogoAt(index).TipoDialogoEnum == TipoDialogoEnum.FinisheDialog)
+            {
+                nextButton.gameObject.SetActive(false);
+                zoneCloseDialogue.gameObject.SetActive(false);
+                zoneFinishDialogue.gameObject.SetActive(true);
+                return;
+            }
+            
             
             nextButton.gameObject.SetActive(true);
             zoneCloseDialogue.gameObject.SetActive(false);

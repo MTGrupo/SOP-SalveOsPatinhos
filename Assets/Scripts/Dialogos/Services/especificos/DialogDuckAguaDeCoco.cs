@@ -1,4 +1,4 @@
-using DefaultNamespace.Inventory;
+﻿using DefaultNamespace.Inventory;
 using Dialogos.Enum;
 using UnityEngine;
 
