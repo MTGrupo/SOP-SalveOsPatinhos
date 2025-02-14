@@ -17,6 +17,8 @@ namespace Assets.Scripts.Dialogos.Modal
         [SerializeField] protected Button nextButton;
         [SerializeField] protected Button closeButton;
         [SerializeField] protected Button zoneCloseDialogue;
+        [SerializeField] protected Button zoneFinishDialogue;
+        
         
         public DialogoObject dialogoObject;
         private InputsBehaviour inputsBehaviour;
@@ -32,6 +34,8 @@ namespace Assets.Scripts.Dialogos.Modal
             if (zoneCloseDialogue)
                 zoneCloseDialogue.gameObject.SetActive(false);
             nextButton.gameObject.SetActive(false);
+            
+            zoneFinishDialogue.gameObject.SetActive(false);
         }
         
         public void SetDialogoObject(DialogoObject dialogo)
@@ -134,6 +138,9 @@ namespace Assets.Scripts.Dialogos.Modal
             
             if (zoneCloseDialogue)
                 zoneCloseDialogue.onClick.AddListener(OcultarDialogo);
+            
+            if (zoneFinishDialogue)
+                zoneFinishDialogue.onClick.AddListener(FinishedDialogo);
         }
         
     }
