@@ -40,6 +40,7 @@ namespace CatchGame
 
         private void Start()
         {
+            CatchGame.OnGameStarted += () => TotalScore = 0;
             DroppableObject.OnCautch += AddScore;
         }
     }
