@@ -46,6 +46,7 @@ namespace CatchGame
         
         void StartTimer()
         {
+            currentTime = 30;
             isPaused = false;
         }
         
