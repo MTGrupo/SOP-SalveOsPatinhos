@@ -10,7 +10,7 @@ namespace Dialogos.Services
     {
         [SerializeField] private Button btnSim;
         [SerializeField] private Button btnNao;
-        [SerializeField] private ObjectBase objectBase;
+        [SerializeField] protected ObjectBase objectBase;
         [SerializeField] private GameObject mensagemItem;
         
         private bool isShowMensagemItem;
@@ -46,8 +46,6 @@ namespace Dialogos.Services
                 nextButton.gameObject.SetActive(false);
                 isShowMensagemItem = true;
             }
-            
-            
         }
 
         protected override void EnableButtonsAfterAnimation()
@@ -59,22 +57,21 @@ namespace Dialogos.Services
                 btnSim.gameObject.SetActive(true);
                 btnNao.gameObject.SetActive(true);
             }
-            
         }
         
         protected override void ListenToEvents()
         {
             base.ListenToEvents();
-            btnSim.onClick.AddListener(EscolherSim);
-            btnNao.onClick.AddListener(EscolherNao);
+            btnSim.onClick.AddListener(ChooseYes);
+            btnNao.onClick.AddListener(ChooseNo);
         }
 
-        void EscolherSim()
+        void ChooseYes()
         {
             NextDialogo(); 
         }
 
-        void EscolherNao()
+        void ChooseNo()
         {
             OcultarDialogo();
         }
