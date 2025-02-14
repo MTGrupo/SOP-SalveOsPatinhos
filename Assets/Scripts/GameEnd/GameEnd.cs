@@ -14,38 +14,53 @@ namespace GameEnd
         [SerializeField] private AudioSource praiaSong;
         [SerializeField] private Collider2D endPoint;
         
-        [SerializeField] private Button openGameEndPainel;
+        [SerializeField] private Button openPainelButton;
         [SerializeField] private GameObject gameEndPainel;
         [SerializeField] private Button confirmButton;
         [SerializeField] private Button cancelButton;
-
-        void Awake()
-        {
-            DuckBehavior.OnDuckRescued += CheckRescuedDucks;
-            
-            openGameEndPainel.onClick.AddListener(() => openGameEndPainel.gameObject.SetActive(false));
-            openGameEndPainel.onClick.AddListener(() => gameEndPainel.SetActive(true));
-            
-            confirmButton.onClick.AddListener(() => gameEndPainel.SetActive(false));
-            confirmButton.onClick.AddListener(StartGameEndQuest);
-            
-            cancelButton.onClick.AddListener(() => gameEndPainel.SetActive(false));
-            cancelButton.onClick.AddListener(() => openGameEndPainel.gameObject.SetActive(true));
-        }
         
+        [SerializeField] private Movement movement;
+
         void CheckRescuedDucks()
         {
             if (DuckManager.RescuedCount < 19) return;
             
-            if(openGameEndPainel.gameObject.activeSelf) return;
+            if(openPainelButton.gameObject.activeSelf) return;
             
-            gameEndPainel.SetActive(true);
+            ShowGameEndPainel();
         }
 
         void StartGameEndQuest()
         {
+            HideGameEndPainel(true);
             endQuestText.gameObject.SetActive(true);
             initialPoint.enabled = true;
+        }
+        
+        void ShowGameEndPainel()
+        {
+            movement.Disable();
+            gameEndPainel.SetActive(true);
+
+            if (!openPainelButton.gameObject.activeSelf) return;
+            
+            openPainelButton.gameObject.SetActive(false);
+        }
+        
+        private void HideGameEndPainel()
+        {
+            movement.Enable();
+            gameEndPainel.SetActive(false);
+            openPainelButton.gameObject.SetActive(true);
+        }
+        
+        void HideGameEndPainel(bool isStartingQuest)
+        {
+            movement.Enable();
+            gameEndPainel.SetActive(false);
+            
+            if (isStartingQuest) return;
+            openPainelButton.gameObject.SetActive(true);
         }
 
         void OnTriggerEnter2D(Collider2D other)
@@ -64,10 +79,18 @@ namespace GameEnd
         {
             DuckBehavior.OnDuckRescued -= CheckRescuedDucks;
             
-            openGameEndPainel.onClick.RemoveAllListeners();
+            openPainelButton.onClick.RemoveListener(ShowGameEndPainel);
+            confirmButton.onClick.RemoveListener(StartGameEndQuest);
+            cancelButton.onClick.RemoveListener(HideGameEndPainel);
+        }
+        
+        void Awake()
+        {
+            DuckBehavior.OnDuckRescued += CheckRescuedDucks;
             
-            confirmButton.onClick.RemoveAllListeners();
-            cancelButton.onClick.RemoveAllListeners();
+            openPainelButton.onClick.AddListener(ShowGameEndPainel);
+            confirmButton.onClick.AddListener(StartGameEndQuest);
+            cancelButton.onClick.AddListener(HideGameEndPainel);
         }
     }
 }
