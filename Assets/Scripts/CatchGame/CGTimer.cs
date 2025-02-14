@@ -23,6 +23,11 @@ namespace CatchGame
                 OnTimeOver?.Invoke();
                 return;
             }
+
+            if (currentTime < 10)
+            {
+                timerText.color = Color.red;
+            }
             
             currentTime -= Time.deltaTime;
             UpdateTimerUI();
