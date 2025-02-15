@@ -97,6 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3753114165796877209}
   - component: {fileID: 4919716420271960202}
+  - component: {fileID: 3071706685969754238}
   m_Layer: 0
   m_Name: Grafico
   m_TagString: Player
@@ -140,6 +141,18 @@ MonoBehaviour:
   _swimParameter: isSwimming
   _buriedParameter: 
   _quackParameter: 
+--- !u!210 &3071706685969754238
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4694132997003667923}
+  m_Enabled: 1
+  m_SortingLayerID: 2115649195
+  m_SortingLayer: -1
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &4921332446758901547
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,14 +208,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Movement>k__BackingField: {fileID: 6398801785595304622}
   <InteractableZone>k__BackingField: {fileID: 4560275314301732795}
-  dialogManagers:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!50 &7422051366502057700
 Rigidbody2D:
   serializedVersion: 5
