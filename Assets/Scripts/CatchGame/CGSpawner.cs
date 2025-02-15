@@ -17,11 +17,9 @@ namespace CatchGame
 
         void SpawnDroppableObjects()
         {
-            var topScreen = Camera.main.ScreenToWorldPoint(new Vector3(0, Screen.height, 0)).y;
-
             var droppableObject = DrawDroppableObjects();
             
-            var randomPosition = new Vector3(Random.Range(CatchGame.Instance.Limit.bounds.min.x, CatchGame.Instance.Limit.bounds.max.x), topScreen, 0);
+            var randomPosition = new Vector3(Random.Range(CatchGame.Instance.Limit.bounds.min.x, CatchGame.Instance.Limit.bounds.max.x), CatchGame.Instance.Limit.bounds.max.y, 0);
             Instantiate(droppableObjects[droppableObject], randomPosition, Quaternion.identity);
         }
 
@@ -29,7 +27,7 @@ namespace CatchGame
         {
             var drawValue = Random.Range(0, 11);
 
-            if (duckSpawnCount > maxDuckSpawns)
+            if (duckSpawnCount >= maxDuckSpawns)
             {
                 return Random.Range(0, droppableObjects.Count-1);
             }
