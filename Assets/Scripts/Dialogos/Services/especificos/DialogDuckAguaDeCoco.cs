@@ -23,23 +23,24 @@ namespace Dialogos.Services
                 dialogoObject.GetDialogoAt(index).texto = "Tome aqui pato, seus 3 cocos.";
                 nextButton.gameObject.SetActive(true);
                 zoneCloseDialogue.gameObject.SetActive(false);
-                DeliverCoco();
+                base.ShowDialogo();
             });
             
             base.Start();
         }
         protected override void ShowDialogo()
         {
-            base.ShowDialogo();
             if (itemChecker.CheckAndExecute(dialogoObject.GetDialogoAt(index).id)) return;
-            base.ShowDialogo();
             
             if (dialogoObject.GetDialogoAt(index).TipoDialogoEnum == TipoDialogoEnum.Buscando_Itens)
             {
                 dialogoObject.GetDialogoAt(index).texto = "Claro Pato, irei pegar os cocos no coqueiro.";
                 nextButton.gameObject.SetActive(false);
                 isDialogoCoco = true;
+                base.ShowDialogo();
             }
+            
+            base.ShowDialogo();
         }
 
         protected override void FinishedDialogo()
