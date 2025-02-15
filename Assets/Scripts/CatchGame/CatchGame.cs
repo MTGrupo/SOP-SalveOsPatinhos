@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Utils;
 
 namespace CatchGame
 {
@@ -11,7 +12,7 @@ namespace CatchGame
         
         public static CatchGame Instance { get; private set; }
         
-        public static Action OnGameStarted;
+        public static event Action OnGameStarted;
         
         [SerializeField] CGScore score;
         
@@ -30,6 +31,13 @@ namespace CatchGame
             UpdateDuckAmount();
             isFinished = true;
         }
+
+        void StartGame()
+        {
+            isFinished = false;
+            ducksRecued = 0;
+            OnGameStarted?.Invoke();
+        }
         
         void FinishGame()
         {
@@ -38,7 +46,7 @@ namespace CatchGame
             GameManager.LoadGame(true);
         }
         
-        public static void SetResult(int CatchGameID, bool isFinished, int ducksRecued)
+        static void SetResult(int CatchGameID, bool isFinished, int ducksRecued)
         {
             results[CatchGameID] = new CatchGameResult { isFinished = isFinished, ducksRecued = ducksRecued };
         }
@@ -48,7 +56,7 @@ namespace CatchGame
             return results.ContainsKey(CatchGameID) ? results[CatchGameID] : new CatchGameResult();
         }
         
-        private int GetAvailableCatchGameID()
+        int GetAvailableCatchGameID()
         {
             if (results.Count == 0) return 1;
 
@@ -81,14 +89,16 @@ namespace CatchGame
             public int ducksRecued;
         }
         
-        private void OnDestroy()
+        void OnDestroy()
         {
             CGTimer.OnTimeOver -= ShowCurrentResults;
+            TutorialController.OnTutorialClosed -= StartGame;
         }
 
-        private void Start()
+        void Start()
         {
             CGTimer.OnTimeOver += ShowCurrentResults;
+            TutorialController.OnTutorialClosed += StartGame;
         }
 
         void Awake()
