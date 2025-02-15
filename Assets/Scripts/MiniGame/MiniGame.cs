@@ -19,12 +19,13 @@ namespace MiniGame
         private static TrashBin trashBin => TrashBin.instance;
 
         public static MiniGame instance { get; private set; }
-        public static event System.Action OnGameFinished;
+        public static event Action OnGameFinished;
 
         public UnityEvent<string> onMessageUpdated;
 
         private bool isDuckCollect = false;
-        public static bool isFinished = false;
+        
+        private static Dictionary<int, bool> miniGamesState = new();
         
         private void Awake()
         {
@@ -74,9 +75,19 @@ namespace MiniGame
         
         void FinishGame()
         {
-            isFinished = true;
+            setState(MiniGameSession.currentMiniGameID, true);
             instance = null;
             GameManager.LoadGame(true);
+        }
+        
+        static void setState(int miniGameID, bool isFinished)
+        {
+            miniGamesState[miniGameID] = isFinished;
+        }
+        
+        public static bool GetState(int miniGameID)
+        {
+            return miniGamesState.ContainsKey(miniGameID) ? miniGamesState[miniGameID] : false;
         }
         
         private void SpawnDraggableObjects()

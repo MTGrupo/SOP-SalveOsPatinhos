@@ -2,21 +2,24 @@
 using Dialogos.Services;
 using Duck;
 using Interaction;
+using MiniGame;
 using UnityEngine;
 
 namespace Lixeira
 {
     public class TrashBinDialog : InteractableObject, IInteraction
     {
-        [SerializeField] private DialogTrashDuck dialogManager;
+        [SerializeField] private DialogTrashDuck dialog;
         [SerializeField] private DuckBehavior duck;
         [SerializeField] private Collider2D colisor;
         [SerializeField] private GameObject iconeInteracao;
+        [SerializeField] private int miniGameID;
         
         public void OnPlayerInteraction()
         {
             GameManager.SaveGameData();
-            dialogManager.StartDialogo();
+            MiniGameSession.currentMiniGameID = miniGameID;
+            dialog.StartDialogo();
         }
 
         public void EnableDuck()
@@ -30,7 +33,6 @@ namespace Lixeira
         {
             RemoveObject(colisor);
         }
-        
         
         private IEnumerator Start()
         {
@@ -54,7 +56,7 @@ namespace Lixeira
             duck.gameObject.SetActive(false);
             
             // O minigame já foi finalizado? se sim, soltar o pato, desativar o ícone de interação e parar processo.
-            if (MiniGame.MiniGame.isFinished)
+            if (MiniGame.MiniGame.GetState(miniGameID))
             {
                 EnableDuck();
                 iconeInteracao.SetActive(false);
