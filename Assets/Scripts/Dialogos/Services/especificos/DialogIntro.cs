@@ -18,7 +18,7 @@ namespace Dialogos.Services
             if (tipoDialogoEnum == TipoDialogoEnum.ChangeScene)
             {
                 dialoguePanel.gameObject.SetActive(false);
-                GameManager.LoadTutorial();
+                GameManager.LoadGame();
             }
             else
             {

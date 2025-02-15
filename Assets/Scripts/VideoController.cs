@@ -83,8 +83,8 @@ public class VideoController : MonoBehaviour
     {
         switch (nextScene)
         {
-            case "tutorial":
-                GameManager.LoadTutorial();
+            case "praia":
+                GameManager.LoadGame();
                 return;
             case "menu":
                 AudioController.StopSong();

@@ -1033,7 +1033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoFileName: introducao.mp4
-  nextScene: tutorial
+  nextScene: praia
   skipText: {fileID: 62457049}
   videoPlayer: {fileID: 1484162341}
 --- !u!1 &1860415850
