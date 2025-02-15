@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Utils;
 
 namespace CatchGame
@@ -21,14 +23,23 @@ namespace CatchGame
         bool isFinished;
         int ducksRecued;
 
+        [SerializeField] GameObject resultsContent;
+        [SerializeField] TextMeshProUGUI scoreText;
+        [SerializeField] TextMeshProUGUI ducksRecuedText;
+        [SerializeField] Button finishGameButton;
+        [SerializeField] Button restartGameButton;
+
         void ShowCurrentResults()
         {
             UpdateCurrentResults();
+            resultsContent.SetActive(true);
         }
         
         void UpdateCurrentResults()
         {
             UpdateDuckAmount();
+            scoreText.text = score.TotalScore.ToString();
+            ducksRecuedText.text = ducksRecued.ToString();
             isFinished = true;
         }
 
@@ -93,12 +104,19 @@ namespace CatchGame
         {
             CGTimer.OnTimeOver -= ShowCurrentResults;
             TutorialController.OnTutorialClosed -= StartGame;
+            
+            finishGameButton.onClick.RemoveListener(FinishGame);
+            restartGameButton.onClick.RemoveAllListeners();
         }
 
         void Start()
         {
             CGTimer.OnTimeOver += ShowCurrentResults;
             TutorialController.OnTutorialClosed += StartGame;
+            
+            finishGameButton.onClick.AddListener(FinishGame);
+            restartGameButton.onClick.AddListener(StartGame);
+            restartGameButton.onClick.AddListener(() => resultsContent.SetActive(false));
         }
 
         void Awake()
