@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 891dad11c45e6654a844b369b0799e93
+guid: d33496c3a24e1074c96399ddfe244c74
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -81,7 +81,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Standalone
+    buildTarget: Win64
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -107,7 +107,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: iOS
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -136,45 +136,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pato coco_0
+      name: mao_1_0
       rect:
         serializedVersion: 2
-        x: 67
-        y: 43
-        width: 76
-        height: 100
-      alignment: 9
-      pivot: {x: 0.5, y: 0.06}
+        x: 192
+        y: 341
+        width: 178
+        height: 218
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7d7c4c04dd693146ae4362601a82690
-      internalID: -1632593239
+      spriteID: d7977bf421da5094cbc571dafff58bf7
+      internalID: -1821778776
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pato coco_1
+      name: mao_1_1
       rect:
         serializedVersion: 2
-        x: 253
-        y: 48
-        width: 105
-        height: 105
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 192
+        y: 101
+        width: 178
+        height: 218
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 131ba295572f5f641a32d92e07711a21
-      internalID: -410811
+      spriteID: 6dd017bc63fc5b740bde3d7d1c1f4d8e
+      internalID: 1381349593
       vertices: []
       indices: 
       edges: []
@@ -183,7 +183,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b13f6c0d84f1cdd489f9c639b4e7f801
+    spriteID: 862ed50b6629501489041adec5aac127
     internalID: 0
     vertices: []
     indices: 
@@ -193,8 +193,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pato coco_0: -1632593239
-      pato coco_1: -410811
+      mao_1_0: -1821778776
+      mao_1_1: 1381349593
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
