@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using Assets.Scripts.Dialogos.Modal;
-using Dialogos.Enum;
 using Duck;
 using UnityEngine;
 
