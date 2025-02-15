@@ -45,6 +45,7 @@ namespace Assets.Scripts.Dialogos.Modal
         
         public void StartDialogo()
         {
+            nextButton.gameObject.SetActive(true);
             // inputsBehaviour.gameObject.SetActive(false);
             ShowDialogo();
         }

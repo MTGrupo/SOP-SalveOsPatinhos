@@ -5,12 +5,6 @@ namespace Dialogos.Services
 {
     public class DialogIntro : DialogoBase, IChangeScene
     {
-        protected override void Start()
-        {
-            base.Start();
-            nextButton.gameObject.SetActive(true);
-        }
-
         protected override void ShowDialogo()
         {
             base.ShowDialogo();
