@@ -25,7 +25,7 @@ namespace CatchGame
         
         private void OnTriggerExit2D(Collider2D other)
         {
-            if(CatchGame.Instance.Limit.bounds.Contains(transform.position)) return;
+            if(parent.transform.position.y > CatchGame.Instance.Limit.bounds.min.y) return;
             
             DestroyObject();
         }
