@@ -23,7 +23,7 @@ namespace GameEnd
 
         void CheckRescuedDucks()
         {
-            if (DuckManager.RescuedCount < 19) return;
+            if (DuckManager.RescuedCount == 1) return;
             
             if(openPainelButton.gameObject.activeSelf) return;
             
