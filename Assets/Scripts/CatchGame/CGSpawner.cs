@@ -10,14 +10,37 @@ namespace CatchGame
         
         [SerializeField] float spawnMinRate;
         [SerializeField] float spawnMaxRate;
+        
+        [SerializeField] int maxDuckSpawns;
+        
+        int duckSpawnCount = 0;
 
         void SpawnDroppableObjects()
         {
             var topScreen = Camera.main.ScreenToWorldPoint(new Vector3(0, Screen.height, 0)).y;
+
+            var droppableObject = DrawDroppableObjects();
             
-            var randomIndex = Random.Range(0, droppableObjects.Count);
-            var randomPosition = new Vector3(Random.Range(CatchGame.Instance.Limit.bounds.min.x, CatchGame.Instance.Limit.bounds.max.x), topScreen+2, 0);
-            Instantiate(droppableObjects[randomIndex], randomPosition, Quaternion.identity);
+            var randomPosition = new Vector3(Random.Range(CatchGame.Instance.Limit.bounds.min.x, CatchGame.Instance.Limit.bounds.max.x), topScreen, 0);
+            Instantiate(droppableObjects[droppableObject], randomPosition, Quaternion.identity);
+        }
+
+        int DrawDroppableObjects()
+        {
+            var drawValue = Random.Range(0, 11);
+
+            if (duckSpawnCount > maxDuckSpawns)
+            {
+                return Random.Range(0, droppableObjects.Count-1);
+            }
+            
+            if (drawValue < 2)
+            {
+                duckSpawnCount++;
+                return 2;
+            }
+            
+            return Random.Range(0, droppableObjects.Count-1);
         }
         
         void StopSpawning()
