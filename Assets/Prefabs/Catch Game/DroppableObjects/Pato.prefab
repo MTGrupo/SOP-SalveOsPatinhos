@@ -50,15 +50,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1746728148221080289, guid: 4d7eeb46701f46944a60e73d5266b1d6, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1746728148221080289, guid: 4d7eeb46701f46944a60e73d5266b1d6, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1746728148221080289, guid: 4d7eeb46701f46944a60e73d5266b1d6, type: 3}
       propertyPath: m_LocalScale.z
-      value: 4.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1746728148221080289, guid: 4d7eeb46701f46944a60e73d5266b1d6, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -66,15 +66,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2102085886821863624, guid: 4d7eeb46701f46944a60e73d5266b1d6, type: 3}
       propertyPath: score
-      value: 100
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102085886821863624, guid: 4d7eeb46701f46944a60e73d5266b1d6, type: 3}
+      propertyPath: isExtraDuck
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2102085886821863624, guid: 4d7eeb46701f46944a60e73d5266b1d6, type: 3}
       propertyPath: rotateSprite
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2949214427010629338, guid: 4d7eeb46701f46944a60e73d5266b1d6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d773132e829c0e2448cfa41ca845e9aa, type: 3}
+    - target: {fileID: 2949214427010629338, guid: 4d7eeb46701f46944a60e73d5266b1d6, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2949214427010629338, guid: 4d7eeb46701f46944a60e73d5266b1d6, type: 3}
       propertyPath: m_Color.g
@@ -82,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2949214427010629338, guid: 4d7eeb46701f46944a60e73d5266b1d6, type: 3}
       propertyPath: m_Color.r
-      value: 0.9469855
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3210870142819832744, guid: 4d7eeb46701f46944a60e73d5266b1d6, type: 3}
       propertyPath: score
@@ -99,6 +107,14 @@ PrefabInstance:
     - target: {fileID: 5312074799502966587, guid: 4d7eeb46701f46944a60e73d5266b1d6, type: 3}
       propertyPath: m_GravityScale
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8724240720826671624, guid: 4d7eeb46701f46944a60e73d5266b1d6, type: 3}
+      propertyPath: m_Size.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8724240720826671624, guid: 4d7eeb46701f46944a60e73d5266b1d6, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
