@@ -52,7 +52,7 @@ namespace CatchGame
         
         void FinishGame()
         {
-            SetResult(GetAvailableCatchGameID(), isFinished, ducksRecued);
+            SetResult(MiniGameSession.currentMiniGameID, isFinished, ducksRecued);
             Instance = null;
             GameManager.LoadGame(true);
         }
@@ -65,13 +65,6 @@ namespace CatchGame
         public static CatchGameResult GetResult(int catchGameID)
         {
             return results.ContainsKey(catchGameID) ? results[catchGameID] : new CatchGameResult();
-        }
-        
-        int GetAvailableCatchGameID()
-        {
-            if (results.Count == 0) return 1;
-
-            return results.Keys.Max() + 1;
         }
         
         void UpdateDuckAmount()
