@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Utils
@@ -13,6 +14,8 @@ namespace Utils
         [SerializeField] Button close;
         [SerializeField] Button nextPage;
         [SerializeField] Button previousPage;
+
+        public static event Action OnTutorialClosed;
         
         public bool IsOPen {
             get => content.gameObject.activeInHierarchy;
@@ -22,7 +25,7 @@ namespace Utils
 
                 if (value) return;
                 
-                CatchGame.CatchGame.OnGameStarted?.Invoke();
+                OnTutorialClosed?.Invoke();
             }
         }
         
@@ -33,8 +36,8 @@ namespace Utils
                 pages[i].gameObject.SetActive(i == currentPage);
             }
             
-            previousPage.interactable = currentPage > 0;
-            nextPage.interactable = currentPage < pages.Length - 1;
+            previousPage.gameObject.SetActive(currentPage > 0);
+            nextPage.gameObject.SetActive(currentPage < pages.Length - 1);
         }
         
         void NextPage()
