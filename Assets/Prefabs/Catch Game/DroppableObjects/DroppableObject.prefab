@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7caf6bed98b14d8d977a7f302ec81698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 4843745937716807346}
+  isExtraDuck: 0
   score: 0
   sprite: {fileID: 2949214427010629338}
   rotateSprite: 0
