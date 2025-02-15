@@ -16,7 +16,7 @@ namespace MiniGame
         [field: SerializeField]
         public Collider Limit { get; private set; }
         
-        private static TrashBin trashBin => TrashBin.instance;
+        [SerializeField] TrashBin trashBin;
 
         public static MiniGame instance { get; private set; }
         public static event Action OnGameFinished;

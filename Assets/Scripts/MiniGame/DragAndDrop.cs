@@ -18,7 +18,7 @@ namespace MiniGame
         private bool isOnTrashBin;
         private bool isSuperimposed;
 
-        private static TrashBin trashBin => TrashBin.instance;
+        [SerializeField] TrashBin trashBin;
         private static MiniGame miniGame => MiniGame.instance;
         
         public bool IsDragging
@@ -113,6 +113,11 @@ namespace MiniGame
         private static Vector3 GetMousePosition()
         {
             return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }
+
+        void Awake()
+        {
+            trashBin = FindObjectOfType<TrashBin>();
         }
 
 #if UNITY_EDITOR
