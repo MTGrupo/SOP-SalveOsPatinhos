@@ -5,5 +5,6 @@ public enum GameState
 	Vila = 2,
 	Praia = 3,
 	MiniGame = 4,
-	Creditos = 5
+	CatchGame = 5,
+	Creditos = 6
 }

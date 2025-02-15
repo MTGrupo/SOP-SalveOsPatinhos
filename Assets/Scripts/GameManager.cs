@@ -115,6 +115,11 @@ public class GameManager : MonoBehaviour
 	{
 		LoadScene((int)GameState.MiniGame);
 	}
+	
+	public static void LoadCatchGame()
+	{
+		LoadScene((int)GameState.CatchGame);
+	}
 
 	public static void LoadIntro()
 	{

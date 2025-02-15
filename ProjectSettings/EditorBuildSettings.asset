@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MiniGame.unity
     guid: fcaed91cd26f7e8448d6bedd22730508
   - enabled: 1
+    path: Assets/Scenes/Catch Game.unity
+    guid: da9789c8f1aeeda4d8be8c7438b2e1be
+  - enabled: 1
     path: "Assets/Scenes/Cr\xE9ditos.unity"
     guid: 06141e60927466a4194364a67fad1256
   m_configObjects: {}
