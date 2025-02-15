@@ -6,6 +6,8 @@ namespace CatchGame
 {
     public class DroppableObject : MonoBehaviour
     {
+        [SerializeField] GameObject parent;
+        
         [SerializeField] bool isExtraDuck;
         [SerializeField] int score;
         public static event Action<bool, int> OnCautch;
@@ -18,14 +20,14 @@ namespace CatchGame
             if (!other.gameObject.CompareTag("Catcher")) return;
             
             OnCautch?.Invoke(isExtraDuck, score);
-            Destroy();
+            DestroyObject();
         }
         
         private void OnTriggerExit2D(Collider2D other)
         {
             if(CatchGame.Instance.Limit.bounds.Contains(transform.position)) return;
             
-            Destroy();
+            DestroyObject();
         }
 
         void RotateSprite()
@@ -36,19 +38,19 @@ namespace CatchGame
             sprite.transform.rotation = Quaternion.Euler(0, 0, randomRotation);
         }
         
-        void Destroy()
+        void DestroyObject()
         {
-            Destroy(gameObject);
+            Destroy(parent);
         }
         
         void OnDestroy()
         {
-            CGTimer.OnTimeOver -= Destroy;
+            CGTimer.OnTimeOver -= DestroyObject;
         }
 
         void Start()
         {
-            CGTimer.OnTimeOver += Destroy;
+            CGTimer.OnTimeOver += DestroyObject;
             RotateSprite();
         }
     }
