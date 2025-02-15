@@ -28,8 +28,8 @@ MonoBehaviour:
   - id: 3
     orador: 
     typeSpeaker: 0
-    texto: "Claro, vou te ajudar! N\xE3o se preocupe."
-    TipoDialogoEnum: 0
+    texto: "N\xE3o se preocupe, eu tenho uma p\xE1 aqui para te ajudar"
+    TipoDialogoEnum: 4
   - id: 0
     orador: Pato
     typeSpeaker: 1
