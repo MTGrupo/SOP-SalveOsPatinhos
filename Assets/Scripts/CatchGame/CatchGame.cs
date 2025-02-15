@@ -57,14 +57,14 @@ namespace CatchGame
             GameManager.LoadGame(true);
         }
         
-        static void SetResult(int CatchGameID, bool isFinished, int ducksRecued)
+        static void SetResult(int catchGameID, bool isFinished, int ducksRecued)
         {
-            results[CatchGameID] = new CatchGameResult { isFinished = isFinished, ducksRecued = ducksRecued };
+            results[catchGameID] = new CatchGameResult { isFinished = isFinished, ducksRecued = ducksRecued };
         }
 
-        public static CatchGameResult GetResult(int CatchGameID)
+        public static CatchGameResult GetResult(int catchGameID)
         {
-            return results.ContainsKey(CatchGameID) ? results[CatchGameID] : new CatchGameResult();
+            return results.ContainsKey(catchGameID) ? results[catchGameID] : new CatchGameResult();
         }
         
         int GetAvailableCatchGameID()
