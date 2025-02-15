@@ -46,6 +46,7 @@ namespace CatchGame
         
         void StartTimer()
         {
+            timerText.color = Color.black;
             currentTime = 30;
             isPaused = false;
         }
