@@ -14,6 +14,7 @@ namespace CatchGame
             if (!isDragging) return;
 
             var mousePosition = GetMousePosition();
+            mousePosition.z = transform.position.z;
             
             if(!CatchGame.Instance.Limit.bounds.Contains(mousePosition)) return;
             
@@ -51,6 +52,7 @@ namespace CatchGame
 
         void Start()
         {
+            CatchGame.OnGameStarted += () => transform.position = new Vector3(0, transform.position.y, transform.position.z);
             DroppableObject.OnCautch += (_, _) => OnCautch();
         }
     }
