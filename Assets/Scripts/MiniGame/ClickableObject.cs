@@ -99,6 +99,11 @@ namespace MiniGame
             }
         }
         
+        private void OnDestroy()
+        {
+            clickableObjects.Remove(this);
+        }
+        
         private void Awake()
         {
             Index = GetObjectCount();
