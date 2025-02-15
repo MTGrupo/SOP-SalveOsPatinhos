@@ -9,14 +9,9 @@ namespace Dialogos.Services
     {
         [SerializeField] private ObjectBase objectBase;
         [SerializeField] private GameObject mensagemItem;
+        [SerializeField] private Animator mensagemAnimator;
         
         private bool isShowMensagemItem;
-        
-        protected override void Start()
-        {
-            base.Start();
-            mensagemItem.SetActive(false);
-        }
 
         protected override void ShowDialogo()
         {
@@ -26,7 +21,8 @@ namespace Dialogos.Services
             {
                 objectBase.gameObject.SetActive(true);
                 nextButton.gameObject.SetActive(false);
-                isShowMensagemItem = true;
+                mensagemItem.SetActive(true);
+                mensagemAnimator.SetTrigger("open");
             }
         }
 
@@ -36,7 +32,6 @@ namespace Dialogos.Services
             
             if (isShowMensagemItem)
             {
-                mensagemItem.SetActive(true);
                 StartCoroutine(HideMensagemItemAfterDelay(4.5f));
             }
         }
@@ -44,8 +39,7 @@ namespace Dialogos.Services
         IEnumerator HideMensagemItemAfterDelay(float delay)
         {
             yield return new WaitForSeconds(delay);
-            mensagemItem.SetActive(false);
-            isShowMensagemItem = false;
+            mensagemAnimator.SetTrigger("open");
         }
     }
 }

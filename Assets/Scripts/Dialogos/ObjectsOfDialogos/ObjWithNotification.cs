@@ -7,18 +7,21 @@ namespace Dialogos.ObjectsOfDialogos
     {
         [SerializeField] private DialogoBase dialogoBase;
         [SerializeField] private GameObject notification;
+        [SerializeField] private Animator animator;
+        
         public override void OnPlayerInteraction()
         {
             dialogoBase.NextDialogoNotShow();
             notification.SetActive(true);
             
+            animator.SetTrigger("open");
             Invoke("HideNotification", 3f);
             
             base.OnPlayerInteraction();
         }
         void HideNotification()
         {
-            notification.SetActive(false);
+            animator.SetTrigger("open");
         }
         
     }

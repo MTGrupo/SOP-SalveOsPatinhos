@@ -12,6 +12,7 @@ namespace Dialogos.Services
         [SerializeField] private Button btnNao;
         [SerializeField] protected ObjectBase objectBase;
         [SerializeField] private GameObject mensagemItem;
+        [SerializeField] private Animator animator; 
         
         private bool isShowMensagemItem;
         
@@ -21,7 +22,7 @@ namespace Dialogos.Services
             
             btnSim.gameObject.SetActive(false);
             btnNao.gameObject.SetActive(false);
-            mensagemItem.SetActive(false);
+            mensagemItem.SetActive(true);
         }
 
         protected override void ShowDialogo()
@@ -44,7 +45,6 @@ namespace Dialogos.Services
             {
                 objectBase.gameObject.SetActive(true);
                 nextButton.gameObject.SetActive(false);
-                isShowMensagemItem = true;
             }
         }
 
@@ -79,20 +79,17 @@ namespace Dialogos.Services
         protected override void OnDialogFechado()
         {
             base.OnDialogFechado();
+            
+            mensagemItem.SetActive(true);
+            animator.SetTrigger("open");
 
-            if (isShowMensagemItem)
-            {
-                mensagemItem.SetActive(true);
-
-                StartCoroutine(HideMensagemItemAfterDelay(4.5f));
-            }
+            StartCoroutine(HideMensagemItemAfterDelay(3f));
         }
 
         IEnumerator HideMensagemItemAfterDelay(float delay)
         {
             yield return new WaitForSeconds(delay);
-            mensagemItem.SetActive(false);
-            isShowMensagemItem = false;
+            animator.SetTrigger("open");
         }
     }
 }
