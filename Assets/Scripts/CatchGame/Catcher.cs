@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace CatchGame
 {
@@ -34,26 +35,32 @@ namespace CatchGame
             
             isDragging = false;
         }
-        
+
+        private void ResetPlayerPosition()
+        {
+            transform.position = new Vector3(0, transform.position.y, transform.position.z);
+        }
+
         Vector3 GetMousePosition()
         {
             return Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
         
-        void OnCautch()
+        void OnCautch(bool isExtraDuck, int score)
         {
             animator.SetTrigger(_catchTrigger);
         }
         
         void OnDestroy()
         {
-            DroppableObject.OnCautch += (_, _) => OnCautch();
+            DroppableObject.OnCautch -= OnCautch;
+            CatchGame.OnGameStarted -= ResetPlayerPosition;
         }
 
         void Start()
         {
-            CatchGame.OnGameStarted += () => transform.position = new Vector3(0, transform.position.y, transform.position.z);
-            DroppableObject.OnCautch += (_, _) => OnCautch();
+            CatchGame.OnGameStarted += ResetPlayerPosition;
+            DroppableObject.OnCautch += OnCautch;
         }
     }
 }
