@@ -50,6 +50,7 @@ namespace CatchGame
         {
             totalScore = 0;
             extraDucks = 0;
+            scoreText.text = totalScore.ToString();
         }
 
         void OnScoreAdded()
