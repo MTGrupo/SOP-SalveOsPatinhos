@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed33277fb53f48828a8cd8c22a0b51fa, type: 3}
+  m_Name: Pato no Coqueiro
+  m_EditorClassIdentifier: 
+  dialogos:
+  - id: 1
+    orador: Pato
+    typeSpeaker: 1
+    texto: "Socorro, alg\xFAem nos ajude!"
+    TipoDialogoEnum: 0
+  - id: 2
+    orador: 
+    typeSpeaker: 0
+    texto: O que aconteceu patinho?
+    TipoDialogoEnum: 0
+  - id: 3
+    orador: Pato
+    typeSpeaker: 1
+    texto: "Eu e meus amigos subimos nesse coqueiro para pegar alguns c\xF4cos, mas
+      n\xE3o sabemos descer..."
+    TipoDialogoEnum: 0
+  - id: 0
+    orador: 
+    typeSpeaker: 0
+    texto: "N\xE3o se preocupe, podem pular com os c\xF4cos que eu irei peg\xE1-los!"
+    TipoDialogoEnum: 5
