@@ -56,7 +56,7 @@ namespace Duck
 			StringBuilder value = new(current.ToString("D2"));
 			
 			if(showMax)
-				value.AppendFormat(@"/{0:D2}", max);
+				value.AppendFormat(@"/{0:D2}", "20");
 			
 			countText.text = value.ToString();
 
