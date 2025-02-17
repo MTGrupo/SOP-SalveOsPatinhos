@@ -18,27 +18,28 @@ namespace Dialogos.Services
 
         private void Start()
         {
-            itemChecker.AddCondition(dialogId:2, itemName:"coco", requiredAmount: 3, () =>
-            {
-                dialogoObject.GetDialogoAt(index).texto = "Tome aqui pato, seus 3 cocos.";
-                nextButton.gameObject.SetActive(true);
-                zoneCloseDialogue.gameObject.SetActive(false);
-                base.ShowDialogo();
-            });
-            
+            itemChecker.AddCondition(dialogId: 2, itemName: "coco", requiredAmount: 3, 
+                trueAction: () =>
+                {
+                    dialogoObject.GetDialogoAt(index).texto = "Tome aqui pato, seus 3 cocos.";
+                    nextButton.gameObject.SetActive(true);
+                    zoneCloseDialogue.gameObject.SetActive(false);
+                    dialogoObject.GetDialogoAt(index).TipoDialogoEnum = TipoDialogoEnum.FinisheDialog;
+                    base.ShowDialogo();
+                },
+                falseAction: () =>
+                {
+                    dialogoObject.GetDialogoAt(index).texto = "Claro Pato, irei pegar os cocos no coqueiro.";
+                    nextButton.gameObject.SetActive(false);
+                    isDialogoCoco = true;
+                    dialogoObject.GetDialogoAt(index).TipoDialogoEnum = TipoDialogoEnum.Buscando_Itens;
+                    base.ShowDialogo();
+                });
             base.Start();
         }
         protected override void ShowDialogo()
         {
             if (itemChecker.CheckAndExecute(dialogoObject.GetDialogoAt(index).id)) return;
-            
-            if (dialogoObject.GetDialogoAt(index).TipoDialogoEnum == TipoDialogoEnum.Buscando_Itens)
-            {
-                dialogoObject.GetDialogoAt(index).texto = "Claro Pato, irei pegar os cocos no coqueiro.";
-                nextButton.gameObject.SetActive(false);
-                isDialogoCoco = true;
-                base.ShowDialogo();
-            }
             
             base.ShowDialogo();
         }
