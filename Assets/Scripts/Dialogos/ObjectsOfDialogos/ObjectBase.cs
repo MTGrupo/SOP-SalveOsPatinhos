@@ -82,8 +82,19 @@ namespace Dialogos.ObjectsOfDialogos
         private void InitializeSlots()
         {
             slots.Clear();
-            slots.AddRange(FindObjectsOfType<Slot>());
-            slots.Sort(CompareSlotNames);
+            
+            Slot[] foundSlots = FindObjectsOfType<Slot>();
+            
+            if (foundSlots.Length > 0)
+            {
+                slots.AddRange(foundSlots);
+                slots.Sort(CompareSlotNames);
+                Debug.Log($"{foundSlots.Length} slots encontrados e organizados.");
+            }
+            else
+            {
+                Debug.LogWarning("Nenhum slot encontrado na cena.");
+            }
         }
         
         private int CompareSlotNames(Slot a, Slot b)
@@ -92,12 +103,13 @@ namespace Dialogos.ObjectsOfDialogos
             int nB = ExtractNumber(b.name);
             return nA.CompareTo(nB);
         }
-
+        
         private int ExtractNumber(string name)
         {
             string numString = Regex.Match(name, @"\d+").Value;
             return int.TryParse(numString, out int number) ? number : 0;
         }
+
 #endif
         
     }
