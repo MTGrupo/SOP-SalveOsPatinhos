@@ -29,6 +29,16 @@ namespace CatchGame
         [SerializeField] Button finishGameButton;
         [SerializeField] Button restartGameButton;
 
+        void EnableLimit()
+        {
+            Limit.enabled = true;
+        }
+        
+        void DisableLimit()
+        {
+            Limit.enabled = false;
+        }
+        
         void ShowCurrentResults()
         {
             UpdateCurrentResults();
@@ -45,6 +55,7 @@ namespace CatchGame
 
         void StartGame()
         {
+            EnableLimit();
             isFinished = false;
             ducksRecued = 0;
             OnGameStarted?.Invoke();
@@ -96,6 +107,7 @@ namespace CatchGame
         void OnDestroy()
         {
             CGTimer.OnTimeOver -= ShowCurrentResults;
+            CGTimer.OnTimeOver -= DisableLimit;
             TutorialController.OnTutorialClosed -= StartGame;
             
             finishGameButton.onClick.RemoveListener(FinishGame);
@@ -105,6 +117,7 @@ namespace CatchGame
         void Start()
         {
             CGTimer.OnTimeOver += ShowCurrentResults;
+            CGTimer.OnTimeOver += DisableLimit;
             TutorialController.OnTutorialClosed += StartGame;
             
             finishGameButton.onClick.AddListener(FinishGame);
@@ -121,6 +134,7 @@ namespace CatchGame
             }
 
             Instance = this;
+            DisableLimit();
         }
     }
 }
