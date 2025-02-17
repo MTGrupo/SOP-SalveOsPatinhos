@@ -163,6 +163,7 @@ namespace Dialog
 		{
 			NextAction.performed -= NextActionPerformed;
 			CloseAction.performed -= CloseActionPerformed;
+			instance = null;
 		}
 
 		void OnDisable()
