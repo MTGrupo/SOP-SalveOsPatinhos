@@ -4,7 +4,7 @@ namespace Utils
 {
     public class ClickControllerSpeed : MonoBehaviour
     {
-        public static bool IsFastForward { get; private set; }
+        public static bool IsFastForward { get; set; }
         public static bool IsAnimationActive { get; set; }
         private void Update()
         {

@@ -12,13 +12,11 @@ namespace Utils
         static float typingSpeed = speedDefault;
         static int letterStep = 1;
         static string alignAnimationText = "left";
-        static bool useClickControllerSpeed = true;
         
         public static void AnimationSettings(
             float speed = 0.05f, 
             int step = 1, 
-            Alignment align = Alignment.Left, 
-            bool useClicked = true)
+            Alignment align = Alignment.Left)
         {
             if (speed <= 0) speed = speedDefault;
             if (step <= 0) step = letterStep;
@@ -26,16 +24,18 @@ namespace Utils
             typingSpeed = speed;
             letterStep = step;
             alignAnimationText = align.ToString().ToLower();
-            useClickControllerSpeed = useClicked;
         }
         
         public static IEnumerator StartAnimatorText(TextMeshProUGUI textMesh, string fullText, Action onFinished = null)
         {
+            Debug.Log("Animação de texto começou");  
+
             textMesh.text = "";
-            ClickControllerSpeed.IsAnimationActive = true;
             int length = fullText.Length;
 
             yield return AnimateTextByAlignment(textMesh, fullText, length);
+
+            Debug.Log("Animação de texto terminou");  
 
             onFinished?.Invoke();
             typingSpeed = speedDefault;
@@ -60,8 +60,7 @@ namespace Utils
             for (int i = 0; i <= fullText.Length; i += letterStep)
             {
                 textMesh.text = fullText.Substring(0, i);
-                float speed = isUseClickControllerSpeed();
-                yield return new WaitForSeconds(speed);
+                yield return new WaitForSeconds(typingSpeed);
             }
         }
 
@@ -73,14 +72,8 @@ namespace Utils
             {
                 animatedText = animatedText.Substring(0, length - i) + fullText.Substring(length - i, i);
                 textMesh.text = animatedText;
-                float speed = isUseClickControllerSpeed();
-                yield return new WaitForSeconds(speed);
+                yield return new WaitForSeconds(typingSpeed);
             }
-        }
-
-        private static float isUseClickControllerSpeed()
-        {
-            return useClickControllerSpeed && ClickControllerSpeed.IsFastForward ? fastTypingSpeed : typingSpeed;
         }
     }
 }

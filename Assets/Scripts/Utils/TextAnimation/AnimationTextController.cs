@@ -16,7 +16,7 @@ namespace Utils
         private void Start()
         {
             fullText = text.text;
-            AnimatorText.AnimationSettings(speed: speed, step: stepLetters, align: alignment, useClicked: useClickedFastAnimation);
+            AnimatorText.AnimationSettings(speed: speed, step: stepLetters, align: alignment);
             StartCoroutine(AnimatorText.StartAnimatorText(text, fullText));
         }
         

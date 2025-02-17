@@ -1,6 +1,5 @@
 ﻿using Dialogos;
 using Dialogos.Enum;
-using Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,17 +17,17 @@ namespace Assets.Scripts.Dialogos.Modal
         [SerializeField] protected Button closeButton;
         [SerializeField] protected Button zoneCloseDialogue;
         [SerializeField] protected Button zoneFinishDialogue;
-        
+        [SerializeField] protected Button speedAnimationDialogue;
         
         public DialogoObject dialogoObject;
-        // private InputsBehaviour inputsBehaviour;
         
         protected int index = 0;
         
+        private float currentTypingSpeed = 0.05f;  
+        private const float fastTypingSpeed = 0.0001f;  
+        
         protected virtual void Start()
         {
-            // inputsBehaviour = FindObjectOfType<InputsBehaviour>();
-            
             ListenToEvents();
             
             if (zoneCloseDialogue)
@@ -46,7 +45,6 @@ namespace Assets.Scripts.Dialogos.Modal
         public void StartDialogo()
         {
             nextButton.gameObject.SetActive(true);
-            // inputsBehaviour.gameObject.SetActive(false);
             ShowDialogo();
         }
         
@@ -70,7 +68,6 @@ namespace Assets.Scripts.Dialogos.Modal
         
         protected virtual void ShowDialogo()
         {
-            // inputsBehaviour.gameObject.SetActive(false);
             nextButton.interactable = false;
             
             if (closeButton)
@@ -81,21 +78,24 @@ namespace Assets.Scripts.Dialogos.Modal
     
             dialoguePanel.SetActive(true);
             var dialogueActual = dialogoObject.GetDialogoAt(index);
-
+            
+            if (speedAnimationDialogue)
+                speedAnimationDialogue.gameObject.SetActive(true);
+            
             if (dialogueActual.typeSpeaker == TypeSpeaker.SPEAK_PLAYER)
             {
                 string getNamePlayer = PlayerPrefs.GetString("playerName");
                 
-                AnimatorText.AnimationSettings(align: Alignment.Left,useClicked: false);
+                AnimatorText.AnimationSettings(align: Alignment.Left, speed: currentTypingSpeed);
                 StartCoroutine(AnimatorText.StartAnimatorText(speaker, getNamePlayer));
             }
             else
             {
-                AnimatorText.AnimationSettings(align: Alignment.Right, useClicked: false);
+                AnimatorText.AnimationSettings(align: Alignment.Right, speed: currentTypingSpeed);
                 StartCoroutine(AnimatorText.StartAnimatorText(speaker, dialogueActual.orador));
             }
             
-            AnimatorText.AnimationSettings(align: Alignment.Left, step: 1);
+            AnimatorText.AnimationSettings(align: Alignment.Left, step: 1, speed: currentTypingSpeed);
             StartCoroutine(AnimatorText.StartAnimatorText(text, dialogueActual.texto, EnableButtonsAfterAnimation));
         }
 
@@ -112,12 +112,13 @@ namespace Assets.Scripts.Dialogos.Modal
             {
                 zoneCloseDialogue.interactable = true;
             }
+            
+            if (speedAnimationDialogue)
+                speedAnimationDialogue.gameObject.SetActive(false);
         }
-
         
-        protected void OcultarDialogo()
+        protected virtual void OcultarDialogo()
         {
-            // inputsBehaviour.gameObject.SetActive(true);
             dialoguePanel.SetActive(false);
             OnDialogFechado();
         }
@@ -126,7 +127,6 @@ namespace Assets.Scripts.Dialogos.Modal
         
         protected virtual void FinishedDialogo()
         {
-            // inputsBehaviour.gameObject.SetActive(true);
             dialoguePanel.SetActive(false);
             index = 0;
         }
@@ -142,7 +142,26 @@ namespace Assets.Scripts.Dialogos.Modal
             
             if (zoneFinishDialogue)
                 zoneFinishDialogue.onClick.AddListener(FinishedDialogo);
+            
+            if (speedAnimationDialogue)
+                speedAnimationDialogue.onClick.AddListener(ToggleSpeedAnimation);
         }
         
+        private void ToggleSpeedAnimation()
+        {
+            if (currentTypingSpeed == fastTypingSpeed)
+            {
+                currentTypingSpeed = 0.05f;  
+                Debug.Log("Velocidade normal");
+            }
+            else
+            {
+                currentTypingSpeed = fastTypingSpeed; 
+                Debug.Log("Velocidade rápida");
+            }
+            
+            AnimatorText.AnimationSettings(speed: currentTypingSpeed);
+        }
+
     }
 }
