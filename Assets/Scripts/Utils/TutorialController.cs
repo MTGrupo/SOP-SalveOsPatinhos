@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Utils
@@ -11,9 +12,10 @@ namespace Utils
         
         int currentPage = 0;
         
-        [SerializeField] Button close;
+        [SerializeField] Button closeButton;
         [SerializeField] Button nextPage;
         [SerializeField] Button previousPage;
+        [SerializeField] Button continueButton;
 
         public static event Action OnTutorialClosed;
         
@@ -38,6 +40,7 @@ namespace Utils
             
             previousPage.gameObject.SetActive(currentPage > 0);
             nextPage.gameObject.SetActive(currentPage < pages.Length - 1);
+            continueButton.gameObject.SetActive(currentPage == pages.Length - 1);
         }
         
         void NextPage()
@@ -63,7 +66,8 @@ namespace Utils
 
         private void OnDestroy()
         {
-            close.onClick.RemoveListener(CloseTutorial);
+            closeButton.onClick.RemoveListener(CloseTutorial);
+            continueButton.onClick.RemoveListener(CloseTutorial);
             
             if (!nextPage && !previousPage) return;
             
@@ -73,7 +77,8 @@ namespace Utils
 
         void Start()
         {
-            close.onClick.AddListener(CloseTutorial);
+            closeButton.onClick.AddListener(CloseTutorial);
+            continueButton.onClick.AddListener(CloseTutorial);
 
             if (!nextPage && !previousPage) return;
             
