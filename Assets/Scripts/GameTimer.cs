@@ -29,12 +29,13 @@ public class GameTimer : MonoBehaviour, ISerializable
     void SetPause(bool pause)
     {
         isPaused = pause;
+
+        if (!pause) return;
+        GameManager.SaveGameData();
     }
 
     void OnDestroy()
     {
-        GameManager.SaveGameData();
-        
         GameManager.OnGamePaused -= SetPause;
         EndPoint.OnGameEnded -= SendScore;
         
