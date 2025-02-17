@@ -51,7 +51,7 @@ namespace Player
 
         async void DefineNameAfterAuthentication(bool isSignedIn)
         {
-            var name = GetLocalPlayerName() ?? "Jogador";
+            var name = GetLocalPlayerName();
 
             if (isSignedIn)
             {
@@ -64,7 +64,7 @@ namespace Player
     
         string GetLocalPlayerName()
         {
-            return PlayerPrefs.HasKey("playerName") ? PlayerPrefs.GetString("playerName") : null;
+            return PlayerPrefs.HasKey("playerName") ? PlayerPrefs.GetString("playerName") : "Jogador";
         }
 
         void OnDestroy()
