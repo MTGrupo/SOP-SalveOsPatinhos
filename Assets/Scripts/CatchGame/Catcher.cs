@@ -9,6 +9,7 @@ namespace CatchGame
         [SerializeField] Animator animator;
         
         bool isDragging = false;
+        Vector2 dragOffset;
 
         void Update()
         {
@@ -19,7 +20,7 @@ namespace CatchGame
             
             if(!CatchGame.Instance.Limit.bounds.Contains(mousePosition)) return;
             
-            transform.position = new Vector3(mousePosition.x, transform.position.y, transform.position.z);
+            transform.position = new Vector3(mousePosition.x - dragOffset.x, transform.position.y, transform.position.z);
         }
         
         void OnMouseDown()
@@ -27,6 +28,7 @@ namespace CatchGame
             if(!enabled) return;
             
             isDragging = true;
+            dragOffset = GetMousePosition() - transform.position;
         }
         
         void OnMouseUp()
