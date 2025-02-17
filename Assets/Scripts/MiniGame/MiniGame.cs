@@ -21,7 +21,7 @@ namespace MiniGame
         public static MiniGame instance { get; private set; }
         public static event Action OnGameFinished;
 
-        public UnityEvent<string> onMessageUpdated;
+        public static event Action<string> onMessageUpdated;
 
         private bool isDuckCollect = false;
         

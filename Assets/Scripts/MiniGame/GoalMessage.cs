@@ -7,16 +7,14 @@ namespace MiniGame
     {
         [SerializeField] private TextMeshProUGUI messageText;
         
-        private static MiniGame miniGame => MiniGame.instance;
-        
         void Start()
         {
-            miniGame.onMessageUpdated.AddListener(UpdateMessage);
+            MiniGame.onMessageUpdated += UpdateMessage;
         }
 
         void OnDisable()
         {
-            miniGame.onMessageUpdated.RemoveListener(UpdateMessage);
+            MiniGame.onMessageUpdated -= UpdateMessage;
         }
         
         void UpdateMessage(string message)
