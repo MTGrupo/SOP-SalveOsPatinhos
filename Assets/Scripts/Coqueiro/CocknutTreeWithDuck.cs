@@ -14,6 +14,7 @@ namespace Coqueiro
         [SerializeField] private List<DuckBehavior> ducks;
         [SerializeField] private Collider2D colisor;
         [SerializeField] private GameObject iconeInteracao;
+        [SerializeField] private GameObject duckOnTree;
         [SerializeField] private int miniGameID;
         
         public void OnPlayerInteraction()
@@ -51,14 +52,24 @@ namespace Coqueiro
             yield return new WaitWhile(() => GameManager.IsLoadingGameData);
             
             // Algum pato já foi resgatado? Se sim, desativar o ícone de interação e parar processo.
+            var isDuckRescued = false;
             foreach (var duck in ducks)
             {
-                if (!duck.IsRescued) continue;
+                if (!duck.IsRescued)
+                {
+                    duck.gameObject.SetActive(false);
+                    continue;
+                }
+
+                isDuckRescued = true;
+            }
+
+            if (isDuckRescued)
+            {
                 iconeInteracao.SetActive(false);
+                duckOnTree.SetActive(false);
                 yield break;
             }
-            
-            foreach (var duck in ducks) duck.gameObject.SetActive(false);
             
             // O minigame já foi finalizado? se sim, soltar a quantidade de patos resgatados, desativar o ícone de interação e parar processo.
             var catchGameResults = CatchGame.CatchGame.GetResult(miniGameID);
@@ -69,6 +80,7 @@ namespace Coqueiro
                     EnableDuck(i);
                 }
                 iconeInteracao.SetActive(false);
+                duckOnTree.SetActive(false);
                 yield break;
             }
             

@@ -228,6 +228,7 @@ MonoBehaviour:
   - {fileID: 0}
   colisor: {fileID: 278685735651855847}
   iconeInteracao: {fileID: 8548026107664610097}
+  duckOnTree: {fileID: 3916264867308977651}
   miniGameID: 0
 --- !u!1 &3916264867308977651
 GameObject:
