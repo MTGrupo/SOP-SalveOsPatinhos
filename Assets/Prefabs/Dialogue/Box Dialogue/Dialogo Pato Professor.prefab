@@ -57,6 +57,8 @@ MonoBehaviour:
   nextButton: {fileID: 0}
   closeButton: {fileID: 0}
   zoneCloseDialogue: {fileID: 0}
+  zoneFinishDialogue: {fileID: 0}
+  speedAnimationDialogue: {fileID: 2878163795596051697}
   dialogoObject: {fileID: 11400000, guid: 7479fb212b347cb408f27b85fc6739f8, type: 2}
   duck: {fileID: 0}
   questionManager: {fileID: 3867107402006402901}
@@ -194,6 +196,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edb80876c4ca7ea4fbf1d2b38223da1e, type: 3}
+--- !u!114 &2878163795596051697 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5560907695825240733, guid: edb80876c4ca7ea4fbf1d2b38223da1e, type: 3}
+  m_PrefabInstance: {fileID: 7700340277055243884}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5940690537159782556 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4083788764343449328, guid: edb80876c4ca7ea4fbf1d2b38223da1e, type: 3}

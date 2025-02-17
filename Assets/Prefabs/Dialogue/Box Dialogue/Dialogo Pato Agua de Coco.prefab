@@ -69,6 +69,7 @@ MonoBehaviour:
   closeButton: {fileID: 5438666857113832467}
   zoneCloseDialogue: {fileID: 2585982323882681393}
   zoneFinishDialogue: {fileID: 4807466483796492933}
+  speedAnimationDialogue: {fileID: 3717247765955360203}
   dialogoObject: {fileID: 0}
   duck: {fileID: 0}
   isDialogoCoco: 0
@@ -215,6 +216,17 @@ MonoBehaviour:
 --- !u!114 &2585982323882681393 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6726477934912279399, guid: edb80876c4ca7ea4fbf1d2b38223da1e, type: 3}
+  m_PrefabInstance: {fileID: 9131612516919834454}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3717247765955360203 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5560907695825240733, guid: edb80876c4ca7ea4fbf1d2b38223da1e, type: 3}
   m_PrefabInstance: {fileID: 9131612516919834454}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

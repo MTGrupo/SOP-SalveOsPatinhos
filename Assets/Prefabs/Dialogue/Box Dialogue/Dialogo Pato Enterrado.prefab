@@ -69,12 +69,14 @@ MonoBehaviour:
   closeButton: {fileID: 4063432558798874661}
   zoneCloseDialogue: {fileID: 5835945942455681031}
   zoneFinishDialogue: {fileID: 1766426024206520949}
+  speedAnimationDialogue: {fileID: 7635993663909822470}
   dialogoObject: {fileID: 0}
   duck: {fileID: 0}
   btnSim: {fileID: 8832772578647110216}
   btnNao: {fileID: 2760123075656506708}
   objectBase: {fileID: 0}
   mensagemItem: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!1001 &982965461237306208
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -397,6 +399,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7635993663909822470 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7231741029785637734, guid: e3ce299b37cbf6942bf174c36f07290e, type: 3}
+  m_PrefabInstance: {fileID: 982965461237306208}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &8832772578647110216 stripped

@@ -1242,6 +1242,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dialogo Intro
       objectReference: {fileID: 0}
+    - target: {fileID: 7706364233492599508, guid: e3990a0fda824094b900cda335eb8663, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8047904017529921157, guid: e3990a0fda824094b900cda335eb8663, type: 3}
       propertyPath: m_IsActive
       value: 1

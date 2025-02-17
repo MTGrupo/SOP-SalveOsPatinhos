@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &173526096255029060
 RectTransform:
   m_ObjectHideFlags: 0
@@ -57,6 +57,7 @@ MonoBehaviour:
   closeButton: {fileID: 6096133147417905493}
   zoneCloseDialogue: {fileID: 4323621962817905015}
   zoneFinishDialogue: {fileID: 6725100438353905603}
+  speedAnimationDialogue: {fileID: 3203615528434528397}
   dialogoObject: {fileID: 11400000, guid: 08094a9ede3a1b84da9cb10b612126dc, type: 2}
 --- !u!114 &7527486238104628674
 MonoBehaviour:
@@ -65,7 +66,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7706364233492599508}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea47e6780e3842bb8630caa1ddce0a06, type: 3}
   m_Name: 
@@ -164,7 +165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4859630883333159756, guid: edb80876c4ca7ea4fbf1d2b38223da1e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -190,6 +191,17 @@ GameObject:
 --- !u!114 &2727908570421344683 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4936698545380035515, guid: edb80876c4ca7ea4fbf1d2b38223da1e, type: 3}
+  m_PrefabInstance: {fileID: 7014874631578694160}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3203615528434528397 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5560907695825240733, guid: edb80876c4ca7ea4fbf1d2b38223da1e, type: 3}
   m_PrefabInstance: {fileID: 7014874631578694160}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

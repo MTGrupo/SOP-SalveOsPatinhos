@@ -80,6 +80,7 @@ MonoBehaviour:
   closeButton: {fileID: 5170783893480221509}
   zoneCloseDialogue: {fileID: 3412346457648366439}
   zoneFinishDialogue: {fileID: 5624955755914307027}
+  speedAnimationDialogue: {fileID: 4552584086386168477}
   dialogoObject: {fileID: 0}
   duck: {fileID: 0}
   questionManager: {fileID: 0}
@@ -223,7 +224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4859630883333159756, guid: edb80876c4ca7ea4fbf1d2b38223da1e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -261,6 +262,17 @@ GameObject:
 --- !u!114 &3927413919837199291 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4936698545380035515, guid: edb80876c4ca7ea4fbf1d2b38223da1e, type: 3}
+  m_PrefabInstance: {fileID: 8215224383644536832}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4552584086386168477 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5560907695825240733, guid: edb80876c4ca7ea4fbf1d2b38223da1e, type: 3}
   m_PrefabInstance: {fileID: 8215224383644536832}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

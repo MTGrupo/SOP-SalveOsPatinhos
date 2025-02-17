@@ -69,6 +69,7 @@ MonoBehaviour:
   closeButton: {fileID: 6638693668779251335}
   zoneCloseDialogue: {fileID: 3798829441178304165}
   zoneFinishDialogue: {fileID: 6191582303094069265}
+  speedAnimationDialogue: {fileID: 2651836378755575647}
   dialogoObject: {fileID: 0}
 --- !u!1001 &7629492720809635266
 PrefabInstance:
@@ -180,6 +181,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2651836378755575647 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5560907695825240733, guid: edb80876c4ca7ea4fbf1d2b38223da1e, type: 3}
+  m_PrefabInstance: {fileID: 7629492720809635266}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3067382073692935822 stripped
