@@ -1,5 +1,7 @@
 ﻿using Assets.Scripts.Dialogos.Modal;
 using Dialogos.Enum;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Dialogos.Services
 {
@@ -11,6 +13,12 @@ namespace Dialogos.Services
 
             var tipoDialogo = dialogoObject.GetDialogoAt(index).TipoDialogoEnum;
             HandleSceneChange(tipoDialogo);
+        }
+
+        protected override void OcultarDialogo()
+        {
+            base.OcultarDialogo();
+            GameManager.LoadGame();
         }
 
         public void HandleSceneChange(TipoDialogoEnum tipoDialogoEnum)
@@ -25,5 +33,7 @@ namespace Dialogos.Services
                 dialoguePanel.gameObject.SetActive(true);
             }
         }
+        
+        
     }
 }
