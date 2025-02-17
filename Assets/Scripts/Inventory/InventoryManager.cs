@@ -47,9 +47,9 @@ namespace DefaultNamespace.Inventory
                 textMeshProUGUI.text = $"Slots disponíveis: {availableSlotsCount}";
             }
             
-            Debug.Log(occupiedSlots.Count > 0
-                ? $"Slots ocupados: {string.Join(", ", occupiedSlots)}"
-                : "Nenhum slot ocupado");
+            // Debug.Log(occupiedSlots.Count > 0
+            //     ? $"Slots ocupados: {string.Join(", ", occupiedSlots)}"
+            //     : "Nenhum slot ocupado");
         }
 
 
