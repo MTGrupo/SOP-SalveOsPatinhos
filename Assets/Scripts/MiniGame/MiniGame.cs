@@ -40,6 +40,11 @@ namespace MiniGame
             TextBox.OnTextEnded += FinishGame;
         }
 
+        private void OnDestroy()
+        {
+            TextBox.OnTextEnded -= FinishGame;
+        }
+
         private void StartGame()
         {
             SpawnDraggableObjects();
