@@ -48,7 +48,7 @@ namespace CatchGame
         
         void StartSpawning()
         {
-            InvokeRepeating(nameof(SpawnDroppableObjects), Random.Range(spawnMinRate, spawnMaxRate), Random.Range(spawnMinRate, spawnMaxRate));
+            InvokeRepeating(nameof(SpawnDroppableObjects), 0, Random.Range(spawnMinRate, spawnMaxRate));
         }
 
         private void OnDestroy()
