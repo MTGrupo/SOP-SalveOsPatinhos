@@ -16060,6 +16060,50 @@ PrefabInstance:
       propertyPath: zoneFinishDialogue
       value: 
       objectReference: {fileID: 195497192}
+    - target: {fileID: 851260100571136823, guid: ca7b8e8e4e4387a43ae9aa87d6ac36cb, type: 3}
+      propertyPath: inventoryPanel
+      value: 
+      objectReference: {fileID: 187491576}
+    - target: {fileID: 851260100571136823, guid: ca7b8e8e4e4387a43ae9aa87d6ac36cb, type: 3}
+      propertyPath: 'slots.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1700926076}
+    - target: {fileID: 851260100571136823, guid: ca7b8e8e4e4387a43ae9aa87d6ac36cb, type: 3}
+      propertyPath: 'slots.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1552290357}
+    - target: {fileID: 851260100571136823, guid: ca7b8e8e4e4387a43ae9aa87d6ac36cb, type: 3}
+      propertyPath: 'slots.Array.data[2]'
+      value: 
+      objectReference: {fileID: 370961929}
+    - target: {fileID: 851260100571136823, guid: ca7b8e8e4e4387a43ae9aa87d6ac36cb, type: 3}
+      propertyPath: 'slots.Array.data[3]'
+      value: 
+      objectReference: {fileID: 846079696}
+    - target: {fileID: 851260100571136823, guid: ca7b8e8e4e4387a43ae9aa87d6ac36cb, type: 3}
+      propertyPath: 'slots.Array.data[4]'
+      value: 
+      objectReference: {fileID: 391732267}
+    - target: {fileID: 851260100571136823, guid: ca7b8e8e4e4387a43ae9aa87d6ac36cb, type: 3}
+      propertyPath: 'slots.Array.data[5]'
+      value: 
+      objectReference: {fileID: 1177615983}
+    - target: {fileID: 851260100571136823, guid: ca7b8e8e4e4387a43ae9aa87d6ac36cb, type: 3}
+      propertyPath: 'slots.Array.data[6]'
+      value: 
+      objectReference: {fileID: 789784269}
+    - target: {fileID: 851260100571136823, guid: ca7b8e8e4e4387a43ae9aa87d6ac36cb, type: 3}
+      propertyPath: 'slots.Array.data[7]'
+      value: 
+      objectReference: {fileID: 112573229}
+    - target: {fileID: 851260100571136823, guid: ca7b8e8e4e4387a43ae9aa87d6ac36cb, type: 3}
+      propertyPath: 'slots.Array.data[8]'
+      value: 
+      objectReference: {fileID: 1362203660}
+    - target: {fileID: 851260100571136823, guid: ca7b8e8e4e4387a43ae9aa87d6ac36cb, type: 3}
+      propertyPath: closeInventoryButton
+      value: 
+      objectReference: {fileID: 1594978900694219565}
     - target: {fileID: 1086968716881466561, guid: ca7b8e8e4e4387a43ae9aa87d6ac36cb, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 64.49512
