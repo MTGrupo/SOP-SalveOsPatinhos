@@ -28,6 +28,9 @@ namespace CatchGame
         [SerializeField] TextMeshProUGUI ducksRecuedText;
         [SerializeField] Button finishGameButton;
         [SerializeField] Button restartGameButton;
+        
+        [SerializeField] AudioSource audioSource;
+        [SerializeField] AudioClip resultsSound;
 
         void EnableLimit()
         {
@@ -43,6 +46,8 @@ namespace CatchGame
         {
             UpdateCurrentResults();
             resultsContent.SetActive(true);
+            DisableLimit();
+            audioSource.Play();
         }
         
         void UpdateCurrentResults()
