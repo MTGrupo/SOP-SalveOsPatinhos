@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using Duck;
 using Interaction;
@@ -43,7 +45,7 @@ namespace Player
 
         public void Load(SaveData data)
         {
-            transform.position = data.playerPosition;
+            Movement.WarpTo(data.playerPosition, false);
         }
 
         void Awake()

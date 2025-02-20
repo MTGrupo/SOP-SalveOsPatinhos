@@ -116,9 +116,9 @@ public class Movement : MonoBehaviour, IMovement
         return Agent.SetDestination(position);
     }
     
-    public bool WarpTo(Vector3 position)
+    public bool WarpTo(Vector3 position, bool isDuck = true)
     {
-        StopFollowing();
+        if (isDuck) StopFollowing();
         return Agent.Warp(position);
     }
 
