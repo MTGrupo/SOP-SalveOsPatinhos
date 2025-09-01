@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 using GraphicBehaviour = Actors.GraphicBehaviour;
 
 namespace Duck
@@ -10,6 +11,7 @@ namespace Duck
         [SerializeField] private GraphicBehaviour.AnimationType animationType;
         [SerializeField] private bool initAnimation;
         [SerializeField] private bool endAnimation;
+        [SerializeField] private NavMeshAgent agent;
 
         protected override IEnumerator Start()
         {
@@ -23,6 +25,8 @@ namespace Duck
     
         protected override void IsRescueded()
         {
+            if (agent && agent.avoidancePriority != 50) agent.avoidancePriority = 50;
+            
             if (graphicBehaviour)
             {
                 graphicBehaviour.SetAnimation(animationType, endAnimation);
