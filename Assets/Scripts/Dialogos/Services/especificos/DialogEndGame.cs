@@ -8,6 +8,7 @@ namespace Dialogos.Services
     public class DialogEndGame : DialogoBase
     {
         [SerializeField] private Transform final_point;
+        private IEnumerator changeSceneToCredits;
 
         protected override void ShowDialogo()
         {
@@ -17,10 +18,18 @@ namespace Dialogos.Services
             {
                 dialoguePanel.gameObject.SetActive(false);
                 DuckManager.SetEndDestination(final_point);
+                StartCoroutine(ChangeSceneToCredits());
                 return;
             }
             
             dialoguePanel.gameObject.SetActive(true);   
+        }
+
+        private IEnumerator ChangeSceneToCredits()
+        {
+            yield return new WaitForSeconds(4f);
+            
+            GameManager.LoadCredits();
         }
     }
 }
